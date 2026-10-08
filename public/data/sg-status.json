@@ -1,16 +1,16 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-08T13:05:03+07:00",
+  "generated_at": "2026-10-08T13:47:13+07:00",
   "timezone": "Asia/Jakarta",
   "frequency": "hourly",
   "status": "awaiting_licensed_full_market_feed",
-  "provider_status": "not_configured",
+  "provider_status": "rights_not_confirmed",
   "provider": "not_configured",
   "universe_count": 0,
   "qualifying_count": 0,
   "last_eod_date": null,
-  "next_scan": "Setiap jam; indikator EOD berubah bila data penutupan terbaru tersedia.",
-  "commercial_source_authorized": false,
   "full_market_feed_ready": false,
-  "disclaimer": "Belum ada saham ditampilkan tanpa harga dan OHLCV yang tervalidasi. Screening dapat menghasilkan nol kandidat."
+  "commercial_source_authorized": false,
+  "next_scan": "Setiap jam. Data indikator EOD hanya berubah setelah penutupan pasar.",
+  "disclaimer": "Hasil screening adalah alat edukasi bukan ajakan jual-beli. Jika sumber data belum tersedia, jangan mengarang saham."
 }

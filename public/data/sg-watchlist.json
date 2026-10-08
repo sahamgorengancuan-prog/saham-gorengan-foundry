@@ -1,11 +1,10 @@
 {
   "schema": 1,
-  "source": "verified_EOD_OHLCV_CSV",
+  "source": "awaiting_licensed_full_market_eod",
   "asof": null,
-  "generated_at": "2026-10-08T11:07:49+07:00",
-  "status": "no_verified_candidates",
+  "generated_at": "2026-10-08T13:47:13+07:00",
+  "status": "source_unavailable",
   "universe_count": 0,
   "candidates": [],
-  "method": "Stochastic 8,3,3; MA5, MA20; volume and bullish candles",
-  "disclaimer": "Screener teknikal, bukan rekomendasi investasi. Jangan gunakan sebelum memverifikasi tanggal, sumber data, dan likuiditas."
+  "disclaimer": "Belum ada sumber OHLCV seluruh pasar dengan hak publikasi yang terkonfirmasi."
 }
