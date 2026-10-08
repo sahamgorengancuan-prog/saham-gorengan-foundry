@@ -1,0 +1,45 @@
+/* SG Intelligence — isolated styling matching existing KSG brand */
+.sg-intelligence{background:linear-gradient(145deg,#071d48 0%,#073c8f 65%,#0b58bc 100%);color:#fff;position:relative;overflow:hidden;padding:70px 20px}
+.sg-intelligence::before{content:"";position:absolute;inset:-160px -150px auto auto;width:480px;height:480px;border:1px solid #ffffff20;border-radius:50%;box-shadow:0 0 0 60px #ffffff08,0 0 0 140px #ffffff05;pointer-events:none}
+.sg-shell{max-width:1160px;margin:0 auto;position:relative;z-index:1}
+.sg-head{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;margin-bottom:30px;flex-wrap:wrap}
+.sg-eyebrow{font-size:12px;letter-spacing:.15em;font-weight:900;color:#ff7182;text-transform:uppercase;margin:0 0 12px}
+.sg-head h2{font-size:clamp(30px,4vw,48px);line-height:1.08;margin:0;font-weight:900;letter-spacing:-.03em;color:#fff}
+.sg-head h2 b{color:#ffcf3c}
+.sg-lead{color:#d0e3ff;max-width:730px;font-size:15px;margin:15px 0 0}
+.sg-status{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff40;padding:9px 13px;border-radius:30px;background:#ffffff12;font-size:12px;font-weight:700}
+.sg-dot{height:8px;width:8px;border-radius:100%;background:#48e5ad;box-shadow:0 0 0 4px #48e5ad25}
+.sg-performance-grid{display:grid;grid-template-columns:1.08fr 1fr 1fr;gap:16px}
+.sg-metric{background:#fff;color:#0b2c68;padding:24px;border-radius:20px;min-height:155px;box-shadow:0 12px 35px #04163435;position:relative;overflow:hidden}
+.sg-metric-primary{background:#ef2739;color:white}
+.sg-metric small{display:block;color:inherit;opacity:.78;font-size:13px;font-weight:700}
+.sg-number{font-size:clamp(35px,5vw,61px);line-height:1.18;letter-spacing:-.04em;font-weight:900;display:block;margin:10px 0}
+.sg-metric-note{font-size:12px;opacity:.75}
+.sg-period{display:block;font-size:12px;font-weight:800;margin:6px 0;color:#b8d3ff}
+.sg-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.sg-pill{border:1px solid #ffffff33;background:#ffffff14;color:#fff;border-radius:26px;padding:8px 11px;font-size:12px;font-weight:800}
+.sg-pill.neg{background:#ff6b7c18;color:#ffb4bf}
+.sg-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:26px}
+.sg-button{display:inline-flex;padding:14px 24px;border-radius:12px;background:#ed2438;color:white!important;font-size:14px;text-decoration:none;font-weight:900;box-shadow:0 8px 22px #050e2b2e;transition:transform .2s}
+.sg-button:hover{transform:translateY(-2px)}
+.sg-legal{max-width:900px;font-size:11px;line-height:1.6;color:#b8ccef;margin-top:18px}
+.sg-watchlist{background:#f3f7fe;padding:76px 20px;color:#0a2b68}
+.sg-watchlist .sg-eyebrow{color:#d32235}
+.sg-watchlist .sg-head h2{color:#092965}
+.sg-watchlist .sg-head h2 b{color:#ef2639}
+.sg-watchlist .sg-lead{color:#456084}
+.sg-watch-status{color:#165491;border-color:#d1dff2;background:#fff}
+.sg-watchcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.sg-watchcard{border:1px solid #dde6f4;background:#fff;border-radius:20px;padding:23px;box-shadow:0 12px 30px #102a5d0d;min-height:210px}
+.sg-watchcard h3{font-size:26px;margin:6px 0;color:#082e6d}
+.sg-watchcard .sg-rank{font-size:11px;color:#df2038;font-weight:900;letter-spacing:.08em}
+.sg-watchcard .sg-cardprice{font-size:28px;font-weight:900;color:#092964}
+.sg-watchcard .sg-cardmeta{color:#64799a;font-size:12px}
+.sg-rule{border-top:1px solid #e5ebf6;padding-top:13px;margin-top:14px;font-size:13px;line-height:1.7}
+.sg-watch-empty{background:#fff;border:1px dashed #b9cce6;border-radius:17px;padding:26px;grid-column:1/-1}
+.sg-watch-empty strong{display:block;font-size:21px}
+.sg-watch-empty p{color:#577093;max-width:720px;font-size:14px;margin-bottom:0}
+.sg-method{margin-top:16px;color:#50688f;font-size:12px;line-height:1.7}
+.sg-watch-empty .sg-dot{background:#ffb53d;box-shadow:0 0 0 4px #ffb53d24}
+@media(max-width:800px){.sg-performance-grid{grid-template-columns:1fr 1fr}.sg-metric-primary{grid-column:1/-1}.sg-watchcards{grid-template-columns:1fr}.sg-intelligence,.sg-watchlist{padding:54px 16px}}
+@media(max-width:520px){.sg-performance-grid{grid-template-columns:1fr}.sg-metric-primary{grid-column:auto}.sg-head{align-items:flex-start}.sg-metric{min-height:110px}.sg-number{font-size:47px}}

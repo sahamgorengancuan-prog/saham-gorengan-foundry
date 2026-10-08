@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "source": "owner_self_report",
+  "period": "28 SEPTEMBER–2 OKTOBER 2026",
+  "total_pct": 28.0,
+  "average_pct": 3.5,
+  "wins": 7,
+  "count": 8,
+  "entries": [
+    {
+      "ticker": "SQMI",
+      "pct": 3.0
+    },
+    {
+      "ticker": "KETR",
+      "pct": 4.0
+    },
+    {
+      "ticker": "LUCY",
+      "pct": 9.0
+    },
+    {
+      "ticker": "BUKA",
+      "pct": 4.0
+    },
+    {
+      "ticker": "MEJA",
+      "pct": 4.0
+    },
+    {
+      "ticker": "BNBR",
+      "pct": -2.0
+    },
+    {
+      "ticker": "INET",
+      "pct": 3.0
+    },
+    {
+      "ticker": "AISA",
+      "pct": 3.0
+    }
+  ],
+  "updated_at": "2026-10-08T11:14:39+07:00",
+  "verified": false,
+  "disclaimer": "Jumlah perubahan persentase tiap saham, bukan return portofolio. Data dilaporkan pemilik, belum diaudit independen. Tidak termasuk biaya; performa historis tidak menjamin hasil berikutnya.",
+  "telegram_message_id": 801026
+}
