@@ -46,6 +46,20 @@ function scanStatus(d){
  const scanned=Math.max(0,Number(d.universe_count)||0);
  const eligible=Math.max(0,Number(d.qualifying_count)||0);
  const label=document.getElementById('sg-watch-timestamp');
+ const stamp=Date.parse(String(d.generated_at||''));
+ const isStale=!Number.isFinite(stamp)||Date.now()-stamp>3*60*60*1000||stamp>Date.now()+5*60*1000;
+ if(isStale){
+  if(label)label.textContent='Pembaruan tertunda · audit terakhir '+when+' WIB';
+  const cards=document.getElementById('sg-watchcards');
+  if(cards){
+   cards.replaceChildren();
+   const box=create('div','sg-watch-empty');
+   box.append(create('strong','','Pembaruan data sedang tertunda'),
+              create('p','','Audit terakhir sudah melewati batas 3 jam. Kandidat lama disembunyikan sampai pembaruan berikutnya terverifikasi.'));
+   cards.append(box);
+  }
+  return;
+ }
  if(label)label.textContent='Audit '+when+' WIB · '+scanned+' saham diperiksa';
  const empty=document.querySelector('#sg-watchcards .sg-watch-empty');
  if(empty){
@@ -64,6 +78,7 @@ function refreshSGPanels(){
   if(out[0].status==='fulfilled')performance(out[0].value);
   if(out[1].status==='fulfilled')watch(out[1].value);
   if(out[2].status==='fulfilled')scanStatus(out[2].value);
+  else scanStatus({schema:1,frequency:'hourly',generated_at:'',universe_count:0,qualifying_count:0});
  });
 }
 document.addEventListener('DOMContentLoaded',()=>{
