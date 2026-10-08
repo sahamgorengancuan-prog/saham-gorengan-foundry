@@ -29,7 +29,7 @@ jobs:
         run: python -m pip install --disable-pip-version-check cryptography
       - name: Fetch and verify signed VPS snapshot
         env:
-          SG_ORIGIN: http://169.58.205.190/
+          SG_ORIGIN: https://dee-favors-netscape-nelson.trycloudflare.com/
         run: |
           python - <<'PY'
           import base64,hashlib,json,os,time
