@@ -1,18 +1,19 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-08T21:00:03+07:00",
+  "generated_at": "2026-10-09T02:32:57+07:00",
   "timezone": "Asia/Jakarta",
   "frequency": "hourly",
-  "status": "awaiting_licensed_full_market_feed",
-  "provider_status": "rights_not_confirmed",
-  "provider": "not_configured",
+  "status": "provisional_published_permission_pending",
+  "provider_status": "provisional_ready",
+  "provider": "imq21_public_eod_provisional",
+  "data_rights_status": "permission_requested_ticker_only_pilot",
   "display_format": "ticker_only",
-  "universe_count": 0,
-  "qualifying_count": 0,
+  "universe_count": 817,
+  "qualifying_count": 3,
   "strict_matching": 0,
-  "last_eod_date": null,
-  "full_market_feed_ready": false,
+  "last_eod_date": "2026-10-08",
+  "full_market_feed_ready": true,
   "commercial_source_authorized": false,
   "next_scan": "Setiap jam. Data indikator EOD hanya berubah setelah penutupan pasar.",
-  "disclaimer": "Menampilkan maksimal tiga ticker dari pembobotan teknikal. Tidak menyajikan harga atau data OHLCV. Jika sumber data tidak tersedia, jangan mengarang saham."
+  "disclaimer": "Ticker dari screening EOD seluruh pasar dan pembobotan teknikal, tanpa harga atau data mentah. Hak penggunaan data sumber masih diajukan kepada IDX/IMQ; persetujuan belum diterima. Bukan rekomendasi transaksi."
 }

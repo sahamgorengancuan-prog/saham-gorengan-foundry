@@ -1,13 +1,24 @@
 {
   "schema": 1,
   "format": "ticker_only",
-  "source": "unavailable",
-  "asof": null,
-  "generated_at": "2026-10-08T21:00:03+07:00",
-  "universe_count": 0,
-  "candidates": [],
-  "selection": "none",
+  "source": "provisional_backend_permission_pending",
+  "asof": "2026-10-08",
+  "generated_at": "2026-10-09T02:32:57+07:00",
+  "universe_count": 817,
+  "candidates": [
+    {
+      "ticker": "BLTA"
+    },
+    {
+      "ticker": "SMMT"
+    },
+    {
+      "ticker": "BTEK"
+    }
+  ],
+  "selection": "weighted",
   "strict_matching": 0,
-  "status": "source_unavailable",
+  "status": "ready",
+  "license_status": "request_sent_pending",
   "disclaimer": "Kode saham adalah hasil screening teknikal, bukan ajakan transaksi. Hasil ranking berbobot dapat memenuhi sebagian kriteria; hasil historis tidak menjamin keuntungan."
 }

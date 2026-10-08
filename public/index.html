@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#074db6">
-  <meta name="description" content="Komunitas Saham Gorengan: edukasi dan diskusi saham Indonesia, rekomendasi saham, watchlist serta strategi trading dengan manajemen risiko.">
+  <meta name="description" content="Saham Gorengan Technical Radar 2026-10-08: kandidat saham Indonesia BLTA, SMMT, BTEK dipilih lewat pembobotan Stochastic 8-3-3, MA5, MA20 dan volume. Bukan ajakan be">
   <title>Komunitas Saham Gorengan | Rekomendasi Saham Indonesia</title>
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://sahamgorengan.id/">
-  <meta property="og:type" content="website"><meta property="og:locale" content="id_ID"><meta property="og:title" content="Komunitas Saham Gorengan | Edukasi Saham Indonesia"><meta property="og:description" content="Komunitas saham Indonesia: belajar, diskusi, dan pahami rekomendasi saham dengan manajemen risiko."><meta property="og:url" content="https://sahamgorengan.id/">
+  <meta property="og:type" content="website"><meta property="og:locale" content="id_ID"><meta property="og:title" content="Komunitas Saham Gorengan | Edukasi Saham Indonesia"><meta property="og:description" content="Saham Gorengan Technical Radar 2026-10-08: kandidat saham Indonesia BLTA, SMMT, BTEK dipilih lewat pembobotan Stochastic 8-3-3, MA5, MA20 dan volume. Bukan ajakan be"><meta property="og:url" content="https://sahamgorengan.id/">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Komunitas Saham Gorengan","url":"https://sahamgorengan.id","sameAs":["https://t.me/sahamgorengancuan","https://www.youtube.com/@SahamGorengan"]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="/sg-intelligence.css">
+  <link rel="stylesheet" href="/sg-intelligence.css?v=m4-insight-20261009">
 </head>
 <body>
   <header class="topbar">
@@ -22,16 +22,26 @@
       <img class="ksg-logo" src="assets/logo-ksg.png" alt="">
       <span class="ksg-name">KOMUNITAS<br>SAHAM<br>GORENGAN</span>
     </a>
-    <nav class="nav">
+    <nav class="nav" id="sg-mobile-nav" aria-label="Navigasi utama">
       <a class="active" href="#home">Beranda</a>
       <a href="#performa-mingguan">Performa</a>
       <a href="#watchlist-teknikal">Radar Saham</a>
+      <a href="#youtube">YouTube</a>
       <a href="#premium">Premium</a>
       <a href="#komunitas">Komunitas</a>
       <a href="#faq">FAQ</a>
     </nav>
+    <button class="sg-menu-trigger" type="button" aria-expanded="false" aria-controls="sg-mobile-nav" aria-label="Buka menu navigasi"><span></span><span></span><span></span></button>
     <a class="btn btn-red btn-mini" href="https://bit.ly/ksgpremium" target="_blank" rel="noopener">♛ Join Premium</a>
   </header>
+  <button type="button" class="sg-menu-scrim" aria-label="Tutup menu navigasi" tabindex="-1"></button>
+  <nav class="sg-mobile-dock" aria-label="Akses cepat">
+    <a href="#home" data-dock="home" aria-label="Beranda"><span class="sg-dock-ico" aria-hidden="true">⌂</span><span>Beranda</span></a>
+    <a href="#performa-mingguan" data-dock="performa-mingguan" aria-label="Performa mingguan"><span class="sg-dock-ico" aria-hidden="true">◈</span><span>Performa</span></a>
+    <a href="#watchlist-teknikal" data-dock="watchlist-teknikal" aria-label="Radar saham"><span class="sg-dock-ico" aria-hidden="true">◆</span><span>Radar</span></a>
+    <a href="#youtube" data-dock="youtube" aria-label="Video YouTube Saham Gorengan"><span class="sg-dock-ico sg-yt-dock-icon" aria-hidden="true">▶</span><span>YouTube</span></a>
+    <a href="#premium" data-dock="premium" aria-label="Saham Gorengan Premium"><span class="sg-dock-ico" aria-hidden="true">♛</span><span>Premium</span></a>
+  </nav>
 
   <main>
     <section class="hero" id="home">
@@ -82,11 +92,11 @@
     <span class="sg-period" id="sg-perf-period">28 September – 2 Oktober 2026</span>
     <div class="sg-performance-grid">
       <div class="sg-metric sg-metric-primary"><small>✦ Akumulasi perubahan per saham</small><strong class="sg-number" id="sg-perf-total">+28%</strong><span class="sg-metric-note">Penjumlahan persentase, bukan return investasi</span></div>
-      <div class="sg-metric"><small>📈 Rata-rata per saham</small><strong class="sg-number" id="sg-perf-avg">+3,5%</strong><span class="sg-metric-note">Total persentase ÷ jumlah saham</span></div>
-      <div class="sg-metric"><small>🎯 Saham dengan hasil positif</small><strong class="sg-number" id="sg-perf-wins">7 / 8</strong><span class="sg-metric-note">Berdasarkan daftar yang dilaporkan</span></div>
+      <div class="sg-metric"><small>↗ Rata-rata per saham</small><strong class="sg-number" id="sg-perf-avg">+3,5%</strong><span class="sg-metric-note">Total persentase ÷ jumlah saham</span></div>
+      <div class="sg-metric"><small>◎ Saham dengan hasil positif</small><strong class="sg-number" id="sg-perf-wins">7 / 8</strong><span class="sg-metric-note">Berdasarkan daftar yang dilaporkan</span></div>
     </div>
     <div class="sg-pills" id="sg-perf-pills" aria-label="Hasil per saham"><span class="sg-pill">SQMI +3%</span><span class="sg-pill">KETR +4%</span><span class="sg-pill">LUCY +9%</span><span class="sg-pill">BUKA +4%</span><span class="sg-pill">MEJA +4%</span><span class="sg-pill neg">BNBR -2%</span><span class="sg-pill">INET +3%</span><span class="sg-pill">AISA +3%</span></div>
-    <div class="sg-actions"><a class="sg-button" href="https://bit.ly/ksgpremium" rel="noopener noreferrer" target="_blank">💎 Gabung SG Premium · Rp200.000/bulan ↗</a><small>Watchlist, setup dan diskusi di Telegram</small></div>
+    <div class="sg-actions"><a class="sg-button" href="https://bit.ly/ksgpremium" rel="noopener noreferrer" target="_blank">✦ Gabung SG Premium · Rp200.000/bulan ↗</a><small>Watchlist, setup dan diskusi di Telegram</small></div>
     <p class="sg-legal" id="sg-perf-note">Akumulasi adalah jumlah perubahan persentase masing-masing saham, bukan return portofolio. Data dari laporan pemilik belum diaudit independen. Hasil historis tidak menjamin keuntungan berikutnya. Trading mengandung risiko kehilangan modal.</p>
   </div>
 </section>
@@ -96,13 +106,138 @@
       <h2 id="sg-watch-title">3 TICKER PILIHAN.<br><b>6 KRITERIA SCREENING.</b></h2>
       <p class="sg-lead">Seleksi teknikal Stochastic 8-3-3, MA5/MA20, volume dan pola candle bullish. Prioritas diberikan pada saham yang lolos seluruh kriteria, diikuti kandidat dengan skor pembobotan tertinggi.</p></div>
       <span class="sg-status sg-watch-status"><i class="sg-dot"></i><span id="sg-watch-timestamp">Menunggu data EOD valid</span></span>
+      <span class="sg-license-tag" aria-label="Status izin data sedang diproses">Data EOD · Izin diproses</span>
     </div>
-    <div class="sg-watchcards" id="sg-watchcards"><div class="sg-watch-empty"><strong>📡 Technical Radar sedang mengumpulkan data.</strong><p>Ticker muncul jika hasil screening menggunakan data penutupan yang tervalidasi dan diizinkan untuk penggunaan ini. Angka harga dan volume hanya diproses di backend.</p></div></div>
+    <div class="sg-watchcards" id="sg-watchcards"><div class="sg-watch-empty"><strong>◈ Technical Radar sedang mengumpulkan data.</strong><p>Ticker muncul jika hasil screening menggunakan data penutupan yang tervalidasi dan diizinkan untuk penggunaan ini. Angka harga dan volume hanya diproses di backend.</p></div></div>
     <p class="sg-method"><b>Metode pembobotan:</b> Stoch K memotong D dari oversold · Penutupan D-1, D-2, D-3 di bawah MA5 · harga D di atas MA5 · MA5 &gt; MA20 · volume lebih tinggi dari sebelumnya dan rata-rata 5 hari · hammer/engulfing/harami bullish. Kandidat dengan skor berbobot mungkin memenuhi sebagian kriteria saja. Pemindaian dievaluasi setiap jam dengan pembaruan data setelah sesi selesai; bukan sinyal transaksi real-time. <a href="/rekomendasi-saham-hari-ini/">Pelajari metodologi rekomendasi saham hari ini ↗</a></p>
+    <details class="sg-mobile-disclosures">
+      <summary>Metodologi &amp; status penggunaan data <span aria-hidden="true">+</span></summary>
+      <div><p><strong>6 kriteria:</strong> Stochastic 8-3-3, posisi harga terhadap MA5, tiga hari sebelumnya, MA5 di atas MA20, pertumbuhan volume, dan pola candle bullish. Ticker dipilih berdasarkan skor; tidak selalu memenuhi keenam kriteria.</p>
+      <p><strong>Status data:</strong> Pilot ticker-only. Permohonan izin penggunaan komersial/derived data telah dikirim kepada IDX dan IMQ21, tetapi belum disetujui. Bukan ajakan membeli atau menjual saham.</p>
+      <a href="/rekomendasi-saham-hari-ini/">Baca metodologi lengkap ↗</a></div>
+    </details>
+    <p class="sg-method" id="sg-data-license-note"><b>Status sumber:</b> Pilot ticker-only berbasis data EOD; permohonan izin penggunaan komersial/derived data ke IDX dan IMQ21 telah diajukan, namun <b>belum disetujui</b>. Kandidat berbobot bisa memenuhi sebagian, bukan seluruh, enam syarat. Bukan rekomendasi investasi.</p>
   </div>
 </section>
 
-    <section class="premium light-section" id="premium">
+<!-- SG YOUTUBE START -->
+<section class="sg-youtube" id="youtube" aria-labelledby="sg-yt-title">
+  <div class="sg-shell">
+    <div class="sg-yt-top">
+      <div class="sg-yt-intro">
+        <span class="sg-yt-eyebrow"><span class="sg-yt-live-mark" aria-hidden="true">▶</span> VIDEO SAHAM GORENGAN</span>
+        <h2 id="sg-yt-title">BELAJAR DI <span>YOUTUBE.</span><br>LANGSUNG DARI CHANNEL KAMI.</h2>
+        <p>Analisis IHSG, ide saham, dan wawasan trading yang terus diperbarui. Pilih kategori, geser video, lalu tonton tanpa meninggalkan halaman.</p>
+      </div>
+      <a class="sg-yt-subscribe" href="https://www.youtube.com/channel/UCZ8_zgmlXXlNqGfOJwD__jw?sub_confirmation=1" target="_blank" rel="noopener noreferrer" aria-label="Subscribe channel Saham Gorengan di YouTube"><span class="sg-yt-subicon" aria-hidden="true">▶</span><span>Subscribe <small>@sahamgorengan</small></span><span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="sg-yt-toolbar">
+      <div class="sg-yt-tabs" role="tablist" aria-label="Kategori video YouTube">
+        <button class="sg-yt-tab is-selected" type="button" role="tab" aria-selected="true" aria-controls="sg-yt-track" data-category="latest">Terbaru</button>
+        <button class="sg-yt-tab" type="button" role="tab" aria-selected="false" aria-controls="sg-yt-track" data-category="trending">Trending</button>
+        <button class="sg-yt-tab" type="button" role="tab" aria-selected="false" aria-controls="sg-yt-track" data-category="relevant">Relevan</button>
+      </div>
+      <div class="sg-yt-scroll-actions">
+        <button class="sg-yt-arrow" type="button" data-direction="-1" aria-label="Video sebelumnya">‹</button>
+        <button class="sg-yt-arrow" type="button" data-direction="1" aria-label="Video berikutnya">›</button>
+      </div>
+    </div>
+    <p class="sg-yt-tip" id="sg-yt-tip">Diputar otomatis tanpa suara ketika video terlihat · Scroll untuk berhenti · Ketuk video untuk kontrol</p>
+    <div class="sg-yt-track" id="sg-yt-track" role="tabpanel" aria-label="Daftar video terbaru">
+      <article class="sg-yt-card" data-id="iYQNFgjux_Q">
+    <div class="sg-yt-frame">
+      <img src="https://i.ytimg.com/vi/iYQNFgjux_Q/hqdefault.jpg" loading="eager" decoding="async" alt="Thumbnail: SENTIMEN PASAR MASIH NEGATIF! 3 SAHAM INI SENDIRI YANG BAKAL NAIK TINGGI" referrerpolicy="no-referrer">
+      <button type="button" class="sg-yt-play" aria-label="Putar: SENTIMEN PASAR MASIH NEGATIF! 3 SAHAM INI SENDIRI YANG BAKAL NAIK TINGGI"><span aria-hidden="true">▶</span></button>
+      <span class="sg-yt-flag">VIDEO</span>
+    </div>
+    <div class="sg-yt-info"><span class="sg-yt-meta">03 Oct 2026 · 873 penayangan</span>
+    <h3>SENTIMEN PASAR MASIH NEGATIF! 3 SAHAM INI SENDIRI YANG BAKAL NAIK TINGGI</h3>
+    <a href="https://www.youtube.com/watch?v=iYQNFgjux_Q" target="_blank" rel="noopener noreferrer" class="sg-yt-open">Tonton di YouTube ↗</a></div>
+  </article>
+<article class="sg-yt-card" data-id="-lYcfEvT4fA">
+    <div class="sg-yt-frame">
+      <img src="https://i.ytimg.com/vi/-lYcfEvT4fA/hqdefault.jpg" loading="lazy" decoding="async" alt="Thumbnail: POLITIK LABIL! ASING CABUT! IHSG AMBRUK! 3 SAHAM INI MUNGKIN SATU-SAUTNYA PENYELAMAT" referrerpolicy="no-referrer">
+      <button type="button" class="sg-yt-play" aria-label="Putar: POLITIK LABIL! ASING CABUT! IHSG AMBRUK! 3 SAHAM INI MUNGKIN SATU-SAUTNYA PENYELAMAT"><span aria-hidden="true">▶</span></button>
+      <span class="sg-yt-flag">VIDEO</span>
+    </div>
+    <div class="sg-yt-info"><span class="sg-yt-meta">26 Sep 2026 · 560 penayangan</span>
+    <h3>POLITIK LABIL! ASING CABUT! IHSG AMBRUK! 3 SAHAM INI MUNGKIN SATU-SAUTNYA PENYELAMAT</h3>
+    <a href="https://www.youtube.com/watch?v=-lYcfEvT4fA" target="_blank" rel="noopener noreferrer" class="sg-yt-open">Tonton di YouTube ↗</a></div>
+  </article>
+<article class="sg-yt-card" data-id="u0DNC4asZW4">
+    <div class="sg-yt-frame">
+      <img src="https://i.ytimg.com/vi/u0DNC4asZW4/hqdefault.jpg" loading="lazy" decoding="async" alt="Thumbnail: MARKET WAIT N SEE? 3 SAHAM INI TETEP MENARIK UNTUK DI KOLEKSI!" referrerpolicy="no-referrer">
+      <button type="button" class="sg-yt-play" aria-label="Putar: MARKET WAIT N SEE? 3 SAHAM INI TETEP MENARIK UNTUK DI KOLEKSI!"><span aria-hidden="true">▶</span></button>
+      <span class="sg-yt-flag">VIDEO</span>
+    </div>
+    <div class="sg-yt-info"><span class="sg-yt-meta">19 Sep 2026 · 490 penayangan</span>
+    <h3>MARKET WAIT N SEE? 3 SAHAM INI TETEP MENARIK UNTUK DI KOLEKSI!</h3>
+    <a href="https://www.youtube.com/watch?v=u0DNC4asZW4" target="_blank" rel="noopener noreferrer" class="sg-yt-open">Tonton di YouTube ↗</a></div>
+  </article>
+<article class="sg-yt-card" data-id="-52zzXFsxqU">
+    <div class="sg-yt-frame">
+      <img src="https://i.ytimg.com/vi/-52zzXFsxqU/hqdefault.jpg" loading="lazy" decoding="async" alt="Thumbnail: KONDISI GLOBAL DAN DOMESTIK KURANG BAIK! TAPI 2 SAHAM INI DIKOLEKSI SMART MONEY!" referrerpolicy="no-referrer">
+      <button type="button" class="sg-yt-play" aria-label="Putar: KONDISI GLOBAL DAN DOMESTIK KURANG BAIK! TAPI 2 SAHAM INI DIKOLEKSI SMART MONEY!"><span aria-hidden="true">▶</span></button>
+      <span class="sg-yt-flag">VIDEO</span>
+    </div>
+    <div class="sg-yt-info"><span class="sg-yt-meta">12 Sep 2026 · 344 penayangan</span>
+    <h3>KONDISI GLOBAL DAN DOMESTIK KURANG BAIK! TAPI 2 SAHAM INI DIKOLEKSI SMART MONEY!</h3>
+    <a href="https://www.youtube.com/watch?v=-52zzXFsxqU" target="_blank" rel="noopener noreferrer" class="sg-yt-open">Tonton di YouTube ↗</a></div>
+  </article>
+<article class="sg-yt-card" data-id="Nebjmx5zUng">
+    <div class="sg-yt-frame">
+      <img src="https://i.ytimg.com/vi/Nebjmx5zUng/hqdefault.jpg" loading="lazy" decoding="async" alt="Thumbnail: IHSG BAKAL KEOK LAGI! 2 SAHAM INI DOANG YANG KUAT!" referrerpolicy="no-referrer">
+      <button type="button" class="sg-yt-play" aria-label="Putar: IHSG BAKAL KEOK LAGI! 2 SAHAM INI DOANG YANG KUAT!"><span aria-hidden="true">▶</span></button>
+      <span class="sg-yt-flag">VIDEO</span>
+    </div>
+    <div class="sg-yt-info"><span class="sg-yt-meta">29 Aug 2026 · 622 penayangan</span>
+    <h3>IHSG BAKAL KEOK LAGI! 2 SAHAM INI DOANG YANG KUAT!</h3>
+    <a href="https://www.youtube.com/watch?v=Nebjmx5zUng" target="_blank" rel="noopener noreferrer" class="sg-yt-open">Tonton di YouTube ↗</a></div>
+  </article>
+<article class="sg-yt-card" data-id="X29TPvT4f4w">
+    <div class="sg-yt-frame">
+      <img src="https://i.ytimg.com/vi/X29TPvT4f4w/hqdefault.jpg" loading="lazy" decoding="async" alt="Thumbnail: IHSG TERUS NAIK! 3 SAHAM INI PALING TOP!" referrerpolicy="no-referrer">
+      <button type="button" class="sg-yt-play" aria-label="Putar: IHSG TERUS NAIK! 3 SAHAM INI PALING TOP!"><span aria-hidden="true">▶</span></button>
+      <span class="sg-yt-flag">VIDEO</span>
+    </div>
+    <div class="sg-yt-info"><span class="sg-yt-meta">22 Aug 2026 · 1.458 penayangan</span>
+    <h3>IHSG TERUS NAIK! 3 SAHAM INI PALING TOP!</h3>
+    <a href="https://www.youtube.com/watch?v=X29TPvT4f4w" target="_blank" rel="noopener noreferrer" class="sg-yt-open">Tonton di YouTube ↗</a></div>
+  </article>
+    </div>
+    <div class="sg-yt-footer">
+      <div><b>Baru di channel setiap minggu</b><span>Konten edukasi · Bukan ajakan membeli atau menjual saham</span></div>
+      <a href="https://www.youtube.com/@sahamgorengan/videos" target="_blank" rel="noopener noreferrer">Lihat semua video <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+<script type="application/json" id="sg-youtube-feed">{"schema":1,"channel_id":"UCZ8_zgmlXXlNqGfOJwD__jw","channel_name":"Saham Gorengan","channel_url":"https://www.youtube.com/@sahamgorengan","subscribe_url":"https://www.youtube.com/channel/UCZ8_zgmlXXlNqGfOJwD__jw?sub_confirmation=1","generated_at":"2026-10-09T02:33:01+07:00","source":"youtube_official_atom_feed","videos":{"latest":[{"id":"iYQNFgjux_Q","title":"SENTIMEN PASAR MASIH NEGATIF! 3 SAHAM INI SENDIRI YANG BAKAL NAIK TINGGI","date":"2026-10-03T12:19:42+00:00","views":873,"url":"https://www.youtube.com/watch?v=iYQNFgjux_Q","thumbnail":"https://i.ytimg.com/vi/iYQNFgjux_Q/hqdefault.jpg"},{"id":"-lYcfEvT4fA","title":"POLITIK LABIL! ASING CABUT! IHSG AMBRUK! 3 SAHAM INI MUNGKIN SATU-SAUTNYA PENYELAMAT","date":"2026-09-26T07:47:46+00:00","views":560,"url":"https://www.youtube.com/watch?v=-lYcfEvT4fA","thumbnail":"https://i.ytimg.com/vi/-lYcfEvT4fA/hqdefault.jpg"},{"id":"u0DNC4asZW4","title":"MARKET WAIT N SEE? 3 SAHAM INI TETEP MENARIK UNTUK DI KOLEKSI!","date":"2026-09-19T11:25:28+00:00","views":490,"url":"https://www.youtube.com/watch?v=u0DNC4asZW4","thumbnail":"https://i.ytimg.com/vi/u0DNC4asZW4/hqdefault.jpg"},{"id":"-52zzXFsxqU","title":"KONDISI GLOBAL DAN DOMESTIK KURANG BAIK! TAPI 2 SAHAM INI DIKOLEKSI SMART MONEY!","date":"2026-09-12T10:41:26+00:00","views":344,"url":"https://www.youtube.com/watch?v=-52zzXFsxqU","thumbnail":"https://i.ytimg.com/vi/-52zzXFsxqU/hqdefault.jpg"},{"id":"Nebjmx5zUng","title":"IHSG BAKAL KEOK LAGI! 2 SAHAM INI DOANG YANG KUAT!","date":"2026-08-29T12:10:39+00:00","views":622,"url":"https://www.youtube.com/watch?v=Nebjmx5zUng","thumbnail":"https://i.ytimg.com/vi/Nebjmx5zUng/hqdefault.jpg"},{"id":"X29TPvT4f4w","title":"IHSG TERUS NAIK! 3 SAHAM INI PALING TOP!","date":"2026-08-22T09:16:15+00:00","views":1458,"url":"https://www.youtube.com/watch?v=X29TPvT4f4w","thumbnail":"https://i.ytimg.com/vi/X29TPvT4f4w/hqdefault.jpg"}],"trending":[{"id":"iYQNFgjux_Q","title":"SENTIMEN PASAR MASIH NEGATIF! 3 SAHAM INI SENDIRI YANG BAKAL NAIK TINGGI","date":"2026-10-03T12:19:42+00:00","views":873,"url":"https://www.youtube.com/watch?v=iYQNFgjux_Q","thumbnail":"https://i.ytimg.com/vi/iYQNFgjux_Q/hqdefault.jpg"},{"id":"X29TPvT4f4w","title":"IHSG TERUS NAIK! 3 SAHAM INI PALING TOP!","date":"2026-08-22T09:16:15+00:00","views":1458,"url":"https://www.youtube.com/watch?v=X29TPvT4f4w","thumbnail":"https://i.ytimg.com/vi/X29TPvT4f4w/hqdefault.jpg"},{"id":"-lYcfEvT4fA","title":"POLITIK LABIL! ASING CABUT! IHSG AMBRUK! 3 SAHAM INI MUNGKIN SATU-SAUTNYA PENYELAMAT","date":"2026-09-26T07:47:46+00:00","views":560,"url":"https://www.youtube.com/watch?v=-lYcfEvT4fA","thumbnail":"https://i.ytimg.com/vi/-lYcfEvT4fA/hqdefault.jpg"},{"id":"u0DNC4asZW4","title":"MARKET WAIT N SEE? 3 SAHAM INI TETEP MENARIK UNTUK DI KOLEKSI!","date":"2026-09-19T11:25:28+00:00","views":490,"url":"https://www.youtube.com/watch?v=u0DNC4asZW4","thumbnail":"https://i.ytimg.com/vi/u0DNC4asZW4/hqdefault.jpg"},{"id":"Nebjmx5zUng","title":"IHSG BAKAL KEOK LAGI! 2 SAHAM INI DOANG YANG KUAT!","date":"2026-08-29T12:10:39+00:00","views":622,"url":"https://www.youtube.com/watch?v=Nebjmx5zUng","thumbnail":"https://i.ytimg.com/vi/Nebjmx5zUng/hqdefault.jpg"},{"id":"-52zzXFsxqU","title":"KONDISI GLOBAL DAN DOMESTIK KURANG BAIK! TAPI 2 SAHAM INI DIKOLEKSI SMART MONEY!","date":"2026-09-12T10:41:26+00:00","views":344,"url":"https://www.youtube.com/watch?v=-52zzXFsxqU","thumbnail":"https://i.ytimg.com/vi/-52zzXFsxqU/hqdefault.jpg"}],"relevant":[{"id":"FpKL48TECTs","title":"3 SAHAM INI DI AKUMULASI BANDAR! YUK BELI DAN LAWAN MARKET BEARISH!","date":"2026-07-25T09:58:52+00:00","views":263,"url":"https://www.youtube.com/watch?v=FpKL48TECTs","thumbnail":"https://i.ytimg.com/vi/FpKL48TECTs/hqdefault.jpg"},{"id":"AlpVr6QToa4","title":"IHSG REBOUND? 3 SAHAM INI DI KOLEKSI ASING, YUK IKUTAN!","date":"2026-06-13T05:35:14+00:00","views":703,"url":"https://www.youtube.com/watch?v=AlpVr6QToa4","thumbnail":"https://i.ytimg.com/vi/AlpVr6QToa4/hqdefault.jpg"},{"id":"-lYcfEvT4fA","title":"POLITIK LABIL! ASING CABUT! IHSG AMBRUK! 3 SAHAM INI MUNGKIN SATU-SAUTNYA PENYELAMAT","date":"2026-09-26T07:47:46+00:00","views":560,"url":"https://www.youtube.com/watch?v=-lYcfEvT4fA","thumbnail":"https://i.ytimg.com/vi/-lYcfEvT4fA/hqdefault.jpg"},{"id":"qwktOvNehhw","title":"3 SAHAM INI UPTREND SENDIRI \u0026 DIKOLEKSI ASING! YUK IKUTAN BELI","date":"2026-06-27T08:44:36+00:00","views":239,"url":"https://www.youtube.com/watch?v=qwktOvNehhw","thumbnail":"https://i.ytimg.com/vi/qwktOvNehhw/hqdefault.jpg"},{"id":"-52zzXFsxqU","title":"KONDISI GLOBAL DAN DOMESTIK KURANG BAIK! TAPI 2 SAHAM INI DIKOLEKSI SMART MONEY!","date":"2026-09-12T10:41:26+00:00","views":344,"url":"https://www.youtube.com/watch?v=-52zzXFsxqU","thumbnail":"https://i.ytimg.com/vi/-52zzXFsxqU/hqdefault.jpg"},{"id":"Nebjmx5zUng","title":"IHSG BAKAL KEOK LAGI! 2 SAHAM INI DOANG YANG KUAT!","date":"2026-08-29T12:10:39+00:00","views":622,"url":"https://www.youtube.com/watch?v=Nebjmx5zUng","thumbnail":"https://i.ytimg.com/vi/Nebjmx5zUng/hqdefault.jpg"}]}}</script>
+<!-- SG YOUTUBE END -->
+
+    <!-- SG ORIGINAL INSIGHT START -->
+<section class="sg-insight-feature" id="insight" aria-labelledby="sg-insight-feature-title">
+  <div class="sg-shell">
+    <div class="sg-insight-feature-shell">
+      <div class="sg-insight-feature-copy">
+        <span class="sg-insight-feature-label">INSIGHT ORISINAL · EDUKASI SAHAM</span>
+        <h2 id="sg-insight-feature-title">SATU KONSEP.<br><span>LEBIH PAHAM MARKET.</span></h2>
+        <p class="sg-insight-feature-topic">Artikel terbaru: <strong>Mengapa IHSG Bisa Turun?</strong></p>
+        <p>Penjelasan singkat dengan animasi dan ilustrasi. Temukan konteksnya di website, lalu lanjutkan diskusi di komunitas Telegram.</p>
+        <div class="sg-insight-feature-actions">
+          <a href="https://sahamgorengan.id/insight/kenapa-ihsg-bisa-turun/" class="sg-insight-link-primary">Baca &amp; tonton sekarang ↗</a>
+          <a href="https://t.me/sahamgorengancuan" class="sg-insight-link-secondary" target="_blank" rel="noopener noreferrer">Diskusi Telegram ↗</a>
+        </div>
+      </div>
+      <a href="https://sahamgorengan.id/insight/kenapa-ihsg-bisa-turun/" class="sg-insight-feature-visual" aria-label="Buka insight Mengapa IHSG Bisa Turun?">
+        <img src="https://sahamgorengan.id/media/kenapa-ihsg-bisa-turun/card.png?v=20261009-b" loading="lazy" decoding="async" alt="Ilustrasi Mengapa IHSG Bisa Turun?">
+        <span class="sg-insight-feature-tag">VIDEO + ARTIKEL</span>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- SG ORIGINAL INSIGHT END -->
+
+<section class="premium light-section" id="premium">
       <div class="wrap premium-grid">
         <div class="premium-copy reveal">
           <div class="section-tag red">SAHAM GORENGAN PREMIUM</div>
@@ -200,12 +335,12 @@
   <footer>
     <div class="wrap footer-grid">
       <div class="ksg-brand footer-brand"><img class="ksg-logo" src="assets/logo-ksg.png" alt=""><span class="ksg-name">KOMUNITAS<br>SAHAM<br>GORENGAN</span></div>
-      <div class="footer-links"><a href="#home">Beranda</a><a href="#premium">Premium</a><a href="#komunitas">Komunitas</a><a href="#faq">FAQ</a></div>
+      <div class="footer-links"><a href="#home">Beranda</a><a href="#youtube">YouTube</a><a href="#premium">Premium</a><a href="#komunitas">Komunitas</a><a href="#faq">FAQ</a></div>
       <div class="footer-contact"><span>➤ t.me/sahamgorengancuan</span><span>◉ sahamgorengan.id</span></div>
       <p class="disclaimer">Konten bukan ajakan membeli atau menjual saham. Trading saham mengandung risiko kerugian.</p>
     </div>
   </footer>
   <script src="app.js"></script>
-  <script src="/sg-intelligence.js" defer></script>
+  <script src="/sg-intelligence.js?v=m3-youtube-20261009" defer></script>
 </body>
 </html>
