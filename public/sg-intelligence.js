@@ -28,18 +28,21 @@ function performance(d){
  const note=document.getElementById('sg-perf-note');if(note)note.textContent=d.disclaimer||'Akumulasi bukan return portofolio. Performa historis tidak menjamin hasil masa depan.';
 }
 function watch(d){
- const target=document.getElementById('sg-watchcards');if(!target||!d||!Array.isArray(d.candidates))return;
- const valid=d.candidates.filter(x=>/^[A-Z]{4,5}$/.test(x.ticker)&&Number.isFinite(Number(x.close))&&x.date&&x.pattern&&x.checks&&Object.values(x.checks).every(Boolean)).slice(0,3);
- text('sg-watch-timestamp',valid.length?'Data penutupan '+dateLabel(d.asof):'Menunggu data EOD valid');
- if(!valid.length)return;
+ const target=document.getElementById('sg-watchcards');
+ if(!target||!d||d.schema!==1||d.format!=='ticker_only'||!Array.isArray(d.candidates))return;
+ // No price, volume, indicator or score is read, rendered or persisted client-side.
+ if(d.source!=='authorized_private_backend'||d.status!=='ready')return;
+ const names=[...new Set(d.candidates.map(x=>String(x?.ticker||'')))].filter(x=>/^[A-Z]{4,5}$/.test(x)).slice(0,3);
+ if(!names.length)return;
  target.replaceChildren();
- for(let i=0;i<valid.length;i++){
-  const x=valid[i],card=create('article','sg-watchcard');card.append(create('span','sg-rank','KANDIDAT TEKNIKAL #'+(i+1)),create('h3','',x.ticker),create('strong','sg-cardprice','Rp'+rupiah(Number(x.close))),create('div','sg-cardmeta','Penutupan '+dateLabel(x.date)+' · Skor '+x.score+'/100'));
-  card.append(create('div','sg-rule','Stoch K/D '+x.k+' / '+x.d+' · MA5 '+rupiah(x.ma5)+' · MA20 '+rupiah(x.ma20)+' · Volume '+x.volume_ratio+'× · '+x.pattern));
+ names.forEach((ticker,i)=>{
+  const card=create('article','sg-watchcard sg-watchcard-ticker');
+  card.append(create('span','sg-rank','RADAR #'+(i+1)),
+              create('h3','sg-ticker-code',ticker));
   target.append(card);
- }
- // Google may render client-side text; server-side title and description stay stable and editorial.
+ });
 }
+
 function scanStatus(d){
  if(!d||d.schema!==1||d.frequency!=='hourly')return;
  const when=String(d.generated_at||'').slice(0,16).replace('T',' · ');

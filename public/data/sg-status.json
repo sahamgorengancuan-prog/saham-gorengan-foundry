@@ -1,16 +1,18 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-08T17:00:02+07:00",
+  "generated_at": "2026-10-08T21:00:03+07:00",
   "timezone": "Asia/Jakarta",
   "frequency": "hourly",
   "status": "awaiting_licensed_full_market_feed",
   "provider_status": "rights_not_confirmed",
   "provider": "not_configured",
+  "display_format": "ticker_only",
   "universe_count": 0,
   "qualifying_count": 0,
+  "strict_matching": 0,
   "last_eod_date": null,
   "full_market_feed_ready": false,
   "commercial_source_authorized": false,
   "next_scan": "Setiap jam. Data indikator EOD hanya berubah setelah penutupan pasar.",
-  "disclaimer": "Hasil screening adalah alat edukasi bukan ajakan jual-beli. Jika sumber data belum tersedia, jangan mengarang saham."
+  "disclaimer": "Menampilkan maksimal tiga ticker dari pembobotan teknikal. Tidak menyajikan harga atau data OHLCV. Jika sumber data tidak tersedia, jangan mengarang saham."
 }

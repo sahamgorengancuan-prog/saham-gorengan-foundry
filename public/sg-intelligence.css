@@ -43,3 +43,8 @@
 .sg-watch-empty .sg-dot{background:#ffb53d;box-shadow:0 0 0 4px #ffb53d24}
 @media(max-width:800px){.sg-performance-grid{grid-template-columns:1fr 1fr}.sg-metric-primary{grid-column:1/-1}.sg-watchcards{grid-template-columns:1fr}.sg-intelligence,.sg-watchlist{padding:54px 16px}}
 @media(max-width:520px){.sg-performance-grid{grid-template-columns:1fr}.sg-metric-primary{grid-column:auto}.sg-head{align-items:flex-start}.sg-metric{min-height:110px}.sg-number{font-size:47px}}
+/* Ticker-only radar: no market price, indicators or OHLCV in the browser. */
+.sg-watchcard-ticker{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:190px;text-align:center;background:linear-gradient(145deg,#fff 55%,#eff5ff 100%);border-top:4px solid #eb293a;transition:transform .2s ease,box-shadow .2s ease}
+.sg-watchcard-ticker:hover{transform:translateY(-4px);box-shadow:0 18px 40px #102a5d20}
+.sg-watchcard-ticker .sg-ticker-code{font-size:clamp(42px,5vw,66px);line-height:1.15;letter-spacing:.045em;font-weight:950;color:#082f72;margin:18px 0 8px}
+.sg-watchcard-ticker .sg-rank{color:#e1273b;font-size:11px;letter-spacing:.16em}

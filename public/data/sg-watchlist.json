@@ -1,10 +1,13 @@
 {
   "schema": 1,
-  "source": "awaiting_licensed_full_market_eod",
+  "format": "ticker_only",
+  "source": "unavailable",
   "asof": null,
-  "generated_at": "2026-10-08T17:00:02+07:00",
-  "status": "source_unavailable",
+  "generated_at": "2026-10-08T21:00:03+07:00",
   "universe_count": 0,
   "candidates": [],
-  "disclaimer": "Belum ada sumber OHLCV seluruh pasar dengan hak publikasi yang terkonfirmasi."
+  "selection": "none",
+  "strict_matching": 0,
+  "status": "source_unavailable",
+  "disclaimer": "Kode saham adalah hasil screening teknikal, bukan ajakan transaksi. Hasil ranking berbobot dapat memenuhi sebagian kriteria; hasil historis tidak menjamin keuntungan."
 }
