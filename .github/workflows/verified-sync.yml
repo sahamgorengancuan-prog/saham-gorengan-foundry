@@ -1,4 +1,5 @@
 name: Mirror signed SahamGorengan website artifacts
+# Headless deployment UAT 2026-10-08: VPS hourly stage, signed mirror, hosting pull
 on:
   schedule:
     - cron: '3,18,33,48 * * * *'
