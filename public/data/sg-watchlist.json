@@ -2,18 +2,18 @@
   "schema": 1,
   "format": "ticker_only",
   "source": "provisional_backend_permission_pending",
-  "asof": "2026-10-08",
-  "generated_at": "2026-10-09T13:00:02+07:00",
-  "universe_count": 817,
+  "asof": "2026-10-09",
+  "generated_at": "2026-10-09T20:00:04+07:00",
+  "universe_count": 819,
   "candidates": [
     {
-      "ticker": "BLTA"
+      "ticker": "SOSS"
     },
     {
-      "ticker": "SMMT"
+      "ticker": "TFCO"
     },
     {
-      "ticker": "BTEK"
+      "ticker": "SEMA"
     }
   ],
   "selection": "weighted",
