@@ -8,6 +8,14 @@ function dateLabel(s){try{return new Date(s).toLocaleString('id-ID',{day:'numeri
 async function load(url){const r=await fetch(url+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('unavailable');return r.json()}
 function performance(d){
  if(d.schema!==1||!Array.isArray(d.entries))return;
+ if(d.verified!==true||!d.owner_confirmation_digest){
+  ['sg-perf-total','sg-perf-avg','sg-perf-wins'].forEach(id=>text(id,'—'));
+  text('sg-perf-period','Menunggu konfirmasi data');
+  text('sg-perf-label','Rekap pemilik belum terverifikasi');
+  text('sg-perf-note','Angka sementara tidak ditampilkan. Hasil historis tidak menjamin keuntungan.');
+  const grid=document.getElementById('sg-perf-pills');if(grid)grid.replaceChildren();
+  return;
+ }
  const nums=d.entries.map(v=>Number(v.pct));
  if(!nums.every(Number.isFinite))return;
  const hasRows=nums.length>0;
@@ -72,7 +80,7 @@ function scanStatus(d){
    if(msg)msg.textContent='Pemeriksaan otomatis setiap jam sudah aktif, tetapi feed OHLCV berizin belum tersedia. Tidak ada saham yang direkayasa atau diterbitkan sebelum data valid.';
   }else if(eligible===0){
    if(head)head.textContent=scanned+' saham diperiksa · belum ada sinyal lengkap';
-   if(msg)msg.textContent='Tidak ada saham yang memenuhi seluruh syarat Stochastic 8-3-3, MA5, MA20, volume dan candle bullish pada pemeriksaan terakhir.';
+   if(msg)msg.textContent='Tidak ada saham yang lolos volume harian >50.000 lot serta skor teknikal minimum pada pemeriksaan terakhir.';
   }
  }
 }

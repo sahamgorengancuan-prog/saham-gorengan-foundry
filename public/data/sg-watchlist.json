@@ -3,19 +3,21 @@
   "format": "ticker_only",
   "source": "provisional_backend_permission_pending",
   "asof": "2026-10-09",
-  "generated_at": "2026-10-11T14:00:03+07:00",
+  "generated_at": "2026-10-11T21:00:04+07:00",
   "universe_count": 819,
   "candidates": [
     {
-      "ticker": "SOSS"
-    },
-    {
-      "ticker": "TFCO"
-    },
-    {
       "ticker": "SEMA"
+    },
+    {
+      "ticker": "STRK"
+    },
+    {
+      "ticker": "POLA"
     }
   ],
+  "minimum_daily_volume_lots": 50000,
+  "daily_volume_operator": ">",
   "selection": "weighted",
   "strict_matching": 0,
   "status": "ready",
