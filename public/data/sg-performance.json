@@ -1,47 +1,68 @@
 {
   "schema": 1,
   "source": "owner_self_report",
-  "period": "28 SEPTEMBER–2 OKTOBER 2026",
-  "total_pct": 28.0,
-  "average_pct": 3.5,
-  "wins": 7,
-  "count": 8,
+  "period": "5–9 OKTOBER",
+  "total_pct": 55.0,
+  "average_pct": 4.23,
+  "wins": 10,
+  "count": 13,
   "entries": [
     {
+      "ticker": "FORU",
+      "pct": 10.0
+    },
+    {
       "ticker": "SQMI",
-      "pct": 3.0
+      "pct": 7.0
     },
     {
-      "ticker": "KETR",
+      "ticker": "YELO",
       "pct": 4.0
     },
     {
-      "ticker": "LUCY",
-      "pct": 9.0
+      "ticker": "SQMI",
+      "pct": 7.0
     },
     {
-      "ticker": "BUKA",
+      "ticker": "AHAP",
+      "pct": 6.0
+    },
+    {
+      "ticker": "VKTR",
       "pct": 4.0
     },
     {
-      "ticker": "MEJA",
-      "pct": 4.0
-    },
-    {
-      "ticker": "BNBR",
+      "ticker": "DOOH",
       "pct": -2.0
     },
     {
-      "ticker": "INET",
-      "pct": 3.0
+      "ticker": "SQMI",
+      "pct": 4.0
     },
     {
-      "ticker": "AISA",
+      "ticker": "MINA",
+      "pct": -2.0
+    },
+    {
+      "ticker": "KIJA",
+      "pct": -2.0
+    },
+    {
+      "ticker": "FORU",
+      "pct": 10.0
+    },
+    {
+      "ticker": "KIOS",
+      "pct": 6.0
+    },
+    {
+      "ticker": "BIPI",
       "pct": 3.0
     }
   ],
-  "updated_at": "2026-10-08T11:14:39+07:00",
+  "computed_from_entries": true,
+  "updated_at": "2026-10-11T12:05:12+07:00",
   "verified": false,
-  "disclaimer": "Jumlah perubahan persentase tiap saham, bukan return portofolio. Data dilaporkan pemilik, belum diaudit independen. Tidak termasuk biaya; performa historis tidak menjamin hasil berikutnya.",
-  "telegram_message_id": 801026
+  "disclaimer": "Hasil dihitung dari rincian yang diberikan pemilik. Akumulasi bukan return portofolio; data belum diaudit independen. Hasil historis tidak menjamin keuntungan.",
+  "telegram_message_id": 987
 }
