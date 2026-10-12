@@ -1,4 +1,4 @@
-"""Brand prop library (flat vector, navy outline) + UI icons.
+"""Brand prop library (flat vector, no outlines — same language as the official Bull art) + UI icons.
 
 Every prop is drawn in a 200x200 box. Use prop(name, cx, cy, size) to place it.
 The LLM pipeline should prefer these props over ad-hoc drawings so scenes stay
@@ -7,16 +7,50 @@ visually consistent; custom SVG is still allowed for topic-specific metaphors.
 from __future__ import annotations
 
 OUT = "#0A1633"
-NAVY = "#05183A"
-BLUE = "#0B438E"
+NAVY = "#163A8C"      # props sit on navy cards, so "navy" objects use a lighter royal blue for contrast
+BLUE = "#1D63E6"      # UI blue of the official art (bubbles, icons, chart lines)
 BLUE_L = "#8FB8FF"
 GOLD = "#FFCD35"
 GOLD_D = "#E0A800"
 RED = "#ED2A3C"
 WHITE = "#FAFDFF"
-GREEN = "#48E5AD"
+GREEN = "#2FB457"
 PINK = "#FF7182"
-S = 'stroke="#0A1633" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"'
+S = 'stroke="none"'
+GREY = "#C9D1DE"
+CARD_SH = "#BFD3F5"
+
+
+def _card(body: str, h: int = 112) -> str:
+    """White UI card with the soft blue drop edge used in the official art."""
+    y = 100 - h / 2
+    return (f'<rect x="12" y="{y + 8}" width="180" height="{h}" rx="18" fill="{CARD_SH}"/>'
+            f'<rect x="8" y="{y}" width="180" height="{h}" rx="18" fill="#FFFFFF"/>' + body)
+
+
+def _person(cx, cy, r, bg, fg="#FFFFFF"):
+    return (f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{bg}"/>'
+            f'<circle cx="{cx}" cy="{cy - r * 0.22}" r="{r * 0.32}" fill="{fg}"/>'
+            f'<path d="M {cx - r * 0.55} {cy + r * 0.62} C {cx - r * 0.5} {cy + r * 0.1} {cx + r * 0.5} {cy + r * 0.1} '
+            f'{cx + r * 0.55} {cy + r * 0.62} Z" fill="{fg}"/>')
+
+
+def _arrow_icon(cx, cy, r, bg):
+    return (f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{bg}"/>'
+            f'<path d="M {cx - r * .5} {cy + r * .3} L {cx - r * .1} {cy - r * .1} L {cx + r * .1} {cy + r * .1} '
+            f'L {cx + r * .5} {cy - r * .35}" fill="none" stroke="#FFFFFF" stroke-width="{r * .16:.1f}" '
+            f'stroke-linecap="round" stroke-linejoin="round"/>')
+
+
+def _candles(x0, y0, n=8, step=12, colors=("#2FB457", "#E5161F")):
+    out, y = [], y0
+    for i in range(n):
+        up = i % 3 != 1
+        y += -6 if up else 4
+        c = colors[0] if up else colors[1]
+        out.append(f'<path d="M{x0 + i * step} {y - 10}V{y + 14}" stroke="{c}" stroke-width="2.5"/>'
+                   f'<rect x="{x0 + i * step - 3.5}" y="{y - 4}" width="7" height="12" fill="{c}"/>')
+    return "".join(out)
 
 _P: dict[str, str] = {
     "chart_up": (f'<rect x="18" y="30" width="164" height="140" rx="18" fill="{WHITE}" {S}/>'
@@ -161,6 +195,46 @@ _P: dict[str, str] = {
                   f'C100 86 138 76 138 24 Z" fill="{WHITE}" {S}/>'
                   f'<path d="M78 160 Q100 132 122 160 Z M84 52 H116 L100 80 Z" fill="{GOLD}"/>'),
 }
+
+_P.update({
+    "ui_card_profile": _card(_person(44, 100, 22, BLUE) + f'<rect x="76" y="80" width="80" height="10" rx="5" fill="{GREY}"/>'
+                             f'<rect x="76" y="98" width="56" height="10" rx="5" fill="{GREY}"/>'
+                             f'<rect x="76" y="118" width="64" height="10" rx="5" fill="{GREEN}"/>'
+                             f'<path d="M 136 132 L 152 116 L 162 124 L 180 104" fill="none" stroke="{BLUE}" stroke-width="6" '
+                             f'stroke-linecap="round" stroke-linejoin="round"/>'),
+    "ui_card_chart": _card(_arrow_icon(42, 82, 20, GREEN) + f'<rect x="72" y="70" width="84" height="10" rx="5" fill="{GREY}"/>'
+                           f'<rect x="72" y="88" width="60" height="10" rx="5" fill="{GREY}"/>'
+                           f'<rect x="24" y="118" width="64" height="10" rx="5" fill="{GREEN}"/>' + _candles(100, 124, 7, 12)),
+    "ui_card_trend": _card(_arrow_icon(44, 100, 24, BLUE) + f'<rect x="78" y="82" width="70" height="10" rx="5" fill="{GREY}"/>'
+                           f'<rect x="78" y="100" width="52" height="10" rx="5" fill="{GREY}"/>'
+                           f'<rect x="78" y="118" width="44" height="10" rx="5" fill="{GREEN}"/>'
+                           f'<path d="M 166 128 V 90 M 152 104 L 166 88 L 180 104" fill="none" stroke="{GREEN}" stroke-width="9" '
+                           f'stroke-linecap="round" stroke-linejoin="round"/>'),
+    "chat_bubble": (f'<rect x="20" y="40" width="160" height="104" rx="24" fill="{BLUE}"/>'
+                    f'<path d="M 132 140 L 160 176 L 156 136 Z" fill="{BLUE}"/>'
+                    + "".join(f'<circle cx="{x}" cy="92" r="13" fill="#FFFFFF"/>' for x in (64, 100, 136))),
+    "question_bubble": (f'<circle cx="104" cy="92" r="74" fill="{BLUE}"/><circle cx="104" cy="92" r="60" fill="#FFFFFF"/>'
+                        f'<path d="M 48 150 L 30 186 L 74 164 Z" fill="{BLUE}"/>'
+                        f'<text x="104" y="122" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" '
+                        f'font-weight="800" font-size="92" fill="{BLUE}">?</text>'),
+    "user_badge": (f'<circle cx="100" cy="100" r="76" fill="{BLUE}"/><circle cx="100" cy="100" r="64" fill="#0F2A66"/>'
+                   + _person(100, 100, 46, "#0F2A66")),
+    "sparks_gold": "".join(f'<path d="M {a} {b} L {c} {d}" stroke="{GOLD}" stroke-width="16" stroke-linecap="round"/>'
+                           for a, b, c, d in ((60, 150, 30, 120), (100, 120, 100, 50), (140, 150, 172, 116))),
+    "sparks_blue": "".join(f'<path d="M {a} {b} L {c} {d}" stroke="{BLUE}" stroke-width="16" stroke-linecap="round"/>'
+                           for a, b, c, d in ((60, 150, 30, 120), (100, 120, 100, 50), (140, 150, 172, 116))),
+    "phone_app": (f'<rect x="44" y="6" width="112" height="188" rx="20" fill="{BLUE}"/>'
+                  f'<rect x="50" y="12" width="100" height="176" rx="16" fill="#0F2A66"/>'
+                  f'<rect x="56" y="18" width="88" height="164" rx="12" fill="#EEF3FB"/>'
+                  + "".join(f'<rect x="60" y="{y}" width="80" height="34" rx="8" fill="#FFFFFF"/>'
+                            f'<circle cx="72" cy="{y + 12}" r="8" fill="{c}"/>'
+                            f'<rect x="84" y="{y + 7}" width="30" height="5" rx="2.5" fill="{GREY}"/>'
+                            f'<rect x="124" y="{y + 5}" width="12" height="12" rx="3" fill="{GREEN}"/>'
+                            + _candles(86, y + 26, 5, 8, (BLUE, BLUE))
+                            for y, c in ((28, "#E5161F"), (68, BLUE), (108, GREEN)))
+                  + f'<rect x="60" y="148" width="80" height="28" rx="6" fill="{BLUE}"/>'
+                  f'<path d="M 66 168 L 82 160 L 96 164 L 112 154 L 134 158" fill="none" stroke="#FFFFFF" stroke-width="3"/>'),
+})
 
 PROPS = tuple(sorted(_P))
 

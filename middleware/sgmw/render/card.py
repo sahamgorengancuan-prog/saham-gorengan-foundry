@@ -93,13 +93,13 @@ _LOGO_CACHE: dict = {}
 
 
 def logo(x: float, y: float, size: float = 56) -> str:
+    """Official KSG logo (red bull head with speed streaks), drawn as-is like on the site cards."""
     p = BRAND_DIR / "reference" / "logo-ksg.png"
     if p.exists():
         if "uri" not in _LOGO_CACHE:
             _LOGO_CACHE["uri"] = "data:image/png;base64," + base64.b64encode(p.read_bytes()).decode()
-        return (f'<circle cx="{x + size / 2}" cy="{y + size / 2}" r="{size / 2 + 3}" fill="{WHITE}"/>'
-                f'<image href="{_LOGO_CACHE["uri"]}" x="{x}" y="{y}" width="{size}" height="{size}"/>')
-    return (f'<circle cx="{x + size / 2}" cy="{y + size / 2}" r="{size / 2}" fill="{RED}" stroke="{WHITE}" stroke-width="3"/>'
+        return f'<image href="{_LOGO_CACHE["uri"]}" x="{x}" y="{y}" width="{size}" height="{size}"/>'
+    return (f'<circle cx="{x + size / 2}" cy="{y + size / 2}" r="{size / 2}" fill="{RED}"/>'
             f'<text x="{x + size / 2}" y="{y + size * 0.66}" text-anchor="middle" font-family="{T.FAMILY}" '
             f'font-weight="800" font-size="{size * 0.42:.0f}" fill="{WHITE}">SG</text>')
 
@@ -194,6 +194,78 @@ def t_cover(d: dict, fmt: str, page: str | None, seed: str) -> str:
         body.append(f'<rect x="{s["left"]}" y="{sy}" width="{tw + 92:.0f}" height="50" rx="25" fill="{WHITE}"/>'
                     + T.label("Geser", s["left"] + 22, sy + 12, 22, NAVY)
                     + P.icon("arrow_right", s["left"] + tw + 44, sy + 9, 32, NAVY))
+    return wrap_svg(w, h, "".join(body))
+
+
+@template("explainer")
+def t_explainer(d: dict, fmt: str, page: str | None, seed: str) -> str:
+    """Replica of the existing sahamgorengan.id social card ("Kenapa IHSG bisa turun?" layout)."""
+    w, h, s = fmt_size(fmt)
+    cw = w - s["left"] - s["right"]
+    L = s["left"]
+    body = [f'<rect width="{w}" height="{h}" fill="url(#bgDeep)"/>',
+            f'<circle cx="{w * 0.92:.0f}" cy="{h * 0.36:.0f}" r="{w * 0.36:.0f}" fill="none" stroke="#2B5CB8" '
+            f'stroke-opacity=".7" stroke-width="3"/>',
+            logo(L - 6, s["top"] - 10, 84),
+            f'<text x="{L + 90}" y="{s["top"] + 30}" font-family="{T.FAMILY}" font-weight="800" font-size="34" '
+            f'fill="{WHITE}">SAHAM GORENGAN</text>',
+            f'<text x="{L + 92}" y="{s["top"] + 58}" font-family="{T.FAMILY}" font-weight="600" font-size="17" '
+            f'fill="{MUTED}" letter-spacing="0.06em">EDUKASI MARKET INDONESIA</text>']
+    if page:
+        body.append(f'<text x="{w - s["right"]}" y="{s["top"] + 30}" text-anchor="end" font-family="{T.FAMILY}" '
+                    f'font-weight="800" font-size="22" fill="{MUTED}">{escape(page)}</text>')
+    y = s["top"] + 140
+    lab = d.get("label", "Market explained").upper()
+    lw = T.width(lab, 28, 800, tracking=0.04) + 48
+    body.append(f'<rect x="{L - 6}" y="{y}" width="{lw:.0f}" height="58" rx="14" fill="{RED}"/>'
+                f'<text x="{L + 18}" y="{y + 39}" font-family="{T.FAMILY}" font-weight="800" font-size="28" '
+                f'fill="{WHITE}" letter-spacing="0.04em">{escape(lab)}</text>')
+    y += 92
+    hv, y = T.block(d["headline"].upper(), L - 4, y, cw, 92, 800, GOLD, max_lines=3, line_height=1.06, size_min=60,
+                    hl_fill=WHITE)
+    body.append(hv)
+    if d.get("subhead"):
+        sv, y = T.block(d["subhead"].upper(), L, y + 14, cw, 30, 800, WHITE, max_lines=2, line_height=1.25)
+        body.append(sv)
+    # panel: chart (left) + framed Bull (right)
+    py0 = max(y + 40, h * 0.47)
+    py1 = h - s["bottom"] - 110
+    body.append(f'<rect x="{L - 6}" y="{py0:.0f}" width="{cw + 12}" height="{py1 - py0:.0f}" rx="28" fill="#0E2D6B" '
+                f'fill-opacity=".55" stroke="#2A4E9A" stroke-width="3"/>')
+    fx0, fy0 = L + cw * 0.46, py0 + 22
+    fx1, fy1 = L + cw - 12, py1 - 70
+    gx0, gx1, gy0, gy1 = L + 30, fx0 - 30, py0 + 50, py1 - 90
+    for i in range(5):
+        gy = gy0 + (gy1 - gy0) * i / 4
+        body.append(f'<path d="M {gx0:.0f} {gy:.0f} H {gx1 + 220:.0f}" stroke="#3A5FA8" stroke-opacity=".5" stroke-width="2"/>')
+    if d.get("art"):
+        body.append(art_box(d["art"], gx0, gy0, gx1 - gx0, gy1 - gy0))
+    else:
+        pts = d.get("chart_points") or [62, 78, 48, 44, 30, 36, 18]
+        col = GREEN if pts[-1] > pts[0] else RED
+        lo, hi = min(pts), max(pts)
+        xy = [(gx0 + (gx1 + 150 - gx0) * i / (len(pts) - 1),
+               gy1 - (gy1 - gy0) * (v - lo) / max(hi - lo, 1)) for i, v in enumerate(pts)]
+        body.append(f'<path d="M {" L ".join(f"{a:.0f} {b:.0f}" for a, b in xy)}" fill="none" stroke="{col}" '
+                    f'stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>')
+        body += [f'<circle cx="{a:.0f}" cy="{b:.0f}" r="9" fill="{WHITE}" stroke="{col}" stroke-width="5"/>'
+                 for a, b in xy[:4]]
+    body.append(f'<rect x="{fx0:.0f}" y="{fy0:.0f}" width="{fx1 - fx0:.0f}" height="{fy1 - fy0:.0f}" rx="26" fill="#071D48" '
+                f'stroke="{GOLD}" stroke-width="6"/>')
+    ml = d.get("mascot_label", "Bull explains").upper()
+    body.append(f'<rect x="{fx0 + 16:.0f}" y="{fy0 + 16:.0f}" width="{fx1 - fx0 - 32:.0f}" height="50" rx="12" fill="{RED}"/>'
+                f'<text x="{fx0 + 34:.0f}" y="{fy0 + 50:.0f}" font-family="{T.FAMILY}" font-weight="800" font-size="24" '
+                f'fill="{WHITE}" letter-spacing="0.04em">{escape(ml)}</text>')
+    mspec = d.get("mascot", {"source": "official", "art": "hero", "pose": "celebrate", "expression": "smirk"})
+    body.append(f'<svg x="{fx0:.0f}" y="{fy0:.0f}" width="{fx1 - fx0:.0f}" height="{fy1 - fy0:.0f}" overflow="hidden">'
+                + mascot_art(mspec, (fx1 - fx0) / 2, fy1 - fy0 - 14, fy1 - fy0 - 96) + '</svg>')
+    strip = d.get("strip", "Pahami sebabnya  ·  Bukan ajakan beli/jual").upper()
+    body.append(f'<rect x="{L - 6}" y="{py1 - 52:.0f}" width="{cw + 12}" height="52" fill="#0B3A8C" fill-opacity=".9"/>'
+                f'<text x="{L + 18}" y="{py1 - 18:.0f}" font-family="{T.FAMILY}" font-weight="800" font-size="20" '
+                f'fill="{GOLD}" letter-spacing="0.05em">{escape(strip)}</text>')
+    body.append(f'<rect x="{L - 6}" y="{h - s["bottom"] - 60}" width="{cw + 12}" height="7" rx="3" fill="{RED}"/>'
+                f'<text x="{L - 6}" y="{h - s["bottom"] - 8}" font-family="{T.FAMILY}" font-weight="800" font-size="22" '
+                f'fill="{SOFT}" letter-spacing="0.05em">SAHAMGORENGAN.ID  /  @CUAN_SAHAMGORENGAN</text>')
     return wrap_svg(w, h, "".join(body))
 
 
