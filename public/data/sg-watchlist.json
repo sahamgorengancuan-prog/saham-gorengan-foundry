@@ -2,18 +2,15 @@
   "schema": 1,
   "format": "ticker_only",
   "source": "provisional_backend_permission_pending",
-  "asof": "2026-10-09",
-  "generated_at": "2026-10-12T15:00:01+07:00",
-  "universe_count": 819,
+  "asof": "2026-10-12",
+  "generated_at": "2026-10-13T00:00:03+07:00",
+  "universe_count": 818,
   "candidates": [
     {
-      "ticker": "SEMA"
+      "ticker": "VIVA"
     },
     {
-      "ticker": "STRK"
-    },
-    {
-      "ticker": "POLA"
+      "ticker": "HBAT"
     }
   ],
   "minimum_daily_volume_lots": 50000,
