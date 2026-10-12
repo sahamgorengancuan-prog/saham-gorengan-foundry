@@ -118,7 +118,10 @@ Posts standar (biarkan `publish_at: "auto"` → slot WIB: web 10:30, IG 15:00, F
 ## Langkah 7 — Validasi, visual review, ingest
 
 1. `app.py validate inbox/<dir>` → baca `errors`/`warnings`. Perbaiki semua `errors`; tangani warning yang
-   masuk akal. Ulangi sampai bersih.
+   masuk akal. Ulangi sampai bersih. Render video makan 1–3 menit dan satu panggilan MCP bisa timeout, jadi
+   jalankan di background lalu cek berkala:
+   `nohup .venv/bin/python app.py validate inbox/<dir> > state/cache/validate.json 2> state/cache/validate.err &`
+   (sama untuk `ingest` → `state/cache/ingest.json`). Selesai jika file JSON berisi objek lengkap.
 2. **Visual review WAJIB pada file hasil render** (`report.dir`/media/*.png, short.mp4): buka di desktop VPS
    (`vps_desktop_open_url` → `file:///srv/localmcpcoder-work/sg-middleware/state/jobs/_validate/<job>/media/slides_01.png`,
    lalu `vps_desktop_screenshot`) — cek: teks terbaca & tidak terpotong, tidak bertabrakan dengan Bull,
