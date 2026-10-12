@@ -42,6 +42,7 @@ from PIL import Image, ImageDraw, ImageFilter
 from ..brand import brand
 from . import card as C
 from . import mascot as M
+from . import official as O
 from . import props as P
 from . import text as T
 
@@ -301,7 +302,16 @@ class Scene:
             self.layers.append(Layer(pimg, pr.get("x", 300), pr.get("y", 900), pr.get("enter", "pop"),
                                      float(pr.get("delay", 0.25)), pr.get("loop", "float")))
         m = spec.get("mascot")
-        if m:
+        official = None
+        if m and (m.get("source") == "official" or m.get("art")):
+            official = O.image(m.get("art", "hero"), int(m.get("height", 620)))
+        if m and official is not None:
+            im = official.transpose(Image.FLIP_LEFT_RIGHT) if m.get("flip") else official
+            side = m.get("side", "right")
+            cx = {"left": 330, "center": W / 2, "right": 760}.get(side, 760)
+            self.layers.append(Layer(with_rim(im), m.get("x", cx), STAGE_BOTTOM + 40, m.get("enter", "rise"),
+                                     float(m.get("delay", 0.0)), "bob", "bottom"))
+        elif m:
             k = (m.get("pose", "explain"), m.get("expression", "smirk"), m.get("accessory", "none"),
                  bool(m.get("flip")) or m.get("side") == "left")
             if k not in mascot_cache:
@@ -358,7 +368,8 @@ def end_card(tmp: Path, seed: str) -> Image.Image:
                     max_lines=1)[0],
             T.block(b["compliance"]["short_disclaimer"], W / 2, 950, W, 32, 600, "#B8D3FF", anchor="middle",
                     max_lines=1)[0],
-            C.mascot_spot({"pose": "wave", "expression": "happy"}, W / 2, STAGE_BOTTOM + 260, 560)]
+            C.mascot_spot({"source": "official", "art": "hero", "pose": "wave", "expression": "happy"},
+                          W / 2, STAGE_BOTTOM + 260, 560)]
     return svg_to_image(C.wrap_svg(W, H, "".join(body)), tmp, "endcard").convert("RGB")
 
 

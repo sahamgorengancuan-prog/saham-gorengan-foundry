@@ -16,11 +16,15 @@ Pilih metafora fisik yang menjelaskan MEKANISME, lalu 3 props pendukung. Contoh:
 | FOMO | kerumunan lari ke satu pintu | `crowd`, `megaphone`, `warning` |
 | Manajemen risiko | pelampung + target | `shield`, `target`, `piggy` |
 Props tersedia (render konsisten): arrow_down, arrow_up, building, calendar, candles, chart_down, chart_up,
-clock, coin, crowd, document, fire, gauge, hourglass, laptop, lightbulb, lock, magnifier, megaphone, money,
-phone, piggy, rocket, scale, shield, target, warning, wok. Boleh menambah SVG kustom (`art.svg`) dengan gaya
+clock, coin, crowd, desk, document, fire, gauge, hourglass, laptop (silver, logo biru), lightbulb, lock, magnifier,
+megaphone, money, monitor (navy + grafik biru muda, seperti situs), phone, piggy, rocket, scale, shield, target,
+warning, wok. Boleh menambah SVG kustom (`art.svg`) dengan gaya
 yang sama: flat, outline navy `#0A1633` 6–8px, sudut membulat, palet brand saja.
 
 ## 3. Bull acting (OverSimplified-style)
+Karakter harus identik dengan ilustrasi sahamgorengan.id (lihat BRAND_KIT §4). Untuk cover, CTA, dan end card
+utamakan art resmi: `"mascot": {"source": "official", "art": "hero"}` (Bull fist-pump di meja trading); pilihan
+lain `faq`, `community`, `premium`. Untuk adegan yang butuh akting spesifik pakai rig:
 Pose: idle, explain, celebrate, think, warn, present, shrug, wave, double_point.
 Ekspresi: smirk (default), happy, worried, serious, think, shock. Aksesori: none, glasses (analitis), tie
 (formal/regulasi), headset (berita/live).

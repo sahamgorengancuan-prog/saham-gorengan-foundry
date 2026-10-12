@@ -50,11 +50,27 @@ _P: dict[str, str] = {
               f'<path d="M74 132 L92 112 L104 120 L126 90" fill="none" stroke="{GREEN}" stroke-width="7" '
               f'stroke-linecap="round" stroke-linejoin="round"/>'
               f'<circle cx="100" cy="172" r="6" fill="{BLUE_L}"/>'),
-    "laptop": (f'<rect x="34" y="34" width="132" height="94" rx="10" fill="{NAVY}" {S}/>'
-               f'<rect x="46" y="46" width="108" height="70" rx="4" fill="{BLUE}"/>'
-               f'<path d="M58 104 L80 84 L96 94 L140 60" fill="none" stroke="{GOLD}" stroke-width="7" '
-               f'stroke-linecap="round" stroke-linejoin="round"/>'
-               f'<path d="M14 140 H186 L172 162 H28 Z" fill="#C9D6EA" {S}/>'),
+    "laptop": (f'<path d="M 40 28 H 160 L 168 132 H 32 Z" fill="#B7C1D3" {S}/>'
+               f'<path d="M 52 40 H 150 L 156 122 H 44 Z" fill="#C9D2E1"/>'
+               f'<circle cx="100" cy="80" r="11" fill="#2F7BEA"/>'
+               f'<path d="M 12 136 H 188 L 176 160 H 24 Z" fill="#8F9BB0" {S}/>'),
+    "monitor": (f'<rect x="12" y="24" width="176" height="122" rx="10" fill="#0B2A5E" {S}/>'
+                f'<rect x="24" y="36" width="152" height="98" rx="4" fill="#0A1F4A"/>'
+                f'<path d="M34 112 L62 92 L84 100 L112 70 L136 78 L166 46" fill="none" stroke="#7FB2FF" '
+                f'stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>'
+                + "".join(f'<path d="M{x} {a}V{b}" stroke="#4E8DF5" stroke-width="3"/>'
+                          f'<rect x="{x - 4}" y="{c}" width="8" height="{d}" fill="{col}"/>'
+                          for x, a, b, c, d, col in ((44, 96, 126, 104, 14, "#4E8DF5"), (58, 92, 124, 98, 16, "#BFD7FF"),
+                                                     (72, 98, 128, 104, 12, "#4E8DF5"), (86, 88, 120, 94, 16, "#BFD7FF")))
+                + f'<path d="M86 146 L80 172 H120 L114 146 Z" fill="#0B2A5E" {S}/>'
+                f'<rect x="64" y="170" width="72" height="12" rx="6" fill="#0B2A5E" {S}/>'),
+    "desk": (f'<rect x="6" y="96" width="188" height="26" rx="6" fill="#0B2A5E" {S}/>'
+             f'<rect x="22" y="122" width="22" height="62" fill="#0A1F4A" {S}/>'
+             f'<rect x="156" y="122" width="22" height="62" fill="#0A1F4A" {S}/>'
+             f'<rect x="24" y="70" width="62" height="12" rx="3" fill="#E9EEF7" {S}/>'
+             f'<rect x="30" y="82" width="56" height="12" rx="3" fill="#C9D6EA" {S}/>'
+             f'<rect x="146" y="58" width="22" height="38" rx="4" fill="#0A1F4A" {S}/>'
+             f'<path d="M152 58 L148 30 M160 58 L164 34" stroke="{OUT}" stroke-width="5" stroke-linecap="round"/>'),
     "magnifier": (f'<path d="M124 124 L176 176" stroke="{OUT}" stroke-width="26" stroke-linecap="round"/>'
                   f'<path d="M124 124 L172 172" stroke="{GOLD}" stroke-width="12" stroke-linecap="round"/>'
                   f'<circle cx="86" cy="86" r="58" fill="{BLUE_L}" fill-opacity=".55" {S}/>'

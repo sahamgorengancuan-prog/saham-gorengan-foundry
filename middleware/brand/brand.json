@@ -20,7 +20,11 @@
     "navy": "#05183A",
     "deep_blue": "#09367B",
     "blue": "#0B438E",
-    "site_gradient": ["#071D48", "#073C8F", "#0B58BC"],
+    "site_gradient": [
+      "#071D48",
+      "#073C8F",
+      "#0B58BC"
+    ],
     "red": "#ED2A3C",
     "gold": "#FFCD35",
     "white": "#FAFDFF",
@@ -43,12 +47,40 @@
   },
   "typography": {
     "family": "Plus Jakarta Sans",
-    "fallback": ["Inter", "DejaVu Sans", "sans-serif"],
-    "font_files": ["brand/fonts/PlusJakartaSans[wght].ttf"],
-    "weights": {"display": 800, "heading": 700, "body": 500, "label": 800, "caption": 700},
-    "letter_spacing": {"display": "-0.03em", "label": "0.15em"},
-    "scale_feed_1080x1350": {"display": 92, "h1": 72, "h2": 54, "body": 38, "small": 28, "label": 24},
-    "scale_vertical_1080x1920": {"display": 104, "h1": 84, "body": 46, "caption": 62, "label": 28},
+    "fallback": [
+      "Inter",
+      "DejaVu Sans",
+      "sans-serif"
+    ],
+    "font_files": [
+      "brand/fonts/PlusJakartaSans[wght].ttf"
+    ],
+    "weights": {
+      "display": 800,
+      "heading": 700,
+      "body": 500,
+      "label": 800,
+      "caption": 700
+    },
+    "letter_spacing": {
+      "display": "-0.03em",
+      "label": "0.15em"
+    },
+    "scale_feed_1080x1350": {
+      "display": 92,
+      "h1": 72,
+      "h2": 54,
+      "body": 38,
+      "small": 28,
+      "label": 24
+    },
+    "scale_vertical_1080x1920": {
+      "display": 104,
+      "h1": 84,
+      "body": 46,
+      "caption": 62,
+      "label": 28
+    },
     "rules": [
       "Only Plus Jakarta Sans. No script, serif or random display fonts.",
       "Headline max 8 words on cards, max 6 words on video frames.",
@@ -62,20 +94,61 @@
   },
   "mascot": {
     "name": "Bull",
-    "source_of_truth": "sgmw/render/mascot.py (vector rig) + brand/reference/hero-bull-refined.webp (official raster)",
-    "character_sheet": "Anthropomorphic red bull (#E5283C body, #B71A2D shade), large pink-red muzzle (#F2606C) with two dark nostrils, dark-maroon horns (#5E0E18) sweeping outward then curving up and inward, small dark-red hair tuft between the horns, sideways leaf-shaped ears, confident half-lidded eyes with thick dark brows, friendly smirk. Wears a blue collared shirt (#1B4C8F, collar #2D66B5) with gold buttons. Human-like red hands. Thick navy outline (#0A1633), flat vector, no gradients on the body, no realistic fur.",
+    "source_of_truth": "brand/reference/hero-bull-refined.webp + faq/community/premium official art (sahamgorengan.id/assets) — the vector rig in sgmw/render/mascot.py is drawn to match them",
+    "character_sheet": "Semi-realistic flat vector mascot exactly like the sahamgorengan.id art: an anthropomorphic, muscular red bull (base #D8192C, cel shadow #A10F1E, rim highlight #F0434B) seen in a slight 3/4 view. Long wedge-shaped bull face with a CHARCOAL-GREY muzzle (#4B4F5E) and dark nostrils, smirking mouth on the grey muzzle, heavy dark-red brow ridge over narrowed confident eyes, spiky swept fur tuft on the forehead and fur spikes on the cheeks and chest. Thick dark-maroon horns (#4A0A12) that sweep outward then curl up and INWARD so the tips face each other above the head (crescent shape). Pointed leaf-shaped ears sticking out sideways. Big head sitting low on broad, high, muscular shoulders (short thick neck). Dark-teal casual shirt (#24485E, shadow #183244) with open collar showing red chest fur, sleeves rolled up above the elbow, thick red forearms and big four-finger fists. Dark-maroon outlines (#2B0A10, not black), two-to-three tone cel shading, gold motion sparks (#F5C431) next to a raised fist.",
     "personality": "Smart, calm, slightly cheeky mentor. Never greedy, never panics; explains risk honestly. Comedic reactions allowed (OverSimplified-style), but he is never the butt of a money-loss joke aimed at the audience.",
-    "poses": ["idle", "explain", "celebrate", "think", "warn", "present", "shrug", "wave", "double_point"],
-    "expressions": ["smirk", "happy", "worried", "serious", "think", "shock"],
-    "accessories": ["none", "glasses", "tie", "headset"],
+    "poses": [
+      "idle",
+      "explain",
+      "celebrate",
+      "think",
+      "warn",
+      "present",
+      "shrug",
+      "wave",
+      "double_point"
+    ],
+    "expressions": [
+      "smirk",
+      "happy",
+      "worried",
+      "serious",
+      "think",
+      "shock"
+    ],
+    "accessories": [
+      "none",
+      "glasses",
+      "tie",
+      "headset"
+    ],
     "dont": [
-      "Do not change body colour, horn shape, shirt colour or proportions.",
+      "Do not use a pink muzzle, a blue shirt, black outlines, chibi proportions or a long neck.",
+      "Do not change horn shape (inward-curling crescent), body colour, shirt colour or proportions.",
       "No money bags, no stacks of cash, no Lamborghini/flex imagery (implies guaranteed profit).",
       "No other mascots or real people/brands; no logos of IDX/OJK used as decoration."
-    ]
+    ],
+    "official_art": {
+      "hero": "hero-bull-refined.webp — fist pump at a trading desk with silver laptop and two navy chart monitors",
+      "faq": "faq-bull.webp",
+      "community": "community-bull-phone.webp",
+      "premium": "premium-bull-phone.webp",
+      "use": "mascot spec {\"source\":\"official\",\"art\":\"hero\"} renders the original file 1:1 (cover/CTA/end card); rig poses for acting scenes"
+    },
+    "palette": {
+      "red": "#D8192C",
+      "red_shadow": "#A10F1E",
+      "red_highlight": "#F0434B",
+      "muzzle": "#4B4F5E",
+      "horn": "#4A0A12",
+      "shirt": "#24485E",
+      "shirt_shadow": "#183244",
+      "outline": "#2B0A10",
+      "spark": "#F5C431"
+    }
   },
   "illustration_style": {
-    "summary": "Flat vector editorial illustration in the spirit of Kurzgesagt (geometric shapes, layered depth, soft glows, star-dust particles, limited palette) with OverSimplified-style character acting (big readable gestures, comedic timing).",
+    "summary": "Same look as the sahamgorengan.id illustrations: semi-realistic flat vector with cel shading and clean dark outlines; the Bull acts inside simple trading props (navy desk, navy monitors with light-blue line charts and candles, silver laptop with a blue dot logo, phone). On cards the art sits on the site's navy-blue gradient with a soft glow. Kurzgesagt-style layering for backgrounds; OverSimplified-style acting for the character.",
     "rules": [
       "Topic-specific metaphor every time: 1 central metaphor + 3 supporting props that explain THIS concept.",
       "Layering: deep navy background -> mid blue shapes -> light accents; 1 radial glow behind the focal point.",
@@ -94,7 +167,13 @@
       "Cut on the VO sentence boundary; 0.25 s dip-to-navy between scenes.",
       "End card 1.2 s: logo + sahamgorengan.id + follow handle."
     ],
-    "voice": {"engine": "edge-tts", "voice": "id-ID-ArdiNeural", "alt_voice": "id-ID-GadisNeural", "rate": "+6%", "pitch": "+0Hz"},
+    "voice": {
+      "engine": "edge-tts",
+      "voice": "id-ID-ArdiNeural",
+      "alt_voice": "id-ID-GadisNeural",
+      "rate": "+6%",
+      "pitch": "+0Hz"
+    },
     "vo_style": "Bahasa Indonesia santai-profesional, kalimat pendek (<= 14 kata), sapaan 'kamu', tanpa slang berlebihan, angka dibaca jelas."
   },
   "voice_and_tone": {
@@ -112,19 +191,51 @@
   },
   "compliance": {
     "banned_phrases": [
-      "pasti cuan", "pasti untung", "dijamin untung", "dijamin cuan", "dijamin profit", "pasti naik",
-      "pasti terbang", "auto cuan", "auto kaya", "cepat kaya", "tanpa risiko", "bebas risiko", "100% profit",
-      "100% untung", "profit konsisten", "modal kecil untung besar", "sinyal pasti", "jaminan keuntungan",
-      "guaranteed profit", "risk free", "pengelola dana", "kelola dana", "titip dana", "premium gratis",
-      "sg premium gratis", "komunitas gratis berbayar"
+      "pasti cuan",
+      "pasti untung",
+      "dijamin untung",
+      "dijamin cuan",
+      "dijamin profit",
+      "pasti naik",
+      "pasti terbang",
+      "auto cuan",
+      "auto kaya",
+      "cepat kaya",
+      "tanpa risiko",
+      "bebas risiko",
+      "100% profit",
+      "100% untung",
+      "profit konsisten",
+      "modal kecil untung besar",
+      "sinyal pasti",
+      "jaminan keuntungan",
+      "guaranteed profit",
+      "risk free",
+      "pengelola dana",
+      "kelola dana",
+      "titip dana",
+      "premium gratis",
+      "sg premium gratis",
+      "komunitas gratis berbayar"
     ],
     "required_disclaimer_any": [
-      "bukan ajakan beli", "bukan ajakan jual", "bukan rekomendasi", "bukan nasihat investasi",
-      "bukan saran investasi", "konten edukasi", "materi edukasi", "edukatif"
+      "bukan ajakan beli",
+      "bukan ajakan jual",
+      "bukan rekomendasi",
+      "bukan nasihat investasi",
+      "bukan saran investasi",
+      "konten edukasi",
+      "materi edukasi",
+      "edukatif"
     ],
     "default_disclaimer": "Konten edukasi, bukan ajakan beli/jual atau nasihat investasi personal. Keputusan dan risiko ada di tangan masing-masing.",
     "short_disclaimer": "Edukasi, bukan ajakan beli/jual.",
-    "premium_packages_idr": {"1_bulan": 200000, "3_bulan": 400000, "6_bulan": 600000, "12_bulan": 1000000},
+    "premium_packages_idr": {
+      "1_bulan": 200000,
+      "3_bulan": 400000,
+      "6_bulan": 600000,
+      "12_bulan": 1000000
+    },
     "rules": [
       "SG Premium berbayar; komunitas Telegram gratis. Jangan tukar keduanya.",
       "Klaim kinerja historis tanpa audit dilarang.",
@@ -138,23 +249,102 @@
     "community": "Diskusi gratis di Telegram: t.me/sahamgorengancuan"
   },
   "hashtags": {
-    "core": ["sahamgorengan", "sahamindonesia", "belajarsaham"],
-    "bank": ["ihsg", "investasisaham", "tradingsaham", "analisateknikal", "sahampemula", "bursaefekindonesia",
-             "edukasisaham", "literasikeuangan", "saham", "investorpemula"]
+    "core": [
+      "sahamgorengan",
+      "sahamindonesia",
+      "belajarsaham"
+    ],
+    "bank": [
+      "ihsg",
+      "investasisaham",
+      "tradingsaham",
+      "analisateknikal",
+      "sahampemula",
+      "bursaefekindonesia",
+      "edukasisaham",
+      "literasikeuangan",
+      "saham",
+      "investorpemula"
+    ]
   },
   "formats": {
-    "feed_portrait": {"w": 1080, "h": 1350, "safe": {"top": 72, "right": 72, "bottom": 96, "left": 72}},
-    "square": {"w": 1080, "h": 1080, "safe": {"top": 64, "right": 64, "bottom": 64, "left": 64}},
-    "vertical": {"w": 1080, "h": 1920, "safe": {"top": 230, "right": 150, "bottom": 430, "left": 80},
-                 "note": "Reels/Shorts UI covers top ~220px, bottom ~420px (caption/buttons) and right ~140px (actions)."},
-    "yt_thumb": {"w": 1280, "h": 720, "safe": {"top": 48, "right": 220, "bottom": 80, "left": 48}},
-    "og": {"w": 1200, "h": 630, "safe": {"top": 48, "right": 48, "bottom": 48, "left": 48}},
-    "web_hero": {"w": 1600, "h": 900, "safe": {"top": 64, "right": 64, "bottom": 64, "left": 64}}
+    "feed_portrait": {
+      "w": 1080,
+      "h": 1350,
+      "safe": {
+        "top": 72,
+        "right": 72,
+        "bottom": 96,
+        "left": 72
+      }
+    },
+    "square": {
+      "w": 1080,
+      "h": 1080,
+      "safe": {
+        "top": 64,
+        "right": 64,
+        "bottom": 64,
+        "left": 64
+      }
+    },
+    "vertical": {
+      "w": 1080,
+      "h": 1920,
+      "safe": {
+        "top": 230,
+        "right": 150,
+        "bottom": 430,
+        "left": 80
+      },
+      "note": "Reels/Shorts UI covers top ~220px, bottom ~420px (caption/buttons) and right ~140px (actions)."
+    },
+    "yt_thumb": {
+      "w": 1280,
+      "h": 720,
+      "safe": {
+        "top": 48,
+        "right": 220,
+        "bottom": 80,
+        "left": 48
+      }
+    },
+    "og": {
+      "w": 1200,
+      "h": 630,
+      "safe": {
+        "top": 48,
+        "right": 48,
+        "bottom": 48,
+        "left": 48
+      }
+    },
+    "web_hero": {
+      "w": 1600,
+      "h": 900,
+      "safe": {
+        "top": 64,
+        "right": 64,
+        "bottom": 64,
+        "left": 64
+      }
+    }
   },
-  "slots_wib": {"web": "10:30", "instagram": "15:00", "facebook": "15:30", "instagram_reel": "17:00",
-                "facebook_reel": "17:10", "youtube": "17:00", "research": "19:00"},
+  "slots_wib": {
+    "web": "10:30",
+    "instagram": "15:00",
+    "facebook": "15:30",
+    "instagram_reel": "17:00",
+    "facebook_reel": "17:10",
+    "youtube": "17:00",
+    "research": "19:00"
+  },
   "content_mix_weekly": {
-    "indikator": 2, "rekomendasi": 1, "berita": 2, "konsep": 1, "komunitas": 1,
+    "indikator": 2,
+    "rekomendasi": 1,
+    "berita": 2,
+    "konsep": 1,
+    "komunitas": 1,
     "note": "Rekomendasi hanya dengan data dan tanggal valid; berita wajib sumber primer. Jika sumber/QA gagal: HOLD."
   }
 }

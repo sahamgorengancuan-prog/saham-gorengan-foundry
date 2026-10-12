@@ -24,6 +24,7 @@ from xml.sax.saxutils import escape
 from ..brand import brand, fontconfig_file
 from ..config import BRAND_DIR
 from . import mascot as M
+from . import official as O
 from . import props as P
 from . import text as T
 
@@ -136,8 +137,17 @@ def mascot_spot(spec: dict | None, x: float, y: float, height: float, glow: bool
     if not spec:
         return ""
     g = (f'<circle cx="{x}" cy="{y - height * 0.52:.0f}" r="{height * 0.55:.0f}" fill="url(#glow)"/>' if glow else "")
-    return g + M.place(spec.get("pose", "explain"), spec.get("expression", "smirk"), x, y, height,
-                       accessory=spec.get("accessory", "none"), flip=bool(spec.get("flip")))
+    return g + mascot_art(spec, x, y, height)
+
+
+def mascot_art(spec: dict, x: float, y: float, height: float) -> str:
+    """Official site artwork when requested and installed, otherwise the on-model vector rig."""
+    if spec.get("source") == "official" or spec.get("art"):
+        svg = O.place(spec.get("art", "hero"), x, y, height, bool(spec.get("flip")))
+        if svg:
+            return svg
+    return M.place(spec.get("pose", "explain"), spec.get("expression", "smirk"), x, y, height,
+                   accessory=spec.get("accessory", "none"), flip=bool(spec.get("flip")))
 
 
 def art_box(art: dict | None, x: float, y: float, w: float, h: float) -> str:
@@ -150,8 +160,7 @@ def art_box(art: dict | None, x: float, y: float, w: float, h: float) -> str:
         inner += P.prop(pr["name"], pr["x"], pr["y"], pr.get("size", 180), pr.get("rotate", 0))
     if art.get("mascot"):
         m = art["mascot"]
-        inner += M.place(m.get("pose", "explain"), m.get("expression", "smirk"), m["x"], m["y"], m["height"],
-                         m.get("accessory", "none"), bool(m.get("flip")))
+        inner += mascot_art(m, m["x"], m["y"], m["height"])
     return (f'<svg x="{x:.0f}" y="{y:.0f}" width="{w:.0f}" height="{h:.0f}" viewBox="{vb}" '
             f'preserveAspectRatio="xMidYMid meet" overflow="hidden">{inner}</svg>')
 
@@ -385,7 +394,8 @@ def t_cta(d: dict, fmt: str, page: str | None, seed: str) -> str:
         body.append(T.block(tx, s["left"] + 86, y + 12, cw * 0.62 - 100, 26, 700, WHITE, max_lines=2,
                             line_height=1.25, size_min=22)[0])
         y += 100
-    body.append(mascot_spot(d.get("mascot", {"pose": "wave", "expression": "happy"}), w - 250, h + 10, 600))
+    body.append(mascot_spot(d.get("mascot", {"source": "official", "art": "hero", "pose": "wave",
+                                             "expression": "happy"}), w - 250, h + 10, 600))
     disc = d.get("disclaimer", b["compliance"]["default_disclaimer"])
     body.append(T.block(disc, s["left"], h - s["bottom"] - 70, cw * 0.55, 22, 600, MUTED, max_lines=4,
                         line_height=1.3)[0])

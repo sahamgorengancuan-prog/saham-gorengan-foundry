@@ -30,33 +30,55 @@ label/eyebrow 800 UPPERCASE tracking 15%. Skala feed 1080×1350: display 92 · h
 small 28 · label 24. Video 1080×1920: headline 84–104 · caption 62 (outline navy 9px) · body 46.
 Headline kartu ≤ 8 kata, frame video ≤ 6 kata. Highlight dengan `*kata*` → emas.
 
-## 4. Maskot "Bull" (character sheet — wajib konsisten)
-Banteng antropomorfik merah `#E5283C` (shade `#B71A2D`), moncong besar merah-muda `#F2606C` dengan dua lubang
-hidung gelap, tanduk maroon `#5E0E18` melengkung keluar lalu ke atas-dalam, jambul kecil merah tua di antara
-tanduk, telinga daun ke samping, mata setengah tertutup percaya diri dengan alis tebal gelap, senyum smirk
-ramah. Kemeja biru berkerah `#1B4C8F` (kerah `#2D66B5`) dengan kancing emas. Tangan merah seperti manusia.
-Outline navy tebal `#0A1633`, flat vector, tanpa tekstur bulu realistis.
+## 4. Maskot "Bull" (character sheet — wajib sama dengan ilustrasi sahamgorengan.id)
+Sumber kebenaran: ilustrasi resmi di `sahamgorengan.id/assets/` → `brand/reference/hero-bull-refined.webp`
+(Bull fist-pump di meja trading), `faq-bull.webp`, `community-bull-phone.webp`, `premium-bull-phone.webp`.
 
+Ciri yang WAJIB sama:
+- **Gaya**: flat vector semi-realistis dengan **cel shading** 2–3 tone, outline **maroon gelap `#2B0A10`**
+  (bukan hitam/navy), sedikit sudut 3/4.
+- **Kepala**: wajah banteng panjang berbentuk baji, **moncong abu-abu gelap `#4B4F5E`** dengan lubang hidung
+  gelap dan senyum smirk di moncong, alis tebal merah tua menaungi mata sipit percaya diri, jambul bulu runcing
+  di dahi, bulu runcing di pipi.
+- **Tanduk**: tebal, maroon gelap `#4A0A12`, melengkung keluar lalu naik dan **melengkung ke dalam** sehingga
+  ujungnya saling menghadap di atas kepala (bentuk bulan sabit).
+- **Telinga**: runcing seperti daun, menyamping.
+- **Badan**: kepala besar duduk rendah di **bahu lebar berotot** (leher pendek-tebal), kulit merah `#D8192C`
+  (bayangan `#A10F1E`, highlight `#F0434B`), bulu dada terlihat di kerah.
+- **Pakaian**: kemeja kasual **teal gelap `#24485E`** (bayangan `#183244`), kerah terbuka, **lengan digulung
+  di atas siku**, lengan bawah merah tebal, kepalan besar empat jari.
+- **Aksen**: garis kilau emas `#F5C431` di dekat kepalan yang terangkat; props adegan: meja navy, monitor navy
+  dengan grafik garis/candle biru muda, laptop silver dengan logo titik biru, ponsel.
+
+Cara pakai di template: `{"source": "official", "art": "hero"}` merender file resmi 1:1 (cover/CTA/end card,
+paling akurat). Untuk akting per adegan pakai rig vektor v2 (digambar mengikuti ciri di atas):
 - Pose: idle, explain, celebrate, think, warn, present, shrug, wave, double_point.
 - Ekspresi: smirk (default), happy, worried, serious, think, shock. Aksesori: glasses, tie, headset.
-- Referensi render: `brand/mascot/bull-<pose>-<ekspresi>.png` (rig) dan `brand/reference/hero-bull-refined.webp`
-  (ilustrasi resmi situs).
+- Referensi render rig: `brand/mascot/bull-<pose>-<ekspresi>.png`.
 - Kepribadian: mentor tenang, cerdas, sedikit jahil; jujur soal risiko; tidak serakah, tidak panik.
-- Dilarang: mengubah warna/tanduk/kemeja/proporsi, uang tunai/karung uang/mobil mewah, logo pihak lain.
+- Dilarang: moncong pink, kemeja biru terang, outline hitam, proporsi chibi/leher panjang, mengubah bentuk
+  tanduk; uang tunai/karung uang/mobil mewah; logo pihak lain.
 
-**Prompt image-gen (ChatGPT) — tempel apa adanya lalu tambah adegan:**
-> Flat vector editorial illustration, Kurzgesagt-inspired geometric style with soft glows and star-dust on a
-> deep navy (#05183A→#0B58BC) background. Main character: the Saham Gorengan "Bull" — an anthropomorphic red
-> bull (#E5283C) with a large pink-red muzzle (#F2606C) and two dark nostrils, dark maroon horns (#5E0E18)
-> sweeping outward then up and inward, a small dark-red tuft between the horns, sideways leaf-shaped ears,
-> confident half-lidded eyes with thick dark brows and a friendly smirk, wearing a blue collared shirt
-> (#1B4C8F) with gold buttons, human-like red hands, thick navy outlines (#0A1633), no fur texture. Palette
-> only navy, blues, red #ED2A3C, gold #FFCD35, white. No text except numbers if needed, no logos, no cash.
-> Scene: <metafora topik + aksi Bull + 3 props>. Portrait 1080×1350, keep the top 40% calm for headline text.
+**Prompt image-gen (ChatGPT) — lampirkan `hero-bull-refined.webp` (dan file resmi lain) sebagai gambar
+referensi, tempel prompt ini apa adanya, lalu tambah adegan:**
+> Use the attached Saham Gorengan "Bull" artwork as the exact character reference — same character, same
+> rendering style. Semi-realistic flat vector illustration with 2–3 tone cel shading and clean dark-maroon
+> outlines. A muscular anthropomorphic red bull (#D8192C) in a slight 3/4 view: long wedge-shaped face with a
+> charcoal-grey muzzle (#4B4F5E) and dark nostrils, smirk on the muzzle, heavy dark-red brow ridge over narrowed
+> confident eyes, spiky fur tuft on the forehead and fur spikes on the cheeks and chest, thick dark-maroon horns
+> (#4A0A12) that sweep outward and curl up and inward so the tips face each other above the head, pointed
+> leaf-shaped ears sticking out sideways. Big head on broad muscular shoulders with a short thick neck. Dark-teal
+> casual shirt (#24485E) with open collar and sleeves rolled above the elbow, thick red forearms, big
+> four-finger fists, gold motion sparks (#F5C431) near a raised fist. Props in the same style: navy desk, navy
+> monitors with light-blue line and candlestick charts, silver laptop with a blue dot logo. Background: deep
+> navy-blue gradient (#071D48 → #0B58BC) with a soft glow, or transparent. No text except numbers, no logos,
+> no cash. Scene: <metafora topik + aksi Bull + 3 props>. Portrait 1080×1350, keep the top 40% calm for text.
 
 ## 5. Gaya ilustrasi & motion
-- **Kurzgesagt**: bentuk geometris membulat, kedalaman berlapis (navy → biru → aksen terang), 1 glow radial di
-  fokus, partikel bintang, palet terbatas, outline hanya pada karakter & props utama.
+- **Karakter & props**: persis gaya ilustrasi situs (semi-realistis, cel shading, outline gelap). Jangan
+  dibuat chibi/kartun bulat.
+- **Latar (Kurzgesagt)**: gradasi navy situs, kedalaman berlapis, 1 glow radial di fokus, partikel bintang
+  halus, palet terbatas.
 - **OverSimplified**: akting karakter jelas dan lucu, ekspresi berlebihan, timing komedi; humor tidak pernah
   merendahkan orang yang rugi.
 - Motion: elemen masuk `pop`/`rise`/`slide` 0,35–0,5 dtk (ease-out-back), props `float`, kamera push-in 3–6%,
