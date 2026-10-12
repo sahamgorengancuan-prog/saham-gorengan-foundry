@@ -97,7 +97,7 @@ def svg_lines(lines, x: float, y: float, size: int, weight: int = 800, fill: str
             t = escape(w.replace("\u2060", "")) + (" " if i < len(line) - 1 and not nxt_glued else "")
             spans.append(f'<tspan fill="{hl_fill}">{t}</tspan>' if hl else t)
         out.append(f'<text x="{x:.1f}" y="{baseline:.1f}" font-family="{FAMILY}" font-weight="{weight}" '
-                   f'font-size="{size}" fill="{fill}" text-anchor="{anchor}"{ls}{extra}>{"".join(spans)}</text>')
+                   f'font-size="{size}" fill="{fill}" text-anchor="{anchor}" xml:space="preserve"{ls}{extra}>{"".join(spans)}</text>')
         baseline += size * line_height
     return "".join(out), y + size * line_height * len(lines)
 
