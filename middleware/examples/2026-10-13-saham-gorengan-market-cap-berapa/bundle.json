@@ -1,0 +1,211 @@
+{
+  "schema": "sg.bundle/1",
+  "target_day": "2026-10-13",
+  "slug": "saham-gorengan-market-cap-berapa",
+  "pillar": "berita",
+  "title": "Saham Gorengan Market Cap Berapa? Ukur 4 Angka Ini",
+  "research": {
+    "cluster": "berita",
+    "seed_keywords": ["saham gorengan", "saham indonesia", "cara main saham"],
+    "primary_keyword": {"keyword": "saham gorengan", "volume": 1900, "sd": 14, "pd": 1, "competition": 0.01,
+                        "intent": "Informational", "source": "ubersuggest", "fetched": "2026-10-12"},
+    "secondary_keywords": [
+      {"keyword": "saham gorengan adalah", "volume": 2400, "sd": 17, "competition": 0},
+      {"keyword": "apa itu saham gorengan", "volume": 720, "sd": 13, "competition": 0.01},
+      {"keyword": "saham gorengan market cap berapa", "volume": null, "source": "google_suggestions"},
+      {"keyword": "ciri ciri saham gorengan", "volume": null, "source": "match_keywords"}
+    ],
+    "question": {
+      "text": "Saham gorengan market cap berapa?",
+      "variants": ["saham gorengan market cap berapa", "saham gorengan adalah dan contohnya", "saham gorengan fundamental bagus", "ciri ciri saham gorengan"],
+      "type": "unanswered",
+      "evidence": "SERP 'saham gorengan adalah' (Ubersuggest, ID, update 2026-10-06) diisi definisi umum: Liputan6/Kontan (penjelasan CIO Danantara), Bizhare, Orami, Nanovest, Kompas, HSB. Tidak ada yang memberi angka terukur (market cap, nilai transaksi harian, kedalaman antrean, free float) atau simulasi; belum ada yang membahas dampak batas harga Rp1 dan penghapusan kriteria likuiditas PPK per 28 Sep 2026. Situs sudah punya pilar /saham-gorengan/, jadi artikel ini menjawab sub-pertanyaan terukur dan menautkan ke pilar.",
+      "gap_score": 0.8
+    },
+    "serp_top": [
+      {"url": "https://www.liputan6.com/saham/read/6270198/apa-itu-saham-gorengan-ini-penjelasan-cio-danantara", "note": "definisi, tanpa angka"},
+      {"url": "https://www.bizhare.id/media/investasi/saham-gorengan", "note": "ciri umum, listicle"},
+      {"url": "https://money.kompas.com/read/2026/02/15/153709826/kenali-ciri-saham-gorengan-begini-strategi-aman-investor-ritel", "note": "strategi umum, tanpa simulasi"}
+    ],
+    "ubersuggest_reports_used": 3
+  },
+  "assets": {
+    "hero": {"kind": "image", "render": {"template": "web_hero", "data": {
+      "headline": "Saham gorengan *market cap* berapa? Ukur 4 angka ini",
+      "mascot": {"pose": "think", "expression": "think", "accessory": "glasses"}}}},
+    "og": {"kind": "image", "render": {"template": "og", "data": {
+      "eyebrow": "Insight Saham Gorengan", "headline": "Saham gorengan *market cap* berapa?",
+      "mascot": {"pose": "present", "expression": "smirk"}}}},
+    "slides": {"kind": "carousel", "render": {"slides": [
+      {"template": "cover", "alt": "Bull berpikir dengan judul: Saham gorengan market cap berapa?",
+       "data": {"eyebrow": "Edukasi Saham", "headline": "Saham gorengan *market cap* berapa?",
+                "subhead": "Jawabannya: tidak ada angka resmi. Ini 4 angka yang lebih jujur.",
+                "mascot": {"pose": "think", "expression": "think"}}},
+      {"template": "point", "alt": "Timbangan dan koin: market cap kecil belum tentu digoreng",
+       "data": {"number": 1, "eyebrow": "Mulai dari sini", "heading": "Market cap bukan *vonis*",
+                "body": "Market cap = harga x jumlah saham. Kecil belum tentu digoreng, besar belum tentu aman. BEI juga tidak punya kategori resmi bernama saham gorengan.",
+                "art": {"viewbox": "0 0 936 420", "props": [{"name": "scale", "x": 250, "y": 220, "size": 300}, {"name": "coin", "x": 470, "y": 300, "size": 150}],
+                        "mascot": {"pose": "present", "expression": "smirk", "x": 760, "y": 420, "height": 400}}}},
+      {"template": "stat", "alt": "Angka Rp1: batas harga saham terendah sejak 28 September 2026",
+       "data": {"eyebrow": "Aturan baru", "value": "Rp1", "label": "batas harga terendah sejak 28 Sep 2026",
+                "context": "Sebelumnya Rp50. Harga nominal makin tidak bisa jadi patokan murah atau berisiko.",
+                "source": "KabarBursa 27/9/2026, Perubahan Peraturan BEI I-X & II-X",
+                "mascot": {"pose": "warn", "expression": "serious", "accessory": "tie"}}},
+      {"template": "point", "alt": "Kaca pembesar di atas candlestick: bandingkan modal penggerak dengan nilai transaksi",
+       "data": {"number": 2, "eyebrow": "Angka paling penting", "heading": "Nilai transaksi *harian*",
+                "body": "Bandingkan modal yang dibutuhkan untuk menggeser harga dengan nilai transaksi rata-rata harian. Makin besar porsinya, makin mudah harga didorong naik atau dijatuhkan.",
+                "art": {"viewbox": "0 0 936 420", "props": [{"name": "candles", "x": 230, "y": 210, "size": 320}, {"name": "magnifier", "x": 420, "y": 250, "size": 200}],
+                        "mascot": {"pose": "explain", "expression": "smirk", "x": 760, "y": 420, "height": 400}}}},
+      {"template": "example", "alt": "Simulasi hipotetis modal Rp93 juta menyapu 5 level antrean jual",
+       "data": {"heading": "Berapa modal untuk naik *8%*?",
+                "scenario": "Asumsi: harga Rp60, fraksi Rp1, antrean jual 3.000 lot di tiap level Rp60-Rp64, nilai transaksi harian Rp400 juta.",
+                "steps": ["3.000 lot x 100 = 300.000 lembar per level", "300.000 x (60+61+62+63+64) = Rp93 juta", "Harga naik ke Rp65 (+8,3%) = 23% nilai transaksi harian"],
+                "result": "Rasio dorong *23%*: harga mudah digerakkan, juga mudah jatuh."}},
+      {"template": "point", "alt": "Wajan kecil di atas api: free float kecil seperti wajan dengan sedikit minyak",
+       "data": {"number": 3, "eyebrow": "Kolam yang beredar", "heading": "Free float itu *wajannya*",
+                "body": "Saham publik sedikit ibarat wajan kecil: cepat panas, cepat gosong. Minimum free float kini 15% (berlaku 31 Mar 2026, transisi sampai 2029).",
+                "art": {"viewbox": "0 0 936 420", "props": [{"name": "wok", "x": 260, "y": 210, "size": 320}, {"name": "fire", "x": 260, "y": 360, "size": 120}],
+                        "mascot": {"pose": "warn", "expression": "worried", "x": 760, "y": 420, "height": 400}}}},
+      {"template": "myth_fact", "alt": "Mitos harga di bawah Rp100 pasti gorengan, fakta ukur likuiditas",
+       "data": {"myth": "Saham di bawah Rp100 pasti saham gorengan.",
+                "fact": "Harga nominal tidak mengukur risiko. Ukur likuiditas, kedalaman antrean, free float, lalu cek notasi, status UMA, dan suspensi di keterbukaan informasi BEI."}},
+      {"template": "checklist", "alt": "Checklist 4 angka sebelum ikut euforia saham",
+       "data": {"eyebrow": "Checklist", "heading": "4 angka sebelum ikut *euforia*",
+                "items": ["Nilai transaksi rata-rata 20 hari, bukan persen naik hari ini",
+                          "Modal untuk menyapu 5 level antrean dibanding nilai transaksi harian",
+                          "Free float dan sebaran pemegang saham",
+                          "Status UMA, suspensi, atau papan pemantauan khusus"]}},
+      {"template": "cta", "alt": "Bull melambai: simpan, bagikan, baca versi lengkap di sahamgorengan.id", "data": {}}
+    ]}},
+    "short": {"kind": "video", "render": {"storyboard": {
+      "title": "Saham gorengan *market cap* berapa?", "eyebrow": "Shorts",
+      "scenes": [
+        {"vo": "Saham gorengan itu market cap-nya berapa, sih?", "caption": "Saham gorengan itu *market cap*-nya berapa?",
+         "headline": "Market cap *berapa*?", "mascot": {"pose": "think", "expression": "think", "side": "right"},
+         "props": [{"name": "coin", "x": 300, "y": 900, "size": 280, "loop": "spin"}], "min_duration": 2.6},
+        {"vo": "Faktanya, bursa tidak punya angka resmi untuk menyebut saham gorengan.", "caption": "Bursa *tidak punya* angka resmi",
+         "headline": "Tidak ada angka *resmi*", "mascot": {"pose": "shrug", "expression": "worried", "side": "left"},
+         "props": [{"name": "document", "x": 790, "y": 880, "size": 300, "loop": "float"}]},
+        {"vo": "Yang bikin harga gampang didorong adalah antrean jual yang tipis.", "caption": "Kuncinya: antrean jual yang *tipis*",
+         "headline": "Antrean jual *tipis*", "mascot": {"pose": "explain", "expression": "smirk", "side": "left"},
+         "props": [{"name": "candles", "x": 790, "y": 880, "size": 340, "loop": "float"}]},
+        {"vo": "Simulasi hipotetis: sembilan puluh tiga juta rupiah cukup menyapu lima level antrean.", "caption": "Simulasi: *Rp93 juta* sapu 5 level antrean",
+         "headline": "Simulasi *hipotetis*", "mascot": {"pose": "present", "expression": "smirk", "side": "right"},
+         "counter": {"from": 0, "to": 93, "prefix": "Rp", "suffix": " jt", "x": 330, "y": 880, "size": 170}},
+        {"vo": "Harga naik delapan persen, padahal itu hampir seperempat nilai transaksi hariannya.", "caption": "Naik *8%* = hampir ¼ nilai transaksi harian",
+         "headline": "Naik *8%*", "mascot": {"pose": "think", "expression": "shock", "side": "right"},
+         "props": [{"name": "arrow_up", "x": 320, "y": 880, "size": 300, "loop": "pulse"}]},
+        {"vo": "Dan sejak dua puluh delapan September, harga saham bisa turun sampai satu rupiah.", "caption": "Sejak 28 Sep 2026 batas bawah harga *Rp1*",
+         "headline": "Batas bawah *Rp1*", "bg": "red", "mascot": {"pose": "warn", "expression": "serious", "side": "left", "accessory": "tie"},
+         "props": [{"name": "arrow_down", "x": 790, "y": 880, "size": 300, "loop": "pulse"}]},
+        {"vo": "Jadi cek nilai transaksi, free float, dan status UMA sebelum ikut euforia.", "caption": "Cek *nilai transaksi*, *free float*, status UMA",
+         "headline": "Cek 3 hal ini", "mascot": {"pose": "explain", "expression": "smirk", "side": "right", "accessory": "glasses"},
+         "props": [{"name": "magnifier", "x": 300, "y": 820, "size": 260, "loop": "wobble"}, {"name": "shield", "x": 330, "y": 1110, "size": 200, "delay": 0.6}]},
+        {"vo": "Hitungan lengkapnya ada di sahamgorengan dot id. Ini edukasi, bukan ajakan beli.", "caption": "Hitungan lengkap di *sahamgorengan.id*",
+         "headline": "Baca versi *lengkap*", "mascot": {"pose": "wave", "expression": "happy", "side": "center"}, "min_duration": 3}
+      ]}}},
+    "article": {"kind": "article", "render": {
+      "title": "Saham Gorengan Market Cap Berapa? Ukur 4 Angka Ini",
+      "meta_description": "Tidak ada batas market cap resmi untuk saham gorengan. Pelajari 4 angka yang lebih jujur, simulasi modal penggerak harga, dan aturan Rp1 BEI.",
+      "h1": "Saham gorengan market cap berapa? Ukur 4 angka ini, bukan harganya",
+      "eyebrow": "Insight · Regulasi & likuiditas",
+      "dek": "Pertanyaan ini sering muncul di Google, tapi jawabannya jarang jujur: tidak ada angka market cap resmi. Yang membuat saham mudah digoreng adalah rasio modal penggerak terhadap likuiditasnya.",
+      "primary_keyword": "saham gorengan",
+      "keywords": ["saham gorengan market cap berapa", "saham gorengan adalah", "ciri ciri saham gorengan", "papan pemantauan khusus", "free float 15 persen"],
+      "author": "Tim Riset Saham Gorengan",
+      "hero": "hero", "hero_alt": "Bull berkacamata berpikir tentang market cap saham gorengan", "og_image": "og",
+      "tldr": [
+        "Tidak ada batas market cap resmi dari BEI atau OJK untuk menyebut sebuah saham sebagai saham gorengan; istilah itu label pasar, bukan kategori aturan.",
+        "Ukuran yang lebih jujur adalah **rasio dorong**: modal untuk menyapu beberapa level antrean dibandingkan nilai transaksi rata-rata harian.",
+        "Sejak 28 September 2026 batas bawah harga saham menjadi Rp1 dan kriteria likuiditas Papan Pemantauan Khusus dihapus, jadi investor perlu mengukur likuiditas sendiri.",
+        "Cek empat angka: nilai transaksi rata-rata, kedalaman antrean, free float, serta status UMA, suspensi, atau papan pemantauan."
+      ],
+      "sections": [
+        {"heading": "Apakah ada batas market cap resmi untuk saham gorengan?",
+         "body_md": "Jawaban singkatnya: **tidak ada**. Bursa Efek Indonesia tidak memiliki kategori resmi bernama saham gorengan, dan tidak ada angka kapitalisasi pasar yang otomatis membuat sebuah saham masuk ke label itu. Istilah saham gorengan lahir dari bahasa pasar untuk menggambarkan saham yang harganya bisa naik atau turun sangat tajam dalam waktu singkat tanpa perubahan fundamental yang sepadan.\n\nMasalahnya, banyak artikel memakai market cap kecil sebagai definisi. Market cap hanyalah harga dikali jumlah saham tercatat. Angka itu memberi gambaran ukuran perusahaan, tetapi tidak menjelaskan seberapa mudah harganya digerakkan hari ini. Dua saham dengan market cap Rp300 miliar bisa berperilaku sangat berbeda: yang satu ramai ditransaksikan setiap hari dengan antrean tebal, yang lain sepi dan antreannya hanya beberapa ratus lot.\n\nKarena itu, pertanyaan yang lebih berguna bukan berapa market cap-nya, melainkan **berapa modal yang dibutuhkan untuk menggeser harganya**, dan seberapa besar modal itu dibanding uang yang biasa berputar di saham tersebut. Di situlah perbedaan antara saham kecil yang sehat dan saham yang rawan digoreng mulai terlihat.",
+         "source_refs": ["S3"]},
+        {"heading": "Kenapa likuiditas lebih penting daripada market cap?",
+         "body_md": "Harga saham bergerak ketika ada transaksi yang menghabiskan antrean di satu sisi. Jika antrean jual di tiap level harga tebal, pembeli besar pun harus membayar banyak hanya untuk menaikkan harga satu atau dua fraksi. Jika antrean tipis, pembelian kecil sudah cukup untuk melompati beberapa level sekaligus.\n\nItulah mekanisme yang sering dimanfaatkan dalam fenomena saham gorengan: harga tampak terbang, padahal uang yang masuk relatif kecil. Sisi sebaliknya sama berbahayanya. Saat banyak orang ingin keluar dan antrean beli tipis, harga bisa turun beberapa level dalam hitungan menit, dan kamu bisa kesulitan menjual di harga yang diinginkan.\n\nIDX Channel mencatat bahwa saham yang berkali-kali menyentuh auto reject dan bergerak tidak wajar bisa mendapat status **Unusual Market Activity (UMA)** sebagai peringatan, dan pada kondisi tertentu perdagangannya dihentikan sementara atau disuspensi. Selama suspensi, kamu tidak bisa menjual saham tersebut sampai bursa membuka kembali perdagangannya. Jadi likuiditas bukan sekadar soal mudah membeli, tetapi soal **pintu keluar**.",
+         "source_refs": ["S3"],
+         "callout": {"type": "insight", "text": "**Persen naik itu hasil. Likuiditas itu pintu keluarnya.** Ukur pintunya sebelum masuk ruangan."}},
+        {"heading": "Apa yang berubah sejak batas harga Rp1 berlaku 28 September 2026?",
+         "body_md": "Bursa menerbitkan Perubahan Peraturan I-X tentang penempatan efek pada Papan Pemantauan Khusus dan Perubahan Peraturan II-X tentang perdagangannya pada 25 September 2026, berlaku efektif 28 September 2026. Bersamaan dengan itu, ketentuan harga minimum Rp50 dicabut sehingga harga saham kini bisa turun sampai **Rp1**.\n\nBeberapa kriteria penempatan Papan Pemantauan Khusus dihapus, termasuk kriteria harga rata-rata di bawah Rp51 dengan likuiditas rendah, serta kriteria likuiditas rendah dengan nilai transaksi rata-rata harian di bawah Rp5 juta dan volume rata-rata harian di bawah 10.000 saham selama tiga bulan. Saham yang sebelumnya hanya memenuhi kriteria 1, 6, 7, atau 10 dipindahkan ke papan continuous auction di pasar reguler. Bursa juga menambahkan Non-Cancellation Period 10 menit sebelum berakhirnya setiap sesi call auction di papan tersebut, yang implementasinya mengikuti jadwal proyek sistem bursa.\n\nMenurut BEI, tujuannya adalah membentuk price discovery yang lebih baik dan memfokuskan papan pemantauan pada kondisi fundamental. Implikasi praktisnya untuk investor ritel: label papan tidak lagi otomatis menandai saham yang sepi, sehingga **filter likuiditas sekarang menjadi pekerjaan rumahmu sendiri**.",
+         "source_refs": ["S1"]},
+        {"heading": "Angka pertama dan kedua: nilai transaksi harian dan kedalaman antrean",
+         "body_md": "Mulailah dari **nilai transaksi rata-rata harian**, idealnya rata-rata 20 hari bursa agar tidak tertipu satu hari yang ramai. Angka ini menunjukkan berapa banyak uang yang biasa berputar. Lalu lihat **kedalaman antrean**: berapa lot yang menunggu di lima level jual dan lima level beli terdekat.\n\nGabungkan keduanya menjadi satu ukuran sederhana yang kami sebut **rasio dorong**:\n\n- Hitung modal untuk menyapu lima level antrean jual terdekat.\n- Bagi dengan nilai transaksi rata-rata harian.\n- Semakin besar persentasenya, semakin mudah harga digerakkan, ke atas maupun ke bawah.\n\nRasio dorong di bawah satu persen biasanya menandakan saham yang dalam dan likuid. Rasio belasan hingga puluhan persen berarti segelintir pelaku bisa mengubah harga secara signifikan dalam satu sesi. Angka ini bukan sinyal beli atau jual; ia hanya memberi tahu seberapa rapuh harga yang sedang kamu lihat. Ulangi pengecekan di jam berbeda, karena antrean bisa ditarik dan dipasang ulang dengan cepat, terutama menjelang penutupan sesi.",
+         "source_refs": ["S1", "S3"]},
+        {"heading": "Angka ketiga: free float, ukuran kolam yang benar-benar beredar",
+         "body_md": "Free float adalah porsi saham yang dimiliki publik dan benar-benar bisa diperdagangkan. Semakin kecil free float, semakin sedikit barang yang beredar, sehingga permintaan kecil pun bisa terasa besar. Bayangkan wajan kecil dengan sedikit minyak: cepat panas, cepat gosong.\n\nBEI memberlakukan perubahan Peraturan Bursa Nomor I-A dan Surat Edaran SE-00004/BEI/03-2026 mulai 31 Maret 2026, menaikkan batas minimum free float untuk tetap tercatat dari 7,5 persen menjadi **15 persen**. Masa transisinya dibagi berdasarkan kapitalisasi per 31 Maret 2026: emiten di atas Rp5 triliun dengan free float di bawah 12,5 persen wajib mencapai 12,5 persen pada 31 Maret 2027 dan 15 persen pada 31 Maret 2028, sementara emiten di bawah Rp5 triliun wajib memenuhi 15 persen paling lambat 31 Maret 2029. Untuk IPO, BEI memakai tiering 15, 20, dan 25 persen berdasarkan kapitalisasi pasar.\n\nArtinya, selama masa transisi masih akan ada saham dengan kolam beredar kecil. Cek data pemegang saham di laporan bulanan emiten dan hitung sendiri porsi publiknya, jangan hanya mengandalkan label papan.",
+         "source_refs": ["S2"]},
+        {"heading": "Angka keempat: status UMA, suspensi, dan papan pemantauan",
+         "body_md": "Angka terakhir sebenarnya adalah status. Sebelum masuk, cek apakah saham tersebut pernah atau sedang mendapat pengumuman **UMA**, suspensi, atau berada di Papan Pemantauan Khusus. UMA bukan sanksi dan tidak otomatis berarti ada pelanggaran; bursa menerbitkannya sebagai peringatan bahwa aktivitas harga atau volumenya tidak biasa. Namun, saham yang berulang kali mendapat UMA dan auto reject patut diperlakukan dengan ekstra hati-hati.\n\nSuspensi lebih serius karena menutup pintu keluar sementara. Durasi suspensi tidak bisa dipastikan dan bergantung pada penyebabnya, misalnya pergerakan tidak wajar atau kewajiban emiten yang belum dipenuhi. Sejak perubahan 28 September 2026, Papan Pemantauan Khusus lebih difokuskan pada kondisi fundamental, sehingga keberadaan sebuah saham di sana justru memberi sinyal untuk membaca laporan keuangan dan keterbukaan informasinya lebih teliti.\n\nKebiasaan sederhana yang membantu: simpan daftar saham yang kamu pantau, lalu cek pengumuman bursanya seminggu sekali. Lima menit membaca pengumuman sering lebih berharga daripada lima jam menatap grafik.",
+         "source_refs": ["S1", "S3"]},
+        {"heading": "Batasan: kapan rasio dorong menyesatkan?",
+         "body_md": "Rasio dorong adalah alat ukur kerapuhan harga, bukan alat ramal. Ada beberapa kondisi ketika angka ini menyesatkan. Pertama, saat ada aksi korporasi atau berita material, likuiditas bisa melonjak sementara sehingga rasio tampak aman padahal hanya satu hari. Kedua, antrean yang kamu lihat bisa berubah cepat karena order dipasang lalu ditarik, sehingga snapshot satu kali tidak mewakili. Ketiga, saham kecil dengan bisnis yang benar-benar tumbuh tetap bisa memiliki rasio dorong tinggi tanpa ada niat buruk dari siapa pun.\n\nKarena itu, gunakan empat angka di artikel ini sebagai **filter risiko**, lalu lanjutkan dengan membaca fundamental dan keterbukaan informasi. Tujuannya bukan menghindari semua saham kecil, tetapi memastikan ukuran posisi dan rencana keluarmu sebanding dengan rapuhnya harga yang kamu hadapi.",
+         "source_refs": ["S1", "S2", "S3"],
+         "callout": {"type": "warning", "text": "Jangan memakai satu angka untuk menyimpulkan sebuah saham digoreng atau tidak. Gabungkan likuiditas, free float, status bursa, dan fundamental."}}
+      ],
+      "misconception": {
+        "myth": "Saham dengan harga di bawah Rp100 atau market cap kecil pasti saham gorengan dan pasti dimanipulasi.",
+        "correction": "Harga nominal dan market cap tidak mengukur seberapa mudah harga digerakkan. Saham murah bisa likuid dan sehat, saham mahal bisa sepi. Sejak batas bawah harga menjadi Rp1, harga nominal makin tidak informatif. Ukur nilai transaksi harian, kedalaman antrean, free float, dan status UMA atau suspensi sebelum memberi label apa pun, dan ingat bahwa label pasar bukan bukti manipulasi."
+      },
+      "worked_example": {
+        "label": "SIMULASI HIPOTETIS: berapa modal untuk menaikkan harga 8%?",
+        "scenario": "Asumsikan saham PT Contoh memiliki 4 miliar saham tercatat di harga Rp60 dengan fraksi harga Rp1. Free float 15 persen. Nilai transaksi rata-rata harian Rp400 juta. Di antrean jual ada 3.000 lot di setiap level harga dari Rp60 sampai Rp64. Semua angka ini fiktif untuk menjelaskan mekanisme, bukan menggambarkan saham tertentu.",
+        "steps": [
+          "Market cap = 4.000.000.000 saham x Rp60 = **Rp240 miliar**; saham publik 15 persen = 600 juta saham atau sekitar Rp36 miliar yang benar-benar beredar.",
+          "Satu level antrean = 3.000 lot x 100 lembar = 300.000 lembar; menyapu lima level butuh 300.000 x (60+61+62+63+64) = **Rp93 juta**.",
+          "Setelah lima level habis, harga berpindah ke Rp65 atau naik sekitar 8,3 persen; rasio dorong = Rp93 juta dibagi Rp400 juta = **sekitar 23 persen** dari nilai transaksi harian.",
+          "Sebagai pembanding, pada saham likuid dengan nilai transaksi harian Rp500 miliar, Rp93 juta hanya sekitar 0,02 persen dan hampir tidak menggeser harga."
+        ],
+        "takeaway": "Di saham hipotetis ini, modal yang setara hampir seperempat transaksi harian cukup untuk mendorong harga 8 persen. Mekanisme yang sama bekerja saat turun: jika antrean beli setipis itu, menjual dalam jumlah besar akan menekan harga beberapa level. Ukur rasio dorong sebelum menentukan ukuran posisi."
+      },
+      "checklist": [
+        "Hitung nilai transaksi rata-rata 20 hari bursa, bukan melihat persen kenaikan hari ini saja.",
+        "Jumlahkan modal untuk menyapu lima level antrean jual dan bandingkan dengan nilai transaksi harian.",
+        "Cek porsi free float dan sebaran pemegang saham di laporan bulanan emiten.",
+        "Periksa pengumuman UMA, suspensi, dan status papan pemantauan di keterbukaan informasi bursa.",
+        "Tentukan ukuran posisi dan rencana keluar sebelum membeli, sebanding dengan rapuhnya harga."
+      ],
+      "faq": [
+        {"q": "Saham gorengan market cap berapa?", "a": "Tidak ada angka resmi. Market cap kecil sering dikaitkan dengan saham gorengan, tetapi yang menentukan mudah atau tidaknya harga digerakkan adalah likuiditas: nilai transaksi harian, kedalaman antrean, dan free float."},
+        {"q": "Apakah BEI punya daftar resmi saham gorengan?", "a": "Tidak. BEI menerbitkan pengumuman seperti UMA, suspensi, dan penempatan di Papan Pemantauan Khusus, tetapi tidak memakai istilah saham gorengan sebagai kategori resmi."},
+        {"q": "Apa arti batas harga Rp1 bagi investor ritel?", "a": "Sejak 28 September 2026 harga saham bisa turun sampai Rp1, bukan lagi tertahan di Rp50. Harga nominal makin tidak bisa dijadikan patokan risiko, sehingga cek likuiditas dan fundamental menjadi lebih penting."},
+        {"q": "Apakah saham gorengan pasti ilegal?", "a": "Tidak. Saham gorengan adalah label pasar untuk saham yang harganya sangat volatil. Manipulasi harga adalah pelanggaran, tetapi volatilitas tinggi sendiri bukan bukti manipulasi. Baca juga perbedaan saham gorengan dan manipulasi pasar di sahamgorengan.id."}
+      ],
+      "sources": [
+        {"id": "S1", "title": "KabarBursa: BEI hapus harga minimum Rp50 di papan FCA, berlaku 28 September 2026", "url": "https://www.kabarbursa.com/market-hari-ini/besok-bei-hapus-harga-minimum-rp50-di-papan-fca",
+         "claim_supported": "Perubahan Peraturan I-X dan II-X terbit 25 September 2026 dan berlaku 28 September 2026: harga minimum Rp50 menjadi Rp1, kriteria 1, 6, 7, dan 10 Papan Pemantauan Khusus dihapus, serta Non-Cancellation Period 10 menit sebelum akhir sesi call auction."},
+        {"id": "S2", "title": "IDX Channel: BEI resmi berlakukan aturan free float jadi 15 persen, ini tenggat waktunya", "url": "https://www.idxchannel.com/market-news/bei-resmi-berlakukan-aturan-free-float-jadi-15-persen-ini-tenggat-waktunya",
+         "claim_supported": "Perubahan Peraturan I-A dan SE-00004/BEI/03-2026 berlaku 31 Maret 2026, free float minimum naik dari 7,5 menjadi 15 persen dengan masa transisi berdasarkan kapitalisasi sampai 31 Maret 2029."},
+        {"id": "S3", "title": "IDX Channel: Pengertian suspend saham, alasan suspensi, dan apa yang harus dilakukan investor", "url": "https://www.idxchannel.com/market-news/pengertian-suspend-saham-alasan-suspensi-dan-apa-yang-harus-dilakukan-investor/all",
+         "claim_supported": "Saham dengan pergerakan tidak wajar bisa mendapat status UMA yang belum tentu berakhir suspensi, dan selama suspensi saham tidak dapat dijual sampai perdagangan dibuka kembali."}
+      ],
+      "internal_links": [
+        {"title": "Saham gorengan: panduan lengkap", "url": "https://sahamgorengan.id/saham-gorengan/"},
+        {"title": "Saham gorengan vs manipulasi pasar", "url": "https://sahamgorengan.id/saham-gorengan-vs-manipulasi-pasar/"},
+        {"title": "Baru mulai? Mulai dari sini", "url": "https://sahamgorengan.id/insight/mulai-dari-sini/"}
+      ]
+    }}
+  },
+  "posts": [
+    {"platform": "web", "kind": "article", "asset": "article", "publish_at": "auto"},
+    {"platform": "instagram", "kind": "carousel", "assets": ["slides"], "publish_at": "auto",
+     "caption": "Saham gorengan market cap berapa? Jawaban jujurnya: tidak ada angka resmi.\n\nYang bikin harga gampang didorong itu rasio modal penggerak dibanding nilai transaksi harian. Di simulasi hipotetis kami, Rp93 juta cukup menaikkan harga 8%.\n\nPlus: sejak 28 Sep 2026 batas bawah harga saham jadi Rp1. Harga nominal makin nggak bisa jadi patokan.\n\nSimpan dulu, kirim ke teman yang masih menilai saham dari harganya.",
+     "hashtags": ["sahamgorengan", "sahamindonesia", "belajarsaham", "edukasisaham", "ihsg"],
+     "first_comment": "Versi lengkap + cara hitung rasio dorong ada di link bio (sahamgorengan.id). Mau dibahas angka mana dulu?"},
+    {"platform": "facebook", "kind": "photos", "assets": ["slides_01", "slides_05", "slides_08"], "publish_at": "auto",
+     "message": "Saham gorengan market cap berapa? Tidak ada angka resmi dari bursa.\n\nYang lebih jujur: bandingkan modal untuk menyapu beberapa level antrean dengan nilai transaksi harian. Di simulasi hipotetis kami, Rp93 juta (sekitar 23% transaksi harian) cukup menaikkan harga 8%.\n\nSejak 28 September 2026 batas bawah harga saham juga turun jadi Rp1, jadi cek likuiditas, free float, dan status UMA sebelum ikut euforia.",
+     "hashtags": ["sahamgorengan", "sahamindonesia"]},
+    {"platform": "instagram", "kind": "reel", "asset": "short", "cover": "short_cover", "publish_at": "auto",
+     "caption": "Saham gorengan market cap berapa? 45 detik bareng Bull.\n\nTidak ada angka resmi. Cek rasio dorong, free float, dan status UMA. Simpan biar nggak lupa.",
+     "hashtags": ["sahamgorengan", "belajarsaham", "sahamindonesia"]},
+    {"platform": "facebook", "kind": "reel", "asset": "short", "publish_at": "auto",
+     "message": "Saham gorengan market cap berapa? Jawabannya ada di likuiditas, bukan harga. 45 detik bareng Bull."},
+    {"platform": "youtube", "kind": "short", "asset": "short", "publish_at": "auto",
+     "title": "Saham Gorengan Market Cap Berapa? Ini Faktanya",
+     "description": "Saham gorengan market cap berapa? Tidak ada angka resmi dari BEI. Yang menentukan mudahnya harga digerakkan adalah likuiditas: nilai transaksi harian, kedalaman antrean, dan free float.\n\nIsi video: kenapa market cap bukan vonis, simulasi hipotetis Rp93 juta menggerakkan harga 8%, dan aturan baru batas harga Rp1 sejak 28 September 2026.",
+     "tags": ["saham gorengan", "saham gorengan adalah", "market cap saham", "ciri ciri saham gorengan", "papan pemantauan khusus", "free float", "UMA saham", "belajar saham", "saham indonesia", "edukasi saham", "harga saham Rp1", "BEI"]}
+  ],
+  "qa": {"visual_review": {"done": false, "by": "", "notes": ""}}
+}

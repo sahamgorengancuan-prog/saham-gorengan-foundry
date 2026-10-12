@@ -200,6 +200,8 @@ def cmd_pool(a):
 
 def cmd_secrets(a):
     from sgmw import vault
+    vault.api_token()
+    vault.ui_auth()
     if not a.show:
         print(f"API token: {STATE / 'api_token'} · UI login: {STATE / 'ui_auth.json'} (use --show to print)")
         return
