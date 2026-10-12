@@ -122,11 +122,12 @@ Posts standar (biarkan `publish_at: "auto"` → slot WIB: web 10:30, IG 15:00, F
    jalankan di background lalu cek berkala:
    `nohup .venv/bin/python app.py validate inbox/<dir> > state/cache/validate.json 2> state/cache/validate.err &`
    (sama untuk `ingest` → `state/cache/ingest.json`). Selesai jika file JSON berisi objek lengkap.
-2. **Visual review WAJIB pada file hasil render** (`report.dir`/media/*.png, short.mp4): buka di desktop VPS
-   (`vps_desktop_open_url` → `file:///srv/localmcpcoder-work/sg-middleware/state/jobs/_validate/<job>/media/slides_01.png`,
-   lalu `vps_desktop_screenshot`) — cek: teks terbaca & tidak terpotong, tidak bertabrakan dengan Bull,
-   highlight emas maksimal 1–3 kata, metafora jelas, warna sesuai palet. Untuk video: ambil 3–4 frame
-   (`ffmpeg -ss <t> -i short.mp4 -frames:v 1 f.png`) dan lihat. Perbaiki spesifikasi lalu validate ulang.
+2. **Visual review WAJIB pada file hasil render**: `app.py preview state/jobs/_validate/<job> --b64` membuat
+   contact sheet slide (`preview_slides.jpg`, `preview_other.jpg`) dan 8 frame video (`preview_short.jpg`) lalu mencetak base64.
+   Salin blok base64 ke file di container sesi ini, decode (`base64 -d > sheet.jpg`), lalu lihat dengan Read
+   (gambar). Jika output terpotong, ambil per potongan (`cut -c1-15000`, dst.). Cek: teks terbaca & tidak
+   terpotong, tidak bertabrakan dengan Bull, highlight emas maksimal 1–3 kata, metafora jelas, warna sesuai
+   palet, caption video utuh. Perbaiki spesifikasi lalu validate ulang.
 3. Isi `qa.visual_review = {"done": true, "by": "<model/routine>", "notes": "≥ 25 kata hasil inspeksi nyata"}`.
    **Jangan** set `done: true` kalau tidak benar-benar melihat gambarnya — tanpa itu post menunggu approval
    manual (itu perilaku yang benar).

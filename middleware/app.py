@@ -15,6 +15,7 @@
     python app.py brand-export          # mascot pose + prop reference PNGs into brand/
     python app.py pool add <file.json>  # merge Ubersuggest results into the keyword pool
     python app.py pool top              # best unused opportunities (high volume, low difficulty)
+    python app.py preview <job_dir> [--b64]  # contact sheets for visual review
     python app.py secrets --show        # print API token + UI login (local only)
 
 No LLM API key lives here: the LLM work happens in the scheduled Claude routine or
@@ -198,6 +199,55 @@ def cmd_pool(a):
         print("marked")
 
 
+def cmd_preview(a):
+    """Small contact sheets (slides + video frames) for visual review by a remote LLM session.
+
+    --b64 prints each JPEG as base64 so a session without screen access can decode and view it.
+    """
+    import base64
+    import glob
+    from PIL import Image
+    d = Path(a.dir)
+    media = d / "media" if (d / "media").is_dir() else d
+    out = []
+    slides = sorted(glob.glob(str(media / "*_[0-9][0-9].png")))
+    others = [str(p) for p in sorted(media.glob("*.png")) if not p.stem[-2:].isdigit()]
+    for name, group in (("preview_slides.jpg", slides), ("preview_other.jpg", others)):
+        tiles = [Image.open(p).convert("RGB") for p in group]
+        if not tiles:
+            continue
+        tw, cols = 150, 5
+        th = max(int(tw * t.height / t.width) for t in tiles)
+        sheet = Image.new("RGB", (tw * cols, th * ((len(tiles) + cols - 1) // cols)), (255, 255, 255))
+        for i, t in enumerate(tiles):
+            sheet.paste(t.resize((tw, int(tw * t.height / t.width))), ((i % cols) * tw, (i // cols) * th))
+        out.append((media / name, sheet))
+    for mp4 in sorted(media.glob("*.mp4")):
+        dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
+                                    str(mp4)], capture_output=True, text=True).stdout or 0)
+        frames = []
+        for k in range(8):
+            t = dur * (k + 0.5) / 8
+            fp = media / f".frame{k}.png"
+            subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-ss", f"{t:.2f}", "-i", str(mp4), "-frames:v", "1",
+                            "-vf", "scale=112:200", str(fp)], check=False)
+            if fp.exists():
+                frames.append(Image.open(fp).convert("RGB"))
+                fp.unlink()
+        if frames:
+            sheet = Image.new("RGB", (112 * len(frames), 200))
+            for i, f in enumerate(frames):
+                sheet.paste(f, (i * 112, 0))
+            out.append((media / f"preview_{mp4.stem}.jpg", sheet))
+    for path, sheet in out:
+        sheet.save(path, quality=45, optimize=True)
+        print(f"{path} ({path.stat().st_size} bytes)")
+        if a.b64:
+            print("BASE64_BEGIN " + path.name)
+            print(base64.b64encode(path.read_bytes()).decode())
+            print("BASE64_END")
+
+
 def cmd_secrets(a):
     from sgmw import vault
     vault.api_token()
@@ -234,6 +284,8 @@ def main():
     p.add_argument("--n", type=int, default=40); p.add_argument("--max-sd", type=int, default=35)
     p.add_argument("--min-volume", type=int, default=500); p.add_argument("--unmeasured", action="store_true")
     p.add_argument("--day"); p.set_defaults(fn=cmd_pool)
+    p = sub.add_parser("preview", help="contact sheets for visual review")
+    p.add_argument("dir"); p.add_argument("--b64", action="store_true"); p.set_defaults(fn=cmd_preview)
     p = sub.add_parser("secrets"); p.add_argument("--show", action="store_true"); p.set_defaults(fn=cmd_secrets)
     a = ap.parse_args()
     if not a.cmd:
