@@ -18,13 +18,15 @@ Pilih metafora fisik yang menjelaskan MEKANISME, lalu 3 props pendukung. Contoh:
 Props tersedia (render konsisten): arrow_down, arrow_up, building, calendar, candles, chart_down, chart_up,
 clock, coin, crowd, desk, document, fire, gauge, hourglass, laptop (silver, logo biru), lightbulb, lock, magnifier,
 megaphone, money, monitor (navy + grafik biru muda, seperti situs), phone, piggy, rocket, scale, shield, target,
-warning, wok. Boleh menambah SVG kustom (`art.svg`) dengan gaya
+warning, wok; elemen UI gaya art resmi: ui_card_profile, ui_card_chart, ui_card_trend, chat_bubble, question_bubble,
+user_badge, sparks_gold, sparks_blue, phone_app. Semua flat tanpa outline (sama dengan art resmi). Boleh menambah SVG kustom (`art.svg`) dengan gaya
 yang sama: flat, outline navy `#0A1633` 6–8px, sudut membulat, palet brand saja.
 
 ## 3. Bull acting (OverSimplified-style)
 Karakter harus identik dengan ilustrasi sahamgorengan.id (lihat BRAND_KIT §4). Untuk cover, CTA, dan end card
-utamakan art resmi: `"mascot": {"source": "official", "art": "hero"}` (Bull fist-pump di meja trading); pilihan
-lain `faq`, `community`, `premium`. Untuk adegan yang butuh akting spesifik pakai rig:
+utamakan art resmi: `"mascot": {"source": "official", "art": "hero"}` (fist-pump di meja trading), `faq` (shrug +
+bubble tanya — cocok untuk "tidak ada jawaban resmi"/pertanyaan), `community` (menunjuk ponsel + kartu UI — cocok
+untuk "cek data/aplikasi"), `premium` (ponsel raksasa berisi daftar saham — cocok untuk screening/watchlist). Untuk adegan yang butuh akting spesifik pakai rig:
 Pose: idle, explain, celebrate, think, warn, present, shrug, wave, double_point.
 Ekspresi: smirk (default), happy, worried, serious, think, shock. Aksesori: none, glasses (analitis), tie
 (formal/regulasi), headset (berita/live).
@@ -54,7 +56,8 @@ Koordinat panggung video 1080×1920: headline 270–600, panggung 600–1340 (Bu
 bawah 1500+ tertutup UI platform. Props `x` 200–880, `y` 700–1200, `size` 220–380.
 
 ## 5. Carousel IG (7–9 slide)
-`cover` (hook ≤ 8 kata, 1–3 kata *highlight*, Bull pose sesuai emosi) → isi (`point` bernomor / `stat` /
+Slide 1 utamakan `explainer` (replika kartu situs: `label`, `headline` kapital emas, `subhead`, `chart_points` atau
+`art`, `mascot` resmi, `strip`). Alternatif `cover` (hook ≤ 8 kata, 1–3 kata *highlight*, Bull pose sesuai emosi) → isi (`point` bernomor / `stat` /
 `myth_fact` / `example` HIPOTETIS / `checklist` / `illustration` dengan `art`) → `cta`.
 Satu slide = satu ide; body ≤ 45 kata. Contoh `point` dengan art:
 ```json

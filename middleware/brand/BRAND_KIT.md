@@ -34,49 +34,53 @@ Headline kartu ≤ 8 kata, frame video ≤ 6 kata. Highlight dengan `*kata*` →
 Sumber kebenaran: ilustrasi resmi di `sahamgorengan.id/assets/` → `brand/reference/hero-bull-refined.webp`
 (Bull fist-pump di meja trading), `faq-bull.webp`, `community-bull-phone.webp`, `premium-bull-phone.webp`.
 
-Ciri yang WAJIB sama:
-- **Gaya**: flat vector semi-realistis dengan **cel shading** 2–3 tone, outline **maroon gelap `#2B0A10`**
-  (bukan hitam/navy), sedikit sudut 3/4.
-- **Kepala**: wajah banteng panjang berbentuk baji, **moncong abu-abu gelap `#4B4F5E`** dengan lubang hidung
-  gelap dan senyum smirk di moncong, alis tebal merah tua menaungi mata sipit percaya diri, jambul bulu runcing
-  di dahi, bulu runcing di pipi.
-- **Tanduk**: tebal, maroon gelap `#4A0A12`, melengkung keluar lalu naik dan **melengkung ke dalam** sehingga
-  ujungnya saling menghadap di atas kepala (bentuk bulan sabit).
-- **Telinga**: runcing seperti daun, menyamping.
-- **Badan**: kepala besar duduk rendah di **bahu lebar berotot** (leher pendek-tebal), kulit merah `#D8192C`
-  (bayangan `#A10F1E`, highlight `#F0434B`), bulu dada terlihat di kerah.
-- **Pakaian**: kemeja kasual **teal gelap `#24485E`** (bayangan `#183244`), kerah terbuka, **lengan digulung
-  di atas siku**, lengan bawah merah tebal, kepalan besar empat jari.
-- **Aksen**: garis kilau emas `#F5C431` di dekat kepalan yang terangkat; props adegan: meja navy, monitor navy
-  dengan grafik garis/candle biru muda, laptop silver dengan logo titik biru, ponsel.
+Ciri yang WAJIB sama (diverifikasi dari keempat file resmi):
+- **Gaya**: flat vector modern **tanpa outline** — bentuk hanya isi warna; detail digambar dengan garis warna
+  lebih gelap (helai bulu, lipatan jari, lipatan kemeja). Sedikit sudut 3/4 menghadap kanan.
+- **Kepala**: moncong panjang dengan **moncong abu-abu gelap `#4A4B53`** menonjol di kanan-bawah wajah, lubang
+  hidung gelap, garis senyum/seringai di moncong. **Mata kecil gelap** dengan kilau kecil di bawah **alis hitam
+  tebal** (bentuk V = tegas/percaya diri, melengkung = ramah). Jambul bulu tersibak di dahi, bulu bergerigi di
+  pipi, rahang, dan dada.
+- **Tanduk**: pendek-tebal, maroon gelap `#5A1217` dengan pita lebih gelap, keluar-naik lalu ujungnya
+  **melengkung ke dalam** di atas kepala.
+- **Telinga**: besar berbentuk daun, menyamping di bawah tanduk (bagian dalam `#A80F18`).
+- **Badan**: merah terang `#E5161F` (bayangan `#B9111A`), kepala besar di **bahu lebar berotot**, leher pendek.
+- **Pakaian**: kemeja kasual **teal gelap `#1F4C60`** (lipatan `#11303E`), kerah terbuka, **lengan digulung di
+  atas siku**, lengan bawah merah tebal, tangan besar empat jari.
+- **Elemen pendukung**: garis kilau pendek-tebal emas `#F2B630` / biru `#1D63E6`, kartu UI putih (avatar, garis
+  abu, bar hijau, candle mini), bubble chat biru, bubble "?" putih, monitor navy dengan grafik biru muda, laptop
+  silver logo titik biru, ponsel dengan daftar saham.
+- **Art resmi**: `hero` (fist-pump di meja trading), `faq` (shrug ramah + bubble tanya), `community` (seringai,
+  menunjuk ponsel + kartu UI), `premium` (memegang ponsel raksasa berisi daftar saham).
 
-Cara pakai di template: `{"source": "official", "art": "hero"}` merender file resmi 1:1 (cover/CTA/end card,
-paling akurat). Untuk akting per adegan pakai rig vektor v2 (digambar mengikuti ciri di atas):
+Cara pakai di template: `{"source": "official", "art": "hero|faq|community|premium"}` merender file resmi 1:1
+(paling akurat — utamakan untuk cover, CTA, end card, dan adegan yang aksinya cocok). Untuk akting lain pakai rig
+vektor v3 (flat tanpa outline, digambar mengikuti ciri di atas):
 - Pose: idle, explain, celebrate, think, warn, present, shrug, wave, double_point.
 - Ekspresi: smirk (default), happy, worried, serious, think, shock. Aksesori: glasses, tie, headset.
 - Referensi render rig: `brand/mascot/bull-<pose>-<ekspresi>.png`.
 - Kepribadian: mentor tenang, cerdas, sedikit jahil; jujur soal risiko; tidak serakah, tidak panik.
-- Dilarang: moncong pink, kemeja biru terang, outline hitam, proporsi chibi/leher panjang, mengubah bentuk
-  tanduk; uang tunai/karung uang/mobil mewah; logo pihak lain.
+- Dilarang: outline apa pun di sekeliling karakter, moncong pink, kemeja biru terang, mata kartun putih besar,
+  proporsi chibi/leher panjang, mengubah bentuk tanduk; uang tunai/karung uang/mobil mewah; logo pihak lain.
 
 **Prompt image-gen (ChatGPT) — lampirkan `hero-bull-refined.webp` (dan file resmi lain) sebagai gambar
 referensi, tempel prompt ini apa adanya, lalu tambah adegan:**
-> Use the attached Saham Gorengan "Bull" artwork as the exact character reference — same character, same
-> rendering style. Semi-realistic flat vector illustration with 2–3 tone cel shading and clean dark-maroon
-> outlines. A muscular anthropomorphic red bull (#D8192C) in a slight 3/4 view: long wedge-shaped face with a
-> charcoal-grey muzzle (#4B4F5E) and dark nostrils, smirk on the muzzle, heavy dark-red brow ridge over narrowed
-> confident eyes, spiky fur tuft on the forehead and fur spikes on the cheeks and chest, thick dark-maroon horns
-> (#4A0A12) that sweep outward and curl up and inward so the tips face each other above the head, pointed
-> leaf-shaped ears sticking out sideways. Big head on broad muscular shoulders with a short thick neck. Dark-teal
-> casual shirt (#24485E) with open collar and sleeves rolled above the elbow, thick red forearms, big
-> four-finger fists, gold motion sparks (#F5C431) near a raised fist. Props in the same style: navy desk, navy
-> monitors with light-blue line and candlestick charts, silver laptop with a blue dot logo. Background: deep
-> navy-blue gradient (#071D48 → #0B58BC) with a soft glow, or transparent. No text except numbers, no logos,
-> no cash. Scene: <metafora topik + aksi Bull + 3 props>. Portrait 1080×1350, keep the top 40% calm for text.
+> Use the attached Saham Gorengan "Bull" artworks as the exact character and style reference — same character,
+> same rendering. Modern flat vector illustration with NO outlines: pure colour fills, details only as darker
+> same-hue lines. A muscular anthropomorphic bright-red bull (#E5161F) in a slight 3/4 view: long snout with a
+> charcoal-grey muzzle (#4A4B53) protruding on the lower right, dark nostrils, confident grin on the muzzle, small
+> dark eyes under thick near-black brows, swept fur tuft on the forehead and jagged fur on the cheeks, jaw and chest,
+> short thick dark-maroon horns (#5A1217) with darker bands that curve out, up and inward over the head, big
+> leaf-shaped ears sticking out sideways. Big head on broad muscular shoulders. Dark-teal casual shirt (#1F4C60)
+> with open collar and sleeves rolled above the elbow, thick red forearms, big four-finger hands. Supporting
+> elements in the same flat style: white fintech UI cards with grey text lines, green bars and mini candlesticks,
+> blue chat bubbles, navy monitors with light-blue charts, short thick gold/blue spark strokes. Background: site
+> navy-blue gradient (#071D48 → #0B58BC) or transparent. No text except numbers, no logos, no cash.
+> Scene: <metafora topik + aksi Bull + 3 props>. Portrait 1080×1350, keep the top 40% calm for text.
 
 ## 5. Gaya ilustrasi & motion
-- **Karakter & props**: persis gaya ilustrasi situs (semi-realistis, cel shading, outline gelap). Jangan
-  dibuat chibi/kartun bulat.
+- **Karakter & props**: persis gaya ilustrasi situs (flat modern tanpa outline, detail garis warna gelap).
+  Jangan dibuat kartun ber-outline atau chibi.
 - **Latar (Kurzgesagt)**: gradasi navy situs, kedalaman berlapis, 1 glow radial di fokus, partikel bintang
   halus, palet terbatas.
 - **OverSimplified**: akting karakter jelas dan lucu, ekspresi berlebihan, timing komedi; humor tidak pernah
@@ -94,7 +98,9 @@ referensi, tempel prompt ini apa adanya, lalu tambah adegan:**
 | YouTube thumb | 1280×720 | 48/220/80/48 |
 | OG link | 1200×630 | 48 semua |
 | Hero web | 1600×900 | 64 semua |
-Header kartu: logo + "SAHAM GORENGAN" + nomor halaman. Footer: handle + domain. Bull selalu di bawah/samping,
+Header kartu: logo KSG resmi (kepala banteng merah bergaris kecepatan, tanpa lingkaran) + "SAHAM GORENGAN" +
+nomor halaman. Cover utama memakai template `explainer` (replika kartu lama situs: label merah, headline kapital
+emas, panel chart + kotak "BULL EXPLAINS" berbingkai emas, footer domain/handle). Footer: handle + domain. Bull selalu di bawah/samping,
 tidak menutupi teks.
 
 ## 7. Suara & copy

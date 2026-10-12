@@ -95,7 +95,7 @@
   "mascot": {
     "name": "Bull",
     "source_of_truth": "brand/reference/hero-bull-refined.webp + faq/community/premium official art (sahamgorengan.id/assets) — the vector rig in sgmw/render/mascot.py is drawn to match them",
-    "character_sheet": "Semi-realistic flat vector mascot exactly like the sahamgorengan.id art: an anthropomorphic, muscular red bull (base #D8192C, cel shadow #A10F1E, rim highlight #F0434B) seen in a slight 3/4 view. Long wedge-shaped bull face with a CHARCOAL-GREY muzzle (#4B4F5E) and dark nostrils, smirking mouth on the grey muzzle, heavy dark-red brow ridge over narrowed confident eyes, spiky swept fur tuft on the forehead and fur spikes on the cheeks and chest. Thick dark-maroon horns (#4A0A12) that sweep outward then curl up and INWARD so the tips face each other above the head (crescent shape). Pointed leaf-shaped ears sticking out sideways. Big head sitting low on broad, high, muscular shoulders (short thick neck). Dark-teal casual shirt (#24485E, shadow #183244) with open collar showing red chest fur, sleeves rolled up above the elbow, thick red forearms and big four-finger fists. Dark-maroon outlines (#2B0A10, not black), two-to-three tone cel shading, gold motion sparks (#F5C431) next to a raised fist.",
+    "character_sheet": "Modern FLAT vector mascot exactly like the official sahamgorengan.id art (hero/faq/community/premium): NO outlines, pure colour fills, details drawn with darker same-hue lines. Muscular anthropomorphic bright-red bull (#E5161F, shadow #B9111A, detail lines #7E0B12) in a slight 3/4 view facing right. Long snout with a charcoal-grey muzzle (#4A4B53) protruding on the lower-right of the face, dark nostrils, smile/grin line on the muzzle. Small dark eyes with a tiny glint under THICK near-black brows (V-shaped = determined, arched = friendly). Jagged fur fringe on the forehead (swept tuft), cheeks/jaw and chest. Short thick dark-maroon horns (#5A1217) with darker bands, sweeping out and up with the tips turning inward over the head. Big leaf-shaped ears sticking out sideways below the horns (inner #A80F18). Big head on broad muscular shoulders, short thick neck. Dark-teal casual shirt (#1F4C60, folds #11303E) with open collar, sleeves rolled above the elbow, thick red forearms, big four-finger hands. Accents: short thick gold (#F2B630) or blue (#1D63E6) spark strokes, white fintech UI cards, blue chat bubbles.",
     "personality": "Smart, calm, slightly cheeky mentor. Never greedy, never panics; explains risk honestly. Comedic reactions allowed (OverSimplified-style), but he is never the butt of a money-loss joke aimed at the audience.",
     "poses": [
       "idle",
@@ -123,32 +123,35 @@
       "headset"
     ],
     "dont": [
-      "Do not use a pink muzzle, a blue shirt, black outlines, chibi proportions or a long neck.",
-      "Do not change horn shape (inward-curling crescent), body colour, shirt colour or proportions.",
+      "No outlines (black, navy or maroon) around the character; no cel-shaded 'cartoon sticker' look.",
+      "No pink muzzle, bright-blue shirt, big white cartoon eyes, chibi proportions or long neck.",
+      "Do not change horn shape, body colour, shirt colour or proportions.",
       "No money bags, no stacks of cash, no Lamborghini/flex imagery (implies guaranteed profit).",
       "No other mascots or real people/brands; no logos of IDX/OJK used as decoration."
     ],
     "official_art": {
-      "hero": "hero-bull-refined.webp — fist pump at a trading desk with silver laptop and two navy chart monitors",
-      "faq": "faq-bull.webp",
-      "community": "community-bull-phone.webp",
-      "premium": "premium-bull-phone.webp",
-      "use": "mascot spec {\"source\":\"official\",\"art\":\"hero\"} renders the original file 1:1 (cover/CTA/end card); rig poses for acting scenes"
+      "hero": "hero-bull-refined.webp — fist pump at a trading desk (navy monitors with blue charts, silver laptop, gold sparks)",
+      "faq": "faq-bull.webp — friendly shrug with palms up, blue chat bubble, white '?' bubble, user badge",
+      "community": "community-bull-phone.webp — determined grin, pointing at a phone, white UI cards (profile, chart, like)",
+      "premium": "premium-bull-phone.webp — holding a giant phone with stock list UI, pointing at it",
+      "use": "mascot spec {\"source\":\"official\",\"art\":\"hero|faq|community|premium\"} renders the original 1:1 — use it for covers, CTA, end cards and any scene whose action matches; rig poses only for other acting"
     },
     "palette": {
-      "red": "#D8192C",
-      "red_shadow": "#A10F1E",
-      "red_highlight": "#F0434B",
-      "muzzle": "#4B4F5E",
-      "horn": "#4A0A12",
-      "shirt": "#24485E",
-      "shirt_shadow": "#183244",
-      "outline": "#2B0A10",
-      "spark": "#F5C431"
+      "red": "#E5161F",
+      "red_shadow": "#B9111A",
+      "detail": "#7E0B12",
+      "muzzle": "#4A4B53",
+      "horn": "#5A1217",
+      "horn_band": "#3E0B0F",
+      "shirt": "#1F4C60",
+      "shirt_fold": "#11303E",
+      "brows_eyes": "#1C1416",
+      "spark_gold": "#F2B630",
+      "ui_blue": "#1D63E6"
     }
   },
   "illustration_style": {
-    "summary": "Same look as the sahamgorengan.id illustrations: semi-realistic flat vector with cel shading and clean dark outlines; the Bull acts inside simple trading props (navy desk, navy monitors with light-blue line charts and candles, silver laptop with a blue dot logo, phone). On cards the art sits on the site's navy-blue gradient with a soft glow. Kurzgesagt-style layering for backgrounds; OverSimplified-style acting for the character.",
+    "summary": "Exactly the sahamgorengan.id illustration language: modern flat vector, no outlines, bright saturated fills, details as darker same-hue lines; fintech props (navy monitors with light-blue charts, silver laptop, phones with stock-list UI, white UI cards with avatar/grey lines/green bars/mini candles, blue chat bubbles, gold/blue spark strokes). Cards use the site navy gradient, the official KSG bull-head logo, red labels and gold uppercase headlines (see the 'explainer' template).",
     "rules": [
       "Topic-specific metaphor every time: 1 central metaphor + 3 supporting props that explain THIS concept.",
       "Layering: deep navy background -> mid blue shapes -> light accents; 1 radial glow behind the focal point.",
