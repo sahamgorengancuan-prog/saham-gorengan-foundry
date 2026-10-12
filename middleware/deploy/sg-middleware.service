@@ -1,0 +1,25 @@
+# Optional: run the middleware under systemd so it survives reboots and MCP restarts.
+# Install as root (one-time, reviewed):
+#   cp deploy/sg-middleware.service /etc/systemd/system/ && systemctl daemon-reload
+#   systemctl enable --now sg-middleware.service
+# Until then, the daily routine calls `app.py ensure`, which (re)starts it in the background.
+[Unit]
+Description=Saham Gorengan publisher middleware (API + UI + scheduler, loopback only)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=mcpagent
+Group=mcpagent
+WorkingDirectory=/srv/localmcpcoder-work/sg-middleware
+ExecStart=/srv/localmcpcoder-work/sg-middleware/.venv/bin/python app.py serve
+Restart=always
+RestartSec=10
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/srv/localmcpcoder-work/sg-middleware
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

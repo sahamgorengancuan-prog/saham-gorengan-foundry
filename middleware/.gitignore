@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+state/
+inbox/
+logs/
+brand/fonts/*.ttf
+brand/reference/
+brand/mascot/*.png
+brand/mascot/*.svg
+brand/props/
+*.pyc

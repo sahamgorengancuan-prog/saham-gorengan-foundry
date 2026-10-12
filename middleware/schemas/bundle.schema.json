@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sg.bundle/1",
+  "title": "Saham Gorengan daily content bundle",
+  "type": "object",
+  "required": ["schema", "target_day", "slug", "assets", "posts"],
+  "properties": {
+    "schema": {"const": "sg.bundle/1"},
+    "target_day": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$", "description": "WIB publish day"},
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+){1,11}$"},
+    "pillar": {"enum": ["indikator", "rekomendasi", "berita", "konsep", "komunitas", "psikologi", "pemula"]},
+    "title": {"type": "string"},
+    "research": {
+      "type": "object",
+      "properties": {
+        "cluster": {"type": "string"},
+        "seed_keywords": {"type": "array", "items": {"type": "string"}},
+        "primary_keyword": {"type": "object", "required": ["keyword"],
+          "properties": {"keyword": {"type": "string"}, "volume": {"type": ["number", "null"]},
+                         "sd": {"type": ["number", "null"]}, "pd": {"type": ["number", "null"]},
+                         "competition": {"type": ["number", "null"]}, "intent": {"type": ["string", "null"]},
+                         "source": {"enum": ["ubersuggest", "pool", "web"]}, "fetched": {"type": "string"}}},
+        "secondary_keywords": {"type": "array"},
+        "question": {"type": "object", "required": ["text", "evidence"],
+          "properties": {"text": {"type": "string"}, "variants": {"type": "array"},
+                         "type": {"enum": ["unanswered", "paa", "suggest"]}, "evidence": {"type": "string"},
+                         "gap_score": {"type": "number"}}},
+        "serp_top": {"type": "array"},
+        "ubersuggest_reports_used": {"type": "integer"}
+      }
+    },
+    "assets": {
+      "type": "object",
+      "description": "id ([a-z0-9_]) -> asset. Carousel 'x' expands to images x_01..x_NN; video 'v' also creates image v_cover.",
+      "additionalProperties": {
+        "oneOf": [
+          {"type": "object", "required": ["kind", "render"], "properties": {"kind": {"const": "image"},
+            "render": {"type": "object", "required": ["template"], "properties": {
+              "template": {"enum": ["cover", "point", "stat", "myth_fact", "checklist", "example", "quote",
+                                    "illustration", "cta", "reel_cover", "yt_thumb", "og", "web_hero"]},
+              "format": {"type": "string"}, "data": {"type": "object"}}}}},
+          {"type": "object", "required": ["kind", "file"], "properties": {"kind": {"const": "image"},
+            "file": {"type": "string"}, "origin": {"type": "string"}}},
+          {"type": "object", "required": ["kind", "render"], "properties": {"kind": {"const": "carousel"},
+            "render": {"type": "object", "required": ["slides"], "properties": {
+              "slides": {"type": "array", "minItems": 2, "maxItems": 10}}}}},
+          {"type": "object", "required": ["kind"], "properties": {"kind": {"const": "video"},
+            "render": {"type": "object", "required": ["storyboard"]}, "file": {"type": "string"},
+            "cover": {"type": "string"}}},
+          {"type": "object", "required": ["kind", "render"], "properties": {"kind": {"const": "article"},
+            "render": {"type": "object", "required": ["title", "meta_description", "sections", "sources"]}}},
+          {"type": "object", "required": ["kind", "file"], "properties": {"kind": {"const": "html"},
+            "file": {"type": "string"}}}
+        ]
+      }
+    },
+    "posts": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["platform", "kind"],
+        "properties": {
+          "platform": {"enum": ["web", "instagram", "facebook", "youtube"]},
+          "kind": {"enum": ["article", "carousel", "image", "reel", "photos", "link", "short"]},
+          "asset": {"type": "string"}, "assets": {"type": "array", "items": {"type": "string"}},
+          "cover": {"type": "string"}, "caption": {"type": "string"}, "message": {"type": "string"},
+          "hashtags": {"type": "array", "items": {"type": "string"}}, "alt_texts": {"type": "array"},
+          "first_comment": {"type": "string"}, "link": {"type": "string"}, "title": {"type": "string"},
+          "description": {"type": "string"}, "tags": {"type": "array"}, "privacy": {"enum": ["public", "unlisted", "private"]},
+          "publish_at": {"type": "string", "description": "'auto' (brand slot), 'HH:MM' WIB on target_day, or ISO-8601"},
+          "depends_on": {"type": ["string", "null"], "description": "default 'web' when the bundle has a web post"}
+        }
+      }
+    },
+    "qa": {
+      "type": "object",
+      "properties": {
+        "visual_review": {"type": "object", "properties": {"done": {"type": "boolean"}, "by": {"type": "string"},
+                                                            "notes": {"type": "string"}}},
+        "self_check": {"type": "array"}
+      }
+    }
+  }
+}

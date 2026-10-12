@@ -1,0 +1,160 @@
+{
+  "schema": "sg.brand/1",
+  "name": "Saham Gorengan",
+  "legal_name": "Komunitas Saham Gorengan",
+  "tagline": "Belajar saham tanpa drama",
+  "site": "https://sahamgorengan.id",
+  "handles": {
+    "instagram": "@cuan_sahamgorengan",
+    "youtube": "@SahamGorengan",
+    "facebook": "Komunitas Saham Gorengan",
+    "telegram": "https://t.me/sahamgorengancuan"
+  },
+  "links": {
+    "start_here": "https://sahamgorengan.id/insight/mulai-dari-sini/",
+    "premium": "https://sahamgorengan.id/insight/sg-premium-pendaftaran/",
+    "telegram": "https://t.me/sahamgorengancuan",
+    "youtube": "https://www.youtube.com/@SahamGorengan"
+  },
+  "palette": {
+    "navy": "#05183A",
+    "deep_blue": "#09367B",
+    "blue": "#0B438E",
+    "site_gradient": ["#071D48", "#073C8F", "#0B58BC"],
+    "red": "#ED2A3C",
+    "gold": "#FFCD35",
+    "white": "#FAFDFF",
+    "ink": "#0A1633",
+    "muted": "#B8D3FF",
+    "soft_text": "#D0E3FF",
+    "success": "#48E5AD",
+    "danger_soft": "#FF7182"
+  },
+  "palette_usage": {
+    "navy_and_blues": "60% - backgrounds, depth layers",
+    "white": "25% - text, cards, negative space",
+    "red": "10% - mascot, primary CTA, warnings, MITOS label",
+    "gold": "5% - highlight words, numbers, sparkles, FAKTA label",
+    "rules": [
+      "Never put red text on navy for body copy; red is for shapes, badges and CTA buttons.",
+      "Highlight max 1-3 words per headline in gold.",
+      "Charts: up = success green #48E5AD, down = danger #FF7182; never stock-photo candles as the hero."
+    ]
+  },
+  "typography": {
+    "family": "Plus Jakarta Sans",
+    "fallback": ["Inter", "DejaVu Sans", "sans-serif"],
+    "font_files": ["brand/fonts/PlusJakartaSans[wght].ttf"],
+    "weights": {"display": 800, "heading": 700, "body": 500, "label": 800, "caption": 700},
+    "letter_spacing": {"display": "-0.03em", "label": "0.15em"},
+    "scale_feed_1080x1350": {"display": 92, "h1": 72, "h2": 54, "body": 38, "small": 28, "label": 24},
+    "scale_vertical_1080x1920": {"display": 104, "h1": 84, "body": 46, "caption": 62, "label": 28},
+    "rules": [
+      "Only Plus Jakarta Sans. No script, serif or random display fonts.",
+      "Headline max 8 words on cards, max 6 words on video frames.",
+      "Labels/eyebrows uppercase with wide tracking, red-pink #FF7182 or gold."
+    ]
+  },
+  "logo": {
+    "file": "brand/reference/logo-ksg.png",
+    "url": "https://sahamgorengan.id/assets/logo-ksg.png",
+    "wordmark": "SAHAM GORENGAN"
+  },
+  "mascot": {
+    "name": "Bull",
+    "source_of_truth": "sgmw/render/mascot.py (vector rig) + brand/reference/hero-bull-refined.webp (official raster)",
+    "character_sheet": "Anthropomorphic red bull (#E5283C body, #B71A2D shade), large pink-red muzzle (#F2606C) with two dark nostrils, dark-maroon horns (#5E0E18) sweeping outward then curving up and inward, small dark-red hair tuft between the horns, sideways leaf-shaped ears, confident half-lidded eyes with thick dark brows, friendly smirk. Wears a blue collared shirt (#1B4C8F, collar #2D66B5) with gold buttons. Human-like red hands. Thick navy outline (#0A1633), flat vector, no gradients on the body, no realistic fur.",
+    "personality": "Smart, calm, slightly cheeky mentor. Never greedy, never panics; explains risk honestly. Comedic reactions allowed (OverSimplified-style), but he is never the butt of a money-loss joke aimed at the audience.",
+    "poses": ["idle", "explain", "celebrate", "think", "warn", "present", "shrug", "wave", "double_point"],
+    "expressions": ["smirk", "happy", "worried", "serious", "think", "shock"],
+    "accessories": ["none", "glasses", "tie", "headset"],
+    "dont": [
+      "Do not change body colour, horn shape, shirt colour or proportions.",
+      "No money bags, no stacks of cash, no Lamborghini/flex imagery (implies guaranteed profit).",
+      "No other mascots or real people/brands; no logos of IDX/OJK used as decoration."
+    ]
+  },
+  "illustration_style": {
+    "summary": "Flat vector editorial illustration in the spirit of Kurzgesagt (geometric shapes, layered depth, soft glows, star-dust particles, limited palette) with OverSimplified-style character acting (big readable gestures, comedic timing).",
+    "rules": [
+      "Topic-specific metaphor every time: 1 central metaphor + 3 supporting props that explain THIS concept.",
+      "Layering: deep navy background -> mid blue shapes -> light accents; 1 radial glow behind the focal point.",
+      "Thick navy outline (6-8px at 1080w) on characters and key props; background shapes without outline.",
+      "Rounded geometry, 8-24px corner radius, no photo textures, no stock charts as the subject.",
+      "Leave text-safe margins (see formats) and keep the mascot at the bottom/side, never covering text.",
+      "Indonesian market context when relevant (IDX, rupiah, lot = 100 lembar, ARA/ARB, papan pemantauan khusus)."
+    ]
+  },
+  "motion_style": {
+    "fps": 30,
+    "principles": [
+      "Hook in the first 1.5 s: a question or a surprising number on screen + Bull reaction.",
+      "One idea per scene, 3-6 s per scene; on-screen text <= 6 words; captions always on.",
+      "Elements enter with pop/slide (ease-out-back 0.35-0.5 s), idle float on props, gentle 3-6% camera push-in.",
+      "Cut on the VO sentence boundary; 0.25 s dip-to-navy between scenes.",
+      "End card 1.2 s: logo + sahamgorengan.id + follow handle."
+    ],
+    "voice": {"engine": "edge-tts", "voice": "id-ID-ArdiNeural", "alt_voice": "id-ID-GadisNeural", "rate": "+6%", "pitch": "+0Hz"},
+    "vo_style": "Bahasa Indonesia santai-profesional, kalimat pendek (<= 14 kata), sapaan 'kamu', tanpa slang berlebihan, angka dibaca jelas."
+  },
+  "voice_and_tone": {
+    "language": "id-ID",
+    "do": [
+      "Jelaskan mekanisme sebab-akibat, bukan sekadar definisi.",
+      "Pakai contoh HIPOTETIS dengan angka sederhana dan asumsi eksplisit.",
+      "Akui batasan dan risiko; sebut kapan konsep tidak berlaku."
+    ],
+    "dont": [
+      "Janji cuan/profit, 'pasti naik', 'auto kaya', FOMO, urgensi palsu.",
+      "Menyuruh beli/jual ticker tertentu (kecuali pilar rekomendasi dengan data+tanggal valid dan disclaimer).",
+      "Clickbait yang isinya tidak menjawab judul."
+    ]
+  },
+  "compliance": {
+    "banned_phrases": [
+      "pasti cuan", "pasti untung", "dijamin untung", "dijamin cuan", "dijamin profit", "pasti naik",
+      "pasti terbang", "auto cuan", "auto kaya", "cepat kaya", "tanpa risiko", "bebas risiko", "100% profit",
+      "100% untung", "profit konsisten", "modal kecil untung besar", "sinyal pasti", "jaminan keuntungan",
+      "guaranteed profit", "risk free", "pengelola dana", "kelola dana", "titip dana", "premium gratis",
+      "sg premium gratis", "komunitas gratis berbayar"
+    ],
+    "required_disclaimer_any": [
+      "bukan ajakan beli", "bukan ajakan jual", "bukan rekomendasi", "bukan nasihat investasi",
+      "bukan saran investasi", "konten edukasi", "materi edukasi", "edukatif"
+    ],
+    "default_disclaimer": "Konten edukasi, bukan ajakan beli/jual atau nasihat investasi personal. Keputusan dan risiko ada di tangan masing-masing.",
+    "short_disclaimer": "Edukasi, bukan ajakan beli/jual.",
+    "premium_packages_idr": {"1_bulan": 200000, "3_bulan": 400000, "6_bulan": 600000, "12_bulan": 1000000},
+    "rules": [
+      "SG Premium berbayar; komunitas Telegram gratis. Jangan tukar keduanya.",
+      "Klaim kinerja historis tanpa audit dilarang.",
+      "Setiap fakta pasar/regulasi wajib sumber primer (idx.co.id, ojk.go.id, ksei.co.id, bi.go.id, sikapiuangmu.ojk.go.id) atau media kredibel."
+    ]
+  },
+  "cta": {
+    "save_share": "Simpan biar nggak lupa, kirim ke teman yang masih sering FOMO.",
+    "follow": "Follow @cuan_sahamgorengan untuk insight harian bareng Bull.",
+    "read_more": "Baca versi lengkap + contoh hitungannya di sahamgorengan.id",
+    "community": "Diskusi gratis di Telegram: t.me/sahamgorengancuan"
+  },
+  "hashtags": {
+    "core": ["sahamgorengan", "sahamindonesia", "belajarsaham"],
+    "bank": ["ihsg", "investasisaham", "tradingsaham", "analisateknikal", "sahampemula", "bursaefekindonesia",
+             "edukasisaham", "literasikeuangan", "saham", "investorpemula"]
+  },
+  "formats": {
+    "feed_portrait": {"w": 1080, "h": 1350, "safe": {"top": 72, "right": 72, "bottom": 96, "left": 72}},
+    "square": {"w": 1080, "h": 1080, "safe": {"top": 64, "right": 64, "bottom": 64, "left": 64}},
+    "vertical": {"w": 1080, "h": 1920, "safe": {"top": 230, "right": 150, "bottom": 430, "left": 80},
+                 "note": "Reels/Shorts UI covers top ~220px, bottom ~420px (caption/buttons) and right ~140px (actions)."},
+    "yt_thumb": {"w": 1280, "h": 720, "safe": {"top": 48, "right": 220, "bottom": 80, "left": 48}},
+    "og": {"w": 1200, "h": 630, "safe": {"top": 48, "right": 48, "bottom": 48, "left": 48}},
+    "web_hero": {"w": 1600, "h": 900, "safe": {"top": 64, "right": 64, "bottom": 64, "left": 64}}
+  },
+  "slots_wib": {"web": "10:30", "instagram": "15:00", "facebook": "15:30", "instagram_reel": "17:00",
+                "facebook_reel": "17:10", "youtube": "17:00", "research": "19:00"},
+  "content_mix_weekly": {
+    "indikator": 2, "rekomendasi": 1, "berita": 2, "konsep": 1, "komunitas": 1,
+    "note": "Rekomendasi hanya dengan data dan tanggal valid; berita wajib sumber primer. Jika sumber/QA gagal: HOLD."
+  }
+}
