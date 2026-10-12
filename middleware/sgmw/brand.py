@@ -60,11 +60,12 @@ def compliance_issues(text: str, require_disclaimer: bool = True) -> list[dict]:
     if require_disclaimer and not any(d in t for d in c["required_disclaimer_any"]):
         issues.append({"level": "error", "msg": "missing disclaimer (e.g. 'bukan ajakan beli/jual')"})
     # Premium price must match the official packages when mentioned.
-    if "premium" in t:
-        allowed = {f"{v:,}".replace(",", ".") for v in c["premium_packages_idr"].values()}
-        allowed |= {str(v // 1000) + "rb" for v in c["premium_packages_idr"].values()}
-        for m in re.findall(r"rp\s?([\d.]+)", t):
-            if m.strip(".") and m.strip(".") not in allowed:
+    allowed = {f"{v:,}".replace(",", ".") for v in c["premium_packages_idr"].values()}
+    for pm in re.finditer(r"premium", t):  # only prices written near a Premium mention
+        window = t[pm.start(): pm.start() + 90]
+        for m in re.findall(r"rp\s?(\d[\d.]*)", window):
+            m = m.strip(".")
+            if m not in allowed and m + ".000" not in allowed:
                 issues.append({"level": "warn", "msg": f"premium price Rp{m} is not an official package"})
     if re.search(r"\b(beli|buy|hajar|serok|borong)\b[^.\n]{0,24}\b[A-Z]{4}\b", text or ""):
         issues.append({"level": "warn", "msg": "possible ticker call-to-action; only allowed in pillar 'rekomendasi' "

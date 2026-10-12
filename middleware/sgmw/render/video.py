@@ -33,6 +33,7 @@ import math
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
@@ -166,7 +167,7 @@ def tts(text: str, out: Path, voice: str, rate: str, pitch: str = "+0Hz") -> flo
                     raise
         return probe_duration(out)
     except Exception as exc:  # no network / package: silent scene with estimated length
-        print("TTS_FALLBACK_SILENT", type(exc).__name__, str(exc)[:120])
+        print("TTS_FALLBACK_SILENT", type(exc).__name__, str(exc)[:120], file=sys.stderr)
         return 0.0
 
 
@@ -183,8 +184,10 @@ def caption_chunks(text: str, start: float, dur: float, max_words: int = 5, max_
     words = T.tokens(text)
     chunks, cur = [], []
     for w in words:
-        plain = " ".join(x for x, _ in cur + [w])
-        if cur and (len(cur) >= max_words or len(plain) > max_chars):
+        if w[0].startswith(GLUE):  # punctuation/suffix glued to a highlight stays in the same cue
+            (cur if cur or not chunks else chunks[-1]).append(w)
+            continue
+        if cur and (len(cur) >= max_words or len(_join(cur + [w])) > max_chars):
             chunks.append(cur)
             cur = []
         cur.append(w)
@@ -193,16 +196,30 @@ def caption_chunks(text: str, start: float, dur: float, max_words: int = 5, max_
             cur = []
     if cur:
         chunks.append(cur)
-    total = sum(len(" ".join(x for x, _ in c)) for c in chunks) or 1
+    total = sum(len(_join(c)) for c in chunks) or 1
     t = start
     out = []
     for c in chunks:
-        plain = " ".join(x for x, _ in c)
+        plain = _join(c)
         d = dur * len(plain) / total
-        markup = " ".join(f"*{x}*" if hl else x for x, hl in c).replace("* *", " ")
-        out.append({"start": t, "end": t + d, "text": markup, "plain": plain.replace("⁠", "")})
+        out.append({"start": t, "end": t + d, "text": _join(c, markup=True), "plain": plain})
         t += d
     return out
+
+
+GLUE = chr(0x2060)
+
+
+def _join(tokens_, markup: bool = False) -> str:
+    """Re-assemble tokens; glued tokens (word joiner prefix) attach without a space."""
+    s = ""
+    for i, (w, hl) in enumerate(tokens_):
+        glued = w.startswith(GLUE)
+        w = w.replace(GLUE, "")
+        if markup and hl:
+            w = f"*{w}*"
+        s += w if glued or i == 0 else " " + w
+    return s.replace("* *", " ")
 
 
 def srt_time(t: float) -> str:
@@ -319,7 +336,11 @@ class Scene:
         dec = int(c.get("decimals", 0))
         num = f"{val:,.{dec}f}".replace(",", "#").replace(".", ",").replace("#", ".")
         s = f'{c.get("prefix", "")}{num}{c.get("suffix", "")}'
-        size = int(c.get("size", 200))
+        size = int(c.get("size", 180))
+        final = f'{c.get("prefix", "")}{c.get("to", 0)}{c.get("suffix", "")}'
+        max_w = float(c.get("max_w", 440))
+        while size > 60 and T.pil_font(size, 800).getlength(final) > max_w:  # never run into the mascot
+            size -= 6
         font = T.pil_font(size, 800)
         d = ImageDraw.Draw(frame)
         tw = font.getlength(s)

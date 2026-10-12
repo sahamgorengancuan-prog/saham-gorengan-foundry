@@ -405,9 +405,11 @@ def t_reel_cover(d: dict, fmt: str, page: str | None, seed: str) -> str:
         pv, _ = pill(d["eyebrow"], s["left"], y, RED, WHITE, 28)
         body.append(pv)
         y += 100
-    hv, y = T.block(d["headline"], s["left"], y, cw, 112, 800, WHITE, max_lines=5, line_height=1.04, size_min=72)
+    hv, y = T.block(d["headline"], s["left"], y, cw, 108, 800, WHITE, max_lines=4, line_height=1.04, size_min=68)
     body.append(hv)
-    body.append(mascot_spot(d.get("mascot", {"pose": "explain", "expression": "smirk"}), w / 2, h - s["bottom"] + 120, 760))
+    # Bull sits below the headline, inside the 4:5 grid crop (y 285-1635) used by Instagram profiles.
+    m_h = min(660, max(420, h - 250 - (y + 70)))
+    body.append(mascot_spot(d.get("mascot", {"pose": "explain", "expression": "smirk"}), w / 2, h - 250, m_h))
     return wrap_svg(w, h, "".join(body))
 
 

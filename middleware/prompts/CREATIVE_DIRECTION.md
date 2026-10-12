@@ -58,7 +58,7 @@ Satu slide = satu ide; body ≤ 45 kata. Contoh `point` dengan art:
  "data":{"number":2,"eyebrow":"Mekanisme","heading":"Wajan kecil cepat *panas*",
   "body":"Saham dengan antrean jual tipis seperti wajan dengan sedikit minyak: dorongan kecil langsung terasa besar.",
   "art":{"viewbox":"0 0 936 420","props":[{"name":"wok","x":300,"y":230,"size":300},{"name":"fire","x":300,"y":360,"size":120}],
-         "mascot":{"pose":"present","expression":"smirk","x":720,"y":420,"height":400}}}}
+         "mascot":{"pose":"present","expression":"smirk","x":690,"y":420,"height":400}}}}
 ```
 Template lain: `stat` {value,label,context,source}, `myth_fact` {myth,fact}, `example` {heading,scenario,steps[],result},
 `checklist` {heading,items[]}, `quote` {text}, `illustration` {art (viewbox 0 0 1080 1350), headline, caption},
