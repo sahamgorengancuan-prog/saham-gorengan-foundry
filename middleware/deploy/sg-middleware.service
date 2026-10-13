@@ -2,7 +2,7 @@
 # Install as root (one-time, reviewed):
 #   cp deploy/sg-middleware.service /etc/systemd/system/ && systemctl daemon-reload
 #   systemctl enable --now sg-middleware.service
-# Until then, the daily routine calls `app.py ensure`, which (re)starts it in the background.
+# Installed on vmi3520604 since 2026-10-13. Rollback: systemctl disable --now sg-middleware && rm the unit file.
 [Unit]
 Description=Saham Gorengan publisher middleware (API + UI + scheduler, loopback only)
 After=network-online.target

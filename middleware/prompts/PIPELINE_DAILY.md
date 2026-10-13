@@ -4,8 +4,15 @@
 > Semua kerja LLM terjadi di sesi ini. Middleware di VPS **tidak** punya LLM API key: ia hanya
 > merender aset brand, QA, menjadwalkan, dan memposting.
 >
-> Root middleware: `/srv/localmcpcoder-work/sg-middleware` (via MCP **VPS Brain Controller**, cwd
-> `/srv/localmcpcoder-work`). Perintah: `cd sg-middleware && .venv/bin/python app.py <cmd>`.
+> Root middleware: `/srv/localmcpcoder-work/sg-middleware` (via MCP **VPS Brain Controller** / **VPS Brain
+> Controller 3**, cwd `/srv/localmcpcoder-work`). Perintah: `cd sg-middleware && .venv/bin/python app.py <cmd>`.
+> Server berjalan sebagai systemd service `sg-middleware.service` (user mcpagent).
+>
+> **Jika connector berjalan sebagai root** (cek `id`): SEMUA perintah middleware wajib lewat
+> `runuser -u mcpagent -- bash -lc 'cd /srv/localmcpcoder-work/sg-middleware && ...'` agar file tetap milik
+> mcpagent, dan job panjang (validate/ingest/render) lewat
+> `systemd-run --uid=mcpagent --gid=mcpagent --property=WorkingDirectory=/srv/localmcpcoder-work/sg-middleware --collect /bin/bash -c '...'`
+> supaya tidak ikut mati saat sesi connector putus. Jangan menyentuh service/file lain sebagai root.
 
 ## Peran
 
@@ -119,8 +126,8 @@ Posts standar (biarkan `publish_at: "auto"` → slot WIB: web 10:30, IG 15:00, F
 
 1. `app.py validate inbox/<dir>` → baca `errors`/`warnings`. Perbaiki semua `errors`; tangani warning yang
    masuk akal. Ulangi sampai bersih. Render video makan 1–3 menit dan satu panggilan MCP bisa timeout, jadi
-   jalankan di background lalu cek berkala:
-   `nohup .venv/bin/python app.py validate inbox/<dir> > state/cache/validate.json 2> state/cache/validate.err &`
+   jalankan terpisah lalu cek berkala (root: pakai `systemd-run` seperti di atas; mcpagent: `nohup ... &`):
+   `.venv/bin/python app.py validate inbox/<dir> > state/cache/validate.json 2> state/cache/validate.err`
    (sama untuk `ingest` → `state/cache/ingest.json`). Selesai jika file JSON berisi objek lengkap.
 2. **Visual review WAJIB pada file hasil render**: `app.py preview state/jobs/_validate/<job> --b64` membuat
    contact sheet slide (`preview_slides.jpg`, `preview_other.jpg`) dan 8 frame video (`preview_short.jpg`) lalu mencetak base64.
