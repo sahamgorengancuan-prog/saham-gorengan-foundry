@@ -167,8 +167,17 @@ def build_ui(loop=None) -> gr.Blocks:
                 gr.Markdown(f"Google Cloud → APIs: enable **YouTube Data API v3** → OAuth client (Desktop app, or Web "
                             f"app with redirect `{s0['youtube']['redirect_uri']}`). Consent screen: add the channel "
                             "owner as test user or publish the app. Open the consent URL on any browser, approve with "
-                            "the Saham Gorengan channel; if the final page fails to load (loopback), copy its full URL "
-                            "and paste it below.")
+                            "the Saham Gorengan channel. With the SSH tunnel open the final page says **YouTube "
+                            "connected** and you are done; paste the redirected URL below only if that page failed "
+                            "to load. Klik *get consent URL* sekali saja dan pakai link terbaru.")
+
+                def yt_status():
+                    c = vault.get("youtube")
+                    d = c.get("derived") or {}
+                    if c.get("refresh_token") and d:
+                        return f"**Status: ✅ terhubung** — {d.get('channel_title')} ({d.get('custom_url') or d.get('channel_id')})"
+                    return "**Status: ⏳ belum terhubung**"
+                y_status = gr.Markdown(yt_status)
                 with gr.Row():
                     y_id = gr.Textbox(label="Client ID")
                     y_sec = gr.Textbox(label="Client Secret", type="password")
@@ -190,46 +199,82 @@ def build_ui(loop=None) -> gr.Blocks:
                     try:
                         d = YouTube(load_settings()).finish(code)
                         store.log(f"youtube connected: {d.get('channel_title')}")
-                        return d, vault.masked(), status_rows()
+                        return d, vault.masked(), status_rows(), yt_status()
                     except YouTubeError as e:
-                        return {"error": str(e)}, vault.masked(), status_rows()
+                        return {"error": str(e)}, vault.masked(), status_rows(), yt_status()
+
+                def yt_check():
+                    try:
+                        return YouTube(load_settings()).derive(), yt_status()
+                    except YouTubeError as e:
+                        return {"error": str(e)}, yt_status()
                 with gr.Row():
                     gr.Button("Save & get consent URL", variant="primary").click(yt_url, [y_id, y_sec, y_redirect],
                                                                                  [y_url, masked])
-                    gr.Button("Finish authorisation").click(yt_finish, y_code, [y_out, masked, st])
+                    gr.Button("Finish authorisation").click(yt_finish, y_code, [y_out, masked, st, y_status])
+                    gr.Button("Check connection").click(yt_check, None, [y_out, y_status])
             with gr.Accordion("Website: Jagoan Hosting via SSH", open=False):
                 w = s0["web"]
-                gr.Markdown("cPanel → SSH Access → Manage SSH Keys → Import the public key below → Authorize. "
-                            "Docroot = folder publik sahamgorengan.id (mis. `/home/<user>/public_html`). Mode "
-                            "`wordpress` memakai bridge wp-cli yang sudah ada di host.")
+                gr.Markdown("**Cukup klik _Auto-setup & verify_.** Middleware memakai key SSH Jagoan yang sudah jalan "
+                            "di VPS ini (`../sg-*/host-ssh.sh`), mem-pin host key, mencari docroot sahamgorengan.id "
+                            "sendiri (cocokkan hash file publik), lalu Verify — semuanya read-only di hosting. "
+                            "Isi *SSH target* hanya bila VPS belum punya key Jagoan; deploy key baru akan dibuat dan "
+                            "public key-nya ditampilkan untuk di-import di cPanel → SSH Access.")
                 with gr.Row():
+                    w_target = gr.Textbox(label="SSH target (opsional)", placeholder="user@host:port",
+                                          value=f"{w['user']}@{w['host']}:{w['port']}" if w["host"] else "")
+                    w_doc = gr.Textbox(label="Docroot (kosong = auto-detect)", value=w["docroot"])
                     w_mode = gr.Dropdown(["static", "wordpress"], value=w["mode"], label="Mode")
-                    w_host = gr.Textbox(label="Host", value=w["host"])
-                    w_port = gr.Number(label="Port", value=w["port"], precision=0)
-                    w_user = gr.Textbox(label="User", value=w["user"])
                 with gr.Row():
-                    w_key = gr.Textbox(label="Private key path (on VPS)", value=w["key_path"])
-                    w_kh = gr.Textbox(label="known_hosts path", value=w["known_hosts"])
-                    w_doc = gr.Textbox(label="Docroot", value=w["docroot"])
-                with gr.Row():
-                    w_art = gr.Textbox(label="Article dir (relative)", value=w["article_dir"])
-                    w_med = gr.Textbox(label="Media dir (relative)", value=w["media_dir"])
-                with gr.Row():
-                    w_wproot = gr.Textbox(label="WP root (wordpress mode)", value=w["wp_root"])
-                    w_php = gr.Textbox(label="PHP bin", value=w["php_bin"])
-                    w_cli = gr.Textbox(label="wp-cli", value=w["wp_cli"])
-                    w_bridge = gr.Textbox(label="Bridge php path", value=w["wp_bridge"])
-                    w_inbox = gr.Textbox(label="WP private inbox dir", value=w["wp_inbox"])
-                w_out = gr.Textbox(label="Result", lines=4)
-                fields = [w_mode, w_host, w_port, w_user, w_key, w_kh, w_doc, w_art, w_med, w_wproot, w_php, w_cli,
-                          w_bridge, w_inbox]
-                names = ["mode", "host", "port", "user", "key_path", "known_hosts", "docroot", "article_dir",
-                         "media_dir", "wp_root", "php_bin", "wp_cli", "wp_bridge", "wp_inbox"]
+                    b_auto = gr.Button("Auto-setup & verify", variant="primary")
+                    b_verify = gr.Button("Verify connection")
+                w_out = gr.Textbox(label="Result", lines=6)
+                with gr.Accordion("Advanced (jarang perlu)", open=False):
+                    with gr.Row():
+                        w_key = gr.Textbox(label="Private key path (on VPS)", value=w["key_path"])
+                        w_kh = gr.Textbox(label="known_hosts path", value=w["known_hosts"])
+                        w_art = gr.Textbox(label="Article dir (relative)", value=w["article_dir"])
+                        w_med = gr.Textbox(label="Media dir (relative)", value=w["media_dir"])
+                    with gr.Row():
+                        w_wproot = gr.Textbox(label="WP root (wordpress mode)", value=w["wp_root"])
+                        w_php = gr.Textbox(label="PHP bin", value=w["php_bin"])
+                        w_cli = gr.Textbox(label="wp-cli", value=w["wp_cli"])
+                        w_bridge = gr.Textbox(label="Bridge php path", value=w["wp_bridge"])
+                        w_inbox = gr.Textbox(label="WP private inbox dir", value=w["wp_inbox"])
+                    with gr.Row():
+                        b_save = gr.Button("Save manual fields")
+                        b_key = gr.Button("Generate deploy key")
+                        b_scan = gr.Button("Scan & pin host key")
+                adv =[w_key, w_kh, w_art, w_med, w_wproot, w_php, w_cli, w_bridge, w_inbox]
+                adv_names = ["key_path", "known_hosts", "article_dir", "media_dir", "wp_root", "php_bin", "wp_cli",
+                             "wp_bridge", "wp_inbox"]
 
-                def web_save(*vals):
-                    d = dict(zip(names, vals))
-                    d["port"] = int(d["port"] or 22)
-                    update_settings({"web": {k: (v.strip() if isinstance(v, str) else v) for k, v in d.items()}})
+                def _web_fields():
+                    c = load_settings()["web"]
+                    return (gr.update(value=f"{c['user']}@{c['host']}:{c['port']}" if c["host"] else ""),
+                            gr.update(value=c["docroot"]), gr.update(value=c["key_path"]),
+                            gr.update(value=c["known_hosts"]))
+
+                def web_auto(target, doc, mode):
+                    update_settings({"web": {"mode": mode}})
+                    try:
+                        r = Web(load_settings()).autosetup(target=target.strip(), docroot=doc)
+                        store.log(f"web auto-setup ok: docroot={r['saved'].get('docroot')}")
+                        out = "OK ✓ siap dipakai (mode web masih dry_run sampai diubah ke live di Dashboard)\n" + \
+                            json.dumps(r, indent=1)
+                    except Exception as e:  # noqa: BLE001
+                        out = f"Error: {e}"
+                    return (out, status_rows(), *_web_fields())
+
+                def web_save(target, doc, mode, *vals):
+                    d = {k: (v.strip() if isinstance(v, str) else v) for k, v in zip(adv_names, vals)}
+                    d.update(mode=mode, docroot=doc.strip())
+                    try:
+                        if target.strip():
+                            d.update(Web.parse_target(target))
+                    except WebError as e:
+                        return f"Error: {e}", status_rows()
+                    update_settings({"web": d})
                     return "Saved.", status_rows()
 
                 def web_key():
@@ -251,11 +296,11 @@ def build_ui(loop=None) -> gr.Blocks:
                         return json.dumps(Web(load_settings()).verify(), indent=1), status_rows()
                     except Exception as e:  # noqa: BLE001
                         return f"Error: {e}", status_rows()
-                with gr.Row():
-                    gr.Button("Save", variant="primary").click(web_save, fields, [w_out, st])
-                    gr.Button("Generate deploy key").click(web_key, None, [w_out, w_key])
-                    gr.Button("Scan & pin host key").click(web_scan, None, [w_out, w_kh])
-                    gr.Button("Verify connection").click(web_verify, None, [w_out, st])
+                b_auto.click(web_auto, [w_target, w_doc, w_mode], [w_out, st, w_target, w_doc, w_key, w_kh])
+                b_verify.click(web_verify, None, [w_out, st])
+                b_save.click(web_save, [w_target, w_doc, w_mode, *adv], [w_out, st])
+                b_key.click(web_key, None, [w_out, w_key])
+                b_scan.click(web_scan, None, [w_out, w_kh])
 
         with gr.Tab("Brand kit"):
             b = brand()

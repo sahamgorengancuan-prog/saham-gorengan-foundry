@@ -75,3 +75,45 @@ def test_mascot_rejects_unknown_pose():
 
 def test_dhash_distance():
     assert qa.hamming("ffff", "fffe") == 1
+
+
+def test_youtube_consent_states_and_idempotent_callback(monkeypatch):
+    from sgmw import vault
+    from sgmw.adapters import youtube as yt
+
+    vault.put("youtube", {"client_id": "cid", "client_secret": "sec"}, replace=True)
+    y = yt.YouTube(DEFAULT_SETTINGS)
+    first = y.auth_url().split("state=")[1].split("&")[0]
+    y.auth_url()  # a second click must not invalidate the first tab
+    assert first in vault.get("youtube")["pending"]
+
+    class R:
+        ok, status_code, headers = True, 200, {"content-type": "application/json"}
+        def json(self): return {"refresh_token": "rt", "scope": "s"}
+    monkeypatch.setattr(yt.requests, "post", lambda *a, **k: R())
+    monkeypatch.setattr(yt.YouTube, "derive", lambda self: {"channel_title": "Saham Gorengan"})
+    url = f"http://127.0.0.1:18790/oauth/youtube/callback?state={first}&code=abc"
+    assert y.finish(url)["channel_title"] == "Saham Gorengan"
+    vault.put("youtube", {"derived": {"channel_title": "Saham Gorengan"}})
+    again = y.finish(url)  # browser reload / URL pasted into the UI afterwards
+    assert again["channel_title"] == "Saham Gorengan" and "already connected" in again["note"]
+    try:
+        y.finish("http://x/cb?state=unknown&code=abc")
+    except yt.YouTubeError as e:
+        assert "already connected" in str(e)
+    else:
+        raise AssertionError("unknown state must fail")
+
+
+def test_web_identity_parsing(tmp_path):
+    from sgmw.adapters.web import Web
+    key = tmp_path / "id_ed25519"
+    key.write_text("x")
+    script = tmp_path / "host-ssh.sh"
+    script.write_text(f'#!/usr/bin/env bash\nD={tmp_path}\nexec ssh -T -p 45022 -i "$D/id_ed25519" -o BatchMode=yes '
+                      f'-o UserKnownHostsFile="$D/known_hosts" deploy@example.org "$@"\n')
+    d = Web.find_identity(str(script))
+    assert (d["user"], d["host"], d["port"], d["key"]) == ("deploy", "example.org", 45022, str(key))
+    assert d["known_hosts"] == f"{tmp_path}/known_hosts"
+    assert Web.parse_target("u@h.example:2222") == {"user": "u", "host": "h.example", "port": 2222}
+    assert Web.parse_target("u@h.example")["port"] == 22

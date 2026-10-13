@@ -1,6 +1,7 @@
 """HTTP API (loopback only) + YouTube OAuth callback + Gradio admin UI mount."""
 from __future__ import annotations
 
+import html
 import io
 import json
 import secrets
@@ -139,14 +140,19 @@ def create_app(loop: scheduler.Loop | None = None, with_ui: bool = True) -> Fast
 
     @app.get("/oauth/youtube/callback", include_in_schema=False)
     def yt_callback(code: str = "", state: str = "", error: str = ""):
+        page = ('<html><body style="font-family:sans-serif;max-width:640px;margin:48px auto;line-height:1.5">'
+                '{}<p><a href="/ui/">Back to the middleware UI</a></p></body></html>')
         if error:
-            return HTMLResponse(f"<h3>Google returned: {error}</h3>", 400)
+            return HTMLResponse(page.format(f"<h3>Google returned: {html.escape(error)}</h3>"), 400)
         try:
             d = YouTube(load_settings()).finish(code, state)
-            return HTMLResponse(f"<h2>YouTube connected</h2><p>Channel: {d['channel_title']} ({d['channel_id']})</p>"
-                                "<p>You can close this tab and return to the middleware UI.</p>")
+            store.log(f"youtube connected: {d.get('channel_title')}")
+            return HTMLResponse(page.format(
+                f"<h2>YouTube connected ✓</h2><p>Channel: <b>{html.escape(str(d.get('channel_title')))}</b> "
+                f"({html.escape(str(d.get('custom_url') or d.get('channel_id')))})</p>"
+                "<p>Done. Close this tab; do not paste this URL into the UI.</p>"))
         except YouTubeError as e:
-            return HTMLResponse(f"<h3>YouTube authorisation failed</h3><p>{e}</p>", 400)
+            return HTMLResponse(page.format(f"<h3>YouTube authorisation failed</h3><p>{html.escape(str(e))}</p>"), 400)
 
     @app.exception_handler(Exception)
     async def unhandled(request: Request, exc: Exception):

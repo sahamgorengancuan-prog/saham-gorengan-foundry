@@ -17,6 +17,8 @@
     python app.py pool top              # best unused opportunities (high volume, low difficulty)
     python app.py preview <job_dir> [--b64]  # contact sheets for visual review
     python app.py secrets --show        # print API token + UI login (local only)
+    python app.py web-setup             # reuse the VPS's Jagoan SSH key, find docroot, verify (read-only)
+    python app.py youtube-status        # is the channel connected?
 
 No LLM API key lives here: the LLM work happens in the scheduled Claude routine or
 ChatGPT, which drop bundles into inbox/ and call `ingest`.
@@ -259,6 +261,20 @@ def cmd_secrets(a):
     print(json.dumps({"api_token": vault.api_token(), "ui_user": u, "ui_password": p}))
 
 
+def cmd_web_setup(a):
+    from sgmw.adapters.web import Web
+    w = Web(load_settings())
+    r = w.verify() if a.verify_only else w.autosetup(script=a.script, target=a.target or "", docroot=a.docroot or "")
+    print(json.dumps(r, indent=1))
+
+
+def cmd_youtube_status(a):
+    from sgmw import vault
+    c = vault.get("youtube")
+    print(json.dumps({"connected": bool(c.get("refresh_token")), **(c.get("derived") or {}),
+                      "pending_consent_urls": len(c.get("pending") or {})}, indent=1))
+
+
 def main():
     ap = argparse.ArgumentParser(description="Saham Gorengan publisher middleware")
     sub = ap.add_subparsers(dest="cmd")
@@ -287,6 +303,11 @@ def main():
     p = sub.add_parser("preview", help="contact sheets for visual review")
     p.add_argument("dir"); p.add_argument("--b64", action="store_true"); p.set_defaults(fn=cmd_preview)
     p = sub.add_parser("secrets"); p.add_argument("--show", action="store_true"); p.set_defaults(fn=cmd_secrets)
+    p = sub.add_parser("web-setup", help="one-shot SSH setup: reuse the VPS's Jagoan key, pin host, find docroot, verify")
+    p.add_argument("--script", help="ssh wrapper to read (default: ../sg-*/host-ssh.sh)")
+    p.add_argument("--target", help="user@host:port when no wrapper exists"); p.add_argument("--docroot")
+    p.add_argument("--verify-only", action="store_true"); p.set_defaults(fn=cmd_web_setup)
+    sub.add_parser("youtube-status").set_defaults(fn=cmd_youtube_status)
     a = ap.parse_args()
     if not a.cmd:
         a = ap.parse_args(["serve"])
