@@ -2,18 +2,18 @@
   "schema": 1,
   "format": "ticker_only",
   "source": "provisional_backend_permission_pending",
-  "asof": "2026-10-13",
-  "generated_at": "2026-10-14T16:00:01+07:00",
+  "asof": "2026-10-14",
+  "generated_at": "2026-10-14T21:00:04+07:00",
   "universe_count": 818,
   "candidates": [
     {
-      "ticker": "PICO"
+      "ticker": "SICO"
     },
     {
-      "ticker": "TCPI"
+      "ticker": "BELI"
     },
     {
-      "ticker": "SGER"
+      "ticker": "TOWR"
     }
   ],
   "minimum_daily_volume_lots": 50000,

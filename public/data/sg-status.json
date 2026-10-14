@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-14T16:00:01+07:00",
+  "generated_at": "2026-10-14T21:00:04+07:00",
   "timezone": "Asia/Jakarta",
   "frequency": "hourly",
   "status": "provisional_published_permission_pending",
@@ -11,7 +11,7 @@
   "universe_count": 818,
   "qualifying_count": 3,
   "strict_matching": 0,
-  "last_eod_date": "2026-10-13",
+  "last_eod_date": "2026-10-14",
   "full_market_feed_ready": true,
   "commercial_source_authorized": false,
   "next_scan": "Setiap jam. Data indikator EOD hanya berubah setelah penutupan pasar.",
