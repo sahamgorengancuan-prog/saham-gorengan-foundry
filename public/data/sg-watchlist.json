@@ -2,15 +2,25 @@
   "schema": 1,
   "format": "ticker_only",
   "source": "provisional_backend_permission_pending",
-  "asof": null,
-  "generated_at": "2026-10-21T16:00:02+07:00",
+  "asof": "2026-10-21",
+  "generated_at": "2026-10-21T21:00:01+07:00",
   "universe_count": 819,
-  "candidates": [],
+  "candidates": [
+    {
+      "ticker": "RSCH"
+    },
+    {
+      "ticker": "PKPK"
+    },
+    {
+      "ticker": "SBMA"
+    }
+  ],
   "minimum_daily_volume_lots": 50000,
   "daily_volume_operator": ">",
-  "selection": "none",
+  "selection": "weighted",
   "strict_matching": 0,
-  "status": "no_candidates",
+  "status": "ready",
   "license_status": "request_sent_pending",
   "disclaimer": "Kode saham adalah hasil screening teknikal, bukan ajakan transaksi. Hasil ranking berbobot dapat memenuhi sebagian kriteria; hasil historis tidak menjamin keuntungan."
 }
