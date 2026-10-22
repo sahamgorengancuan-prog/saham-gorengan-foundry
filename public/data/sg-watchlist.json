@@ -2,18 +2,15 @@
   "schema": 1,
   "format": "ticker_only",
   "source": "provisional_backend_permission_pending",
-  "asof": "2026-10-21",
-  "generated_at": "2026-10-22T17:00:02+07:00",
+  "asof": "2026-10-22",
+  "generated_at": "2026-10-22T22:00:04+07:00",
   "universe_count": 819,
   "candidates": [
     {
-      "ticker": "RSCH"
+      "ticker": "PCAR"
     },
     {
-      "ticker": "PKPK"
-    },
-    {
-      "ticker": "SBMA"
+      "ticker": "SMLE"
     }
   ],
   "minimum_daily_volume_lots": 50000,
