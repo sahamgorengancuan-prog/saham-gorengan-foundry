@@ -2,15 +2,18 @@
   "schema": 1,
   "format": "ticker_only",
   "source": "provisional_backend_permission_pending",
-  "asof": "2026-10-26",
-  "generated_at": "2026-10-27T18:00:01+07:00",
+  "asof": "2026-10-27",
+  "generated_at": "2026-10-28T00:00:12+07:00",
   "universe_count": 817,
   "candidates": [
     {
-      "ticker": "NANO"
+      "ticker": "INTP"
     },
     {
-      "ticker": "SBMA"
+      "ticker": "HMSP"
+    },
+    {
+      "ticker": "AALI"
     }
   ],
   "minimum_daily_volume_lots": 50000,
