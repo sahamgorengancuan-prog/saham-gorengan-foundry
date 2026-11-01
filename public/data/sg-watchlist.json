@@ -3,8 +3,8 @@
   "format": "ticker_only",
   "source": "provisional_backend_permission_pending",
   "asof": "2026-10-30",
-  "generated_at": "2026-11-01T13:00:03+07:00",
-  "universe_count": 820,
+  "generated_at": "2026-11-01T21:00:02+07:00",
+  "universe_count": 819,
   "candidates": [
     {
       "ticker": "DSNG"

@@ -1,68 +1,47 @@
 {
   "schema": 1,
   "source": "owner_self_report",
-  "period": "5–9 OKTOBER",
-  "total_pct": 55.0,
-  "average_pct": 4.23,
-  "wins": 10,
-  "count": 13,
+  "period": "26–30 OKTOBER 2026",
+  "total_pct": 11.0,
+  "average_pct": 1.83,
+  "wins": 4,
+  "count": 6,
   "entries": [
     {
-      "ticker": "FORU",
-      "pct": 10.0
+      "ticker": "PYFA",
+      "pct": -2.0,
+      "date": "2026-10-26"
     },
     {
-      "ticker": "SQMI",
-      "pct": 7.0
+      "ticker": "PCAR",
+      "pct": 4.0,
+      "date": "2026-10-26"
     },
     {
-      "ticker": "YELO",
-      "pct": 4.0
+      "ticker": "SEMA",
+      "pct": 4.0,
+      "date": "2026-10-27"
     },
     {
-      "ticker": "SQMI",
-      "pct": 7.0
+      "ticker": "BRIS",
+      "pct": 5.0,
+      "date": "2026-10-28"
     },
     {
-      "ticker": "AHAP",
-      "pct": 6.0
+      "ticker": "POLA",
+      "pct": -2.0,
+      "date": "2026-10-29"
     },
     {
-      "ticker": "VKTR",
-      "pct": 4.0
-    },
-    {
-      "ticker": "DOOH",
-      "pct": -2.0
-    },
-    {
-      "ticker": "SQMI",
-      "pct": 4.0
-    },
-    {
-      "ticker": "MINA",
-      "pct": -2.0
-    },
-    {
-      "ticker": "KIJA",
-      "pct": -2.0
-    },
-    {
-      "ticker": "FORU",
-      "pct": 10.0
-    },
-    {
-      "ticker": "KIOS",
-      "pct": 6.0
-    },
-    {
-      "ticker": "BIPI",
-      "pct": 3.0
+      "ticker": "INPC",
+      "pct": 2.0,
+      "date": "2026-10-30"
     }
   ],
   "computed_from_entries": true,
-  "updated_at": "2026-10-11T12:05:12+07:00",
-  "verified": false,
+  "updated_at": "2026-11-01T18:00:00+07:00",
+  "verified": true,
   "disclaimer": "Hasil dihitung dari rincian yang diberikan pemilik. Akumulasi bukan return portofolio; data belum diaudit independen. Hasil historis tidak menjamin keuntungan.",
-  "telegram_message_id": 987
+  "telegram_message_id": 1095,
+  "owner_confirmation_digest": "f1c26f7e058471bc"
 }
