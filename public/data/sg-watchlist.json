@@ -2,15 +2,15 @@
   "schema": 1,
   "format": "ticker_only",
   "source": "provisional_backend_permission_pending",
-  "asof": "2026-10-30",
-  "generated_at": "2026-11-02T15:00:12+07:00",
-  "universe_count": 819,
+  "asof": "2026-11-02",
+  "generated_at": "2026-11-03T02:00:04+07:00",
+  "universe_count": 821,
   "candidates": [
     {
-      "ticker": "DSNG"
+      "ticker": "ASPR"
     },
     {
-      "ticker": "BTPS"
+      "ticker": "SILO"
     }
   ],
   "minimum_daily_volume_lots": 50000,
